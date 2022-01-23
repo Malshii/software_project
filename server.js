@@ -5,6 +5,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,7 +23,7 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!")
 });
 
-const patientRouter = require("./routes/signuproute.js");
+const patientRouter = require("./routes/signuproute");
 
 app.use("/patient",patientRouter);
 

@@ -1,29 +1,27 @@
 const express = require('express')
-const {validate,Patient} = require('../models/signupmodel');
+const { Patient, validate } = require('../models/signupmodel');
 
-exports.signupUsers = async function (req, res) {  
+exports.signupUsers = async (req, res) => {
+    // First Validate The Request
+    const { error } = validate(req.body);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
 
-  //First validate the request
-  const {error} = validate(req.body);
-  if(error) {
-      return res.status(400).send(error.details)
-  }
-
-  //Check if this user alreary exists
-  let user = await User.findOne({ email: req.body.email });
-    if (user) {
+    // Check if this user already exists
+    let patient = await Patient.findOne({ email: req.body.email });
+    if (patient) {
         return res.status(400).send('That user already exisits!');
     } else {
         // Insert the new user if they do not exist yet
-        user = new User({             
-            email : req.body.email,
-            userName : req.body.userName,
-            password : req.body.password
+        patient = new Patient({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
         });
-        newPatient.save().then(()=>{
-            res.json("Successfully Sign-Up in E-doc services")
-        }).catch(()=>{
-            console.log(err);
-        })  
-    }     
-}
+        await patient.save();
+        res.send(patient);
+    }
+}  
+
+  

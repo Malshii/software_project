@@ -2,15 +2,18 @@ const Joi = require('joi')
 const mongoose = require('mongoose')
 
 const patientSchema  = new mongoose.Schema({
-    email : {  
+    name: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 50
+    },
+    email: {
         type: String,
         required: true,
         minlength: 5,
         maxlength: 255,
-        unique: true        
-    },
-    userName : {
-        type : String,        
+        unique: true
     },
     password : { 
         type: String,
@@ -20,13 +23,13 @@ const patientSchema  = new mongoose.Schema({
     }
 })
 
-function validateUser(user) {
+function validateUser(patient) {
     const schema = {
-        username: Joi.string().min(5).max(50).required(),
+        name: Joi.string().min(5).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required()
     };
-    return Joi.validate(user, schema);
+    return Joi.validate(patient, schema);
 }
 
 const Patient = mongoose.model('Patient', patientSchema)

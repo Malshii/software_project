@@ -4,7 +4,13 @@ const router = express.Router();
 const UserController = require('../controllers/signupcontroller')
 
 //https://localhost:3000/patient/signup
-router.post('/signup', UserController.signupUsers)
+router.post('/', UserController.signupUsers)
 
 module.exports = router;
 
+
+
+
+
+
+ 
