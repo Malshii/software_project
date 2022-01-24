@@ -5,8 +5,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
-const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi);
+//const Joi = require('joi');
+//Joi.objectId = require('joi-objectid')(Joi);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,6 +29,8 @@ app.use("/patient",patientRouter);
 
 
 //listen to PORT
-app.listen(3000, () =>
-  console.log('Server is running up on port 3000!'),
+app.listen(4000, () =>
+  console.log('Server is running up on port 4000!'),
 );
+
+
