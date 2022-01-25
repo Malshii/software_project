@@ -5,8 +5,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
-//const Joi = require('joi');
-//Joi.objectId = require('joi-objectid')(Joi);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,14 +21,11 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!")
 });
 
-const patientRouter = require("./routes/signuproute");
+const patientRouter = require("./routes/patient.signup.route.js");
 
 app.use("/patient",patientRouter);
 
-
 //listen to PORT
 app.listen(4000, () =>
-  console.log('Server is running up on port 4000!'),
+  console.log('Example app listening on port no: 4000!'),
 );
-
-
