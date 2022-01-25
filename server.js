@@ -21,7 +21,7 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!")
 });
 
-const patientRouter = require("./routes/patient.signup.route.js");
+const patientRouter = require("./controllers/patient.signup.controller.js");
 
 app.use("/patient",patientRouter);
 
