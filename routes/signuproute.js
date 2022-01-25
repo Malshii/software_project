@@ -6,7 +6,7 @@ const UserController = require('../controllers/signupcontroller')
 //http://localhost:4000/patient/add
 router.post('/add', UserController.signupPatient)
 //http://localhost:4000/patient/
-router.get('/',UserController.getAllPatients)
+router.get('/getPatient',UserController.getAllPatients)
 //http://localhost:4000/patient/get/:email
 router.get('/get/:email',UserController.getPatient)
 //http://localhost:4000/patient/update/:email
