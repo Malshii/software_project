@@ -1,6 +1,6 @@
-const { emit } = require("../db/doctorRegistrationDB");
+const { emit } = require("../db/doctorRedistrationDB");
 const express = require('express');
-let Patient = require("../db/doctorRegistrationDB");
+let Patient = require("../db/doctorRedistrationDB");
 
 //Add patient
 exports.doctorRegistration = async (req, res) => {
@@ -48,10 +48,10 @@ exports.updatedoctor = async (req,res) => {
     //fetch email to update
     let email = req.params.email;
     //what need to update
-    const {name,password} = req.body;
+    const {name,password,NIC_no,workingHospital} = req.body;
     
     //after updated assign new value
-    const updatedoctor = {name,email,password}
+    const updatedoctor = {name,password,NIC_no,workingHospital} 
 
     const update = await doctor.findOneAndUpdate({email:email},updatedoctor)
     .then((update)=>{

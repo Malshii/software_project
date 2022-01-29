@@ -29,3 +29,8 @@ app.use("/patient",patientRouter);
 app.listen(4000, () =>
   console.log('Example app listening on port no: 4000!'),
 );
+
+
+const doctortRouter = require("./controllers/doctorRegistrationController.js");
+
+app.use("/doctor",doctortRouter);

@@ -31,7 +31,7 @@ const doctorSchema  = new Schema({
     workingHospital :{
         type : String,
         required :true
-    }
+    },
 })
 
 const doctor = mongoose.model("Doctor", doctorSchema);
