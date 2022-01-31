@@ -1,19 +1,24 @@
 import React from "react";
-import AddPatient from "./components/AddPatient";
-import Header from "./components/Header";
-import AllPatients from "./components/AllPatients";
-//import {BrowserRouter as Router,Route} from "react-router-dom";
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import RegisterStaff from "./components/RegisterStaff";
+import RegisterPatient from "./components/RegisterPatient";
+import Login from "./components/Login";
 
-function App() {
+const App=()=> {
   return (
-    //<Router>
-      <div>
-        <Header/>
-        <AddPatient/>
-        <AllPatients/>                 
-      </div>   
-    //</Router>         
+   <Router>
+     <Routes> 
+      <Route exact path="/signupPatient"  element={<RegisterPatient/>}/>      
+       <Route exact path="/signupDoc"  element={<RegisterStaff/>}/>
+       <Route exact path="/signupAdmin"  element={<RegisterStaff/>}/>
+       <Route exact path="/signupRec"  element={<RegisterStaff/>}/>
+       <Route exact path="/signupLab"  element={<RegisterStaff/>}/>
+       <Route exact path="/login"  element={<Login/>}/>      
+     </Routes>
+   </Router>
   );
 }
 
 export default App;
+
+
