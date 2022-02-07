@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-//const Role = require('../role')
 
 const staffSchema  = new mongoose.Schema({        
     firstName: {
