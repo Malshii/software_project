@@ -21,9 +21,14 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!")
 });
 
-const patientRouter = require("./controllers/patient.signup.controller.js");
+const userRouter = require("./routes/user.route.js");
+const staffRouter = require("./routes/user.route.js");
 
-app.use("/patient",patientRouter);
+app.use("/user",userRouter);
+app.use("/doctor",staffRouter);
+app.use("/admin",staffRouter);
+app.use("/receptionist",staffRouter);
+app.use("/labAssistant",staffRouter);
 
 //listen to PORT
 app.listen(4000, () =>
