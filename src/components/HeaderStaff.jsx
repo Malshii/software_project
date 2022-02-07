@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "./DropdownStaff";
+import 'bootstrap/dist/css/bootstrap.css';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function Header() {
   return (
@@ -57,13 +58,46 @@ function Header() {
                     CONTACT US
                   </a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link text-dark" href="/login">
-                    LOGIN
-                  </a>
-              </li>
 
-              <Navbar/>
+              <Dropdown>
+	            	<Dropdown.Toggle>
+	            	LOGIN
+	            	</Dropdown.Toggle>
+	            	<Dropdown.Menu>
+	            	<Dropdown.Item href="/DoctorLogin">
+	            		DOCTOR
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/AdminLogin">
+	            		ADMINISTRATOR
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/ReceptionistLogin">
+	            		RECEPTIONIST
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/LabAssistantLogin">
+	            		LAB ASSISTANT
+	            	</Dropdown.Item>
+	            	</Dropdown.Menu>
+	            </Dropdown>	
+
+              <Dropdown>
+	            	<Dropdown.Toggle>
+	            	SIGNUP
+	            	</Dropdown.Toggle>
+	            	<Dropdown.Menu>
+	            	<Dropdown.Item href="/doctor">
+	            		DOCTOR
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/admin">
+	            		ADMINISTRATOR
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/receptionist">
+	            		RECEPTIONIST
+	            	</Dropdown.Item>
+	            	<Dropdown.Item href="/labAssistant">
+	            		LAB ASSISTANT
+	            	</Dropdown.Item>
+	            	</Dropdown.Menu>
+	            </Dropdown>	
 
           </ul>
         </nav>

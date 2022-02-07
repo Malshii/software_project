@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 function NavbarPatient() {
   return (
@@ -27,7 +28,7 @@ function NavbarPatient() {
         <nav class="navbar navbar-expand-sm bg-light">  
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link text-dark" href="#">
+                  <a class="nav-link text-dark" href="/">
                     HOME
                   </a>
               </li>
@@ -62,7 +63,7 @@ function NavbarPatient() {
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link text-dark" href="/signupPatient">
+                  <a class="nav-link text-dark" href="/signup">
                     SIGNUP
                   </a>
               </li>            
