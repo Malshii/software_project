@@ -1,0 +1,63 @@
+.New-patient-add{
+    background-image: url( "https://blog.radware.com/wp-content/uploads/2019/07/healthcare.jpg");
+    
+   
+}
+.was-validated{
+    background: #5884b6;
+    box-sizing: border-box;
+    border: 2px solid #6d9ace;
+    border-radius: 5px;
+    font-size: 16px; 
+    font-family:Arial, Helvetica, sans-serif;
+    width: 800px; 
+    position: absolute;
+    padding: 3px 50px;
+    align-tracks:center;
+    margin-top: 2%;
+    margin-left: 25%;  
+    margin-right: 30%;
+    margin-bottom: 30%;
+   
+
+}
+.text{
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #578CCA;
+    line-height: 3.5;
+}
+
+.form-group{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria; 
+}
+
+.col-md-6{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria
+}
+
+.row-md-6{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria
+}
+
+
+.btn-btn-primary{
+    background: #7ea4cf;
+    border-radius: 5px;
+    padding: 5px 50px;
+    align-items: right;
+    line-break: auto;
+}
+
+
+
