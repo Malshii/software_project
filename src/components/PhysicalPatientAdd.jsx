@@ -7,6 +7,7 @@ import AfterloginFutter from "./AfterloginFutter";
 function PhysicalPatientAdd(){
 
     return(
+      
       <>
       <div className="New-patient-add" >
 
