@@ -6,6 +6,7 @@ import PhysicalPatientAdd from "./components/PhysicalPatientAdd";
 import OnlinePatientAdd from "./components/OnlinePatientAdd";
 import ReciCard from "./components/ReciCard";
 import LabCard from "./components/LabCard";
+import AllAppointment from "./components/AllAppointment";
 import Login from "./components/Login";
 
 const App=()=> {
@@ -21,6 +22,7 @@ const App=()=> {
        <Route exact path="/onlinePatientAdd"  element={<OnlinePatientAdd/>}/>
        <Route exact path="/receptionistProfile"  element={<ReciCard/>}/>  
        <Route exact path="/labAssistantProfile"  element={<LabCard/>}/>  
+       <Route exact path="/allAppointment"  element={<AllAppointment/>}/>  
        <Route exact path="/login"  element={<Login/>}/>
            
      </Routes>

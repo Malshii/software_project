@@ -22,7 +22,7 @@ function ReciCards(){
                   src='all appoinment.png'
                   text='All Appoinment '
                   label='check appoinment'
-                  path='/onlinePatientAdd'
+                  path='/allAppointment'
                 />
                 <CardItem
                   src='book appoinment.png'
