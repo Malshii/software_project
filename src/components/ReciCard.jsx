@@ -15,7 +15,8 @@ function ReciCards(){
           
           <div className='cards__container'>
           <div className='cards__wrapper'>
-              
+            
+
           <ul className='cards__items'>
                 <CardItem
                   src='all appoinment.png'
@@ -39,11 +40,10 @@ function ReciCards(){
           </div>
           </div>
 
-         <div class="doc_footer">
+        </div>
+        <div class="doc_footer">
          <AfterloginFutter />
          </div>
-         
-        </div>
         </>
       );
 }
