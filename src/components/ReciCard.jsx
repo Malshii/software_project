@@ -42,6 +42,7 @@ function ReciCards(){
          <div class="doc_footer">
          <AfterloginFutter />
          </div>
+         
         </div>
         </>
       );
