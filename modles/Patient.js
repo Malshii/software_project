@@ -2,17 +2,17 @@ const mongoose=require('mongoose');
 
 const Schema=mongoose.Schema;
 
-const doctorSchema=new Schema({
-    doctorname:{
-        type:String,
-        required: true
-    },
+const patientSchema=new Schema({
    
     specialization:{
         type:String,
         required: true
     },
 
+    doctorname:{
+        type:String,
+        required: true
+    },
 
     date:{
         type:Date,
@@ -50,6 +50,6 @@ const doctorSchema=new Schema({
     }
 })
 
-const Doctor=mongoose.model("Doctor",doctorSchema);
+const Patient=mongoose.model("Student",patientSchema);
 
-module.exports=Doctor;
+module.exports=Patient;

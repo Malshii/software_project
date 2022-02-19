@@ -1,40 +1,33 @@
-const express = require ("express");
-const mongoose = require ("mongoose");
-const bodyParser = require ("body-parser");
-const cors = require ("cors");
-const dotenv = require ("dotenv");
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
-
-
-const PORT = process.env.PORT ;
-
+  
 app.use(cors());
 app.use(bodyParser.json());
 
-const URL =process.env.MONGODB_URL || 8070;
-//const URL =4000;
+const URL = process.env.MONGODB_URL;
+
 //create connection with mongodb 
 const connect = mongoose.connect;
 connect(URL);
 
-/*mongoose.connect(URL,{
-    useCreateIndex : true,
-    useNewUrlParser : true,
-    useUnifiedTopologyL : true,
-    useFindAndModify :false
-});*/
+//open connection
 const connection = mongoose.connection;
-connection.once("open",() => {
-    console.log("MongoDB connection success!");
-}).on('error',function(error){
-  console.log('error is',error);
+connection.once("open", () => {
+    console.log("Mongodb Connection success!")
 });
 
-app.listen(PORT, () =>
-  console.log('Server is running up on port :  ${PORT}'),
+const patientRouter=require("./routes/patients.js");
+app.use("/patients",patientRouter);
+
+const doctorRouter=require("./routes/doctor.js");
+app.use("/doctors",doctorRouter);
+
+//listen to PORT
+app.listen(4007, () =>
+  console.log('Example app listening on port no: 4004!'),
 );
-
-const doctorRoutor = require("./routes/doctor");
-
-app.use("/doctor",doctorRoutor);

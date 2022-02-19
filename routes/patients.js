@@ -1,5 +1,5 @@
 const router= require("express").Router();
-let Doctor=require("../modles/doctor.js");
+let Patient=require("../modles/Patient.js");
 router.route("/add").post((req,res)=>{
 
     const specialization=req.body.specialization;
@@ -12,7 +12,7 @@ router.route("/add").post((req,res)=>{
     const mobileno=Number(req.body.mobileno);
     const address=req.body.address;
 
-    const newdoctor=new Doctor({
+    const newPatient=new Patient({
 
         specialization,
         doctorname,
@@ -26,8 +26,8 @@ router.route("/add").post((req,res)=>{
     })
 
 //data add 
-        newdoctor.save().then(()=>{
-        res.json("Doctor details Added")
+    newPatient.save().then(()=>{
+        res.json("Patient Added")
     }).catch((err)=>{
         console.log(err);
     })
@@ -36,8 +36,8 @@ router.route("/add").post((req,res)=>{
 //read data
 router.route("/").get((req,res)=>{
 
-    Doctor.find().then((doctor)=>{
-        res.json(doctor)
+    Patient.find().then((patients)=>{
+        res.json(patients)
     }).catch((err)=>{
         console.log(err);
     })
@@ -47,7 +47,7 @@ router.route("/update/:id").put(async(req,res)=>{
     let userId=req.params.id;
     const{specialization,doctorname,date,charges,firstname,lastname,age,mobileno,address}=req.body;
 
-    const updateDoctor={
+    const updatePatient={
         specialization,
         doctorname,
         date,
@@ -59,8 +59,8 @@ router.route("/update/:id").put(async(req,res)=>{
         address
     }
 
-    const update=await Doctor.findByIdAndUpdate(userId,updateDoctor).then(()=>{
-        res.status(200).send({status:"Doctor details update"})
+    const update=await Patient.findByIdAndUpdate(userId,updatePatient).then(()=>{
+        res.status(200).send({status:"user update"})
     }).catch((err)=>{
         res.status(500).send({status:"error with updating data",error:err.message});
     })
@@ -70,9 +70,9 @@ router.route("/update/:id").put(async(req,res)=>{
 router.route("/delete/:id").delete(async(req,res)=>{
     let userId = req.params.id;
 
-    await Doctor.findByIdAndDelete(userId)
+    await Patient.findByIdAndDelete(userId)
     .then(()=>{
-        res.status(200).send({status:"Doctor details deleted"});
+        res.status(200).send({status:"User deleted"});
     }).catch((err)=>{
         res.status(500).send({status:"error with delete user",error:err.message});
     })
