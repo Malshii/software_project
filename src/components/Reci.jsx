@@ -4,7 +4,7 @@ import NavBar from "./navigationbar";
 import AfterloginFutter from "./AfterloginFutter";
 
 
-function Lab(){
+function Reci(){
 
     return(
       <>
@@ -26,4 +26,4 @@ function Lab(){
 
 }
 
-export default Lab;
+export default Reci;
