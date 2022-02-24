@@ -11,7 +11,10 @@ function Lab(){
       
       <NavBar/>
       
-
+      <div>
+       <h1>Lab Assistant</h1> 
+        
+      </div>
      
 
       <div class="doc_footer">

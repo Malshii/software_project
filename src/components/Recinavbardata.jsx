@@ -3,7 +3,7 @@ import React from 'react';
 import * as  icons from 'react-icons/ai';
 
 
-export const sideBarData = [
+export const ReciSideBarData = [
     {
         tab_name:'All Appointment',
         redirect_path:'/all_Appointment',
@@ -33,4 +33,4 @@ export const sideBarData = [
     
 ]
 
-export default sideBarData;
+export default ReciSideBarData;

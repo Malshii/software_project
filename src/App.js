@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Lab from "./components/Lab";
 import UploadLabReport from "./components/UploadLabReport";
 import NavBar from "./components/navigationbar";
+import ReciNavBar from "./components/Recinavigationbar";
 import Reci from "./components/Reci";
 const App=()=> {
   return (
@@ -28,7 +29,8 @@ const App=()=> {
        <Route exact path="/lab"  element={<Lab/>}/>  
        <Route exact path="/reci"  element={<Reci/>}/>  
        <Route exact path="/uploadLabReport"  element={<UploadLabReport/>}/>  
-       <Route exact path="/nav"  element={<NavBar/>}/>   
+       <Route exact path="/nav"  element={<NavBar/>}/>
+       <Route exact path="/reciNav"  element={<ReciNavBar/>}/>   
        <Route exact path="/allAppointment"  element={<AllAppointment/>}/>  
        <Route exact path="/login"  element={<Login/>}/>
            

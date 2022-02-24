@@ -3,7 +3,7 @@ import React from 'react';
 import * as  icons from 'react-icons/ai';
 
 
-export const RecisideBarData = [
+export const sideBarData = [
   
   
    
@@ -50,4 +50,4 @@ export const RecisideBarData = [
     
 ]
 
-export default RecisideBarData;
+export default sideBarData;
