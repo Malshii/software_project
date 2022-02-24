@@ -18,7 +18,7 @@ function LabCard() {
               src='lab1.jpg'
               text='View And Update Reports'
               label='check now'
-              path='/view and update reports'
+              path='/lab'
             />
             <CardItem
                src='lab2.jpg'

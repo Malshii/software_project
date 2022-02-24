@@ -8,7 +8,9 @@ import ReciCard from "./components/ReciCard";
 import LabCard from "./components/LabCard";
 import AllAppointment from "./components/AllAppointment";
 import Login from "./components/Login";
-
+import Lab from "./components/Lab";
+import UploadLabReport from "./components/UploadLabReport";
+import NavBar from "./components/navigationbar";
 const App=()=> {
   return (
    <Router>
@@ -21,7 +23,10 @@ const App=()=> {
        <Route exact path="/physicalpatientAdd"  element={<PhysicalPatientAdd/>}/>
        <Route exact path="/onlinePatientAdd"  element={<OnlinePatientAdd/>}/>
        <Route exact path="/receptionistProfile"  element={<ReciCard/>}/>  
-       <Route exact path="/labAssistantProfile"  element={<LabCard/>}/>  
+       <Route exact path="/labAssistantProfile"  element={<LabCard/>}/> 
+       <Route exact path="/lab"  element={<Lab/>}/>  
+       <Route exact path="/uploadLabReport"  element={<UploadLabReport/>}/>  
+       <Route exact path="/nav"  element={<NavBar/>}/>   
        <Route exact path="/allAppointment"  element={<AllAppointment/>}/>  
        <Route exact path="/login"  element={<Login/>}/>
            

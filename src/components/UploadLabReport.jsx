@@ -2,6 +2,7 @@ import React from "react";
 import '../components/UploadLabReport.css';
 import NavBar from "./navigationbar";
 import SearchBar from "./SearchBar";
+import AfterloginFutter from "./AfterloginFutter";
 
 function UploadLabReport(){
     return(
@@ -18,23 +19,23 @@ function UploadLabReport(){
       <div class="input-icons">
 
     
-    <label for="patientID">Enter Patient ID</label>
-    <div class="input-icons">
-    <i class="fa fa-file-medical-alt icon"> </i>
+      <label for="patientID">Enter Patient ID</label>
+      <div class="input-container">
+    <i class="fa fa-file-medical-alt icon"></i>
     <input class="input-field" type="text" placeholder="patient id"/>
-    </div>
+  </div>
 
-    <label for="patientName">Enter Patient Name</label>
-    <div class="input-icons">
-    <i class="fa fa-user-plus icon"> </i>
-    <input class="input-field" type="text" placeholder="Mr.Amal Perera"/>
-    </div>
+  <label for="patientName">Enter Patient Name</label>
+  <div class="input-container">
+    <i class="fa fa-user-plus icon"></i>
+    <input class="input-field" type="text" placeholder="Mr.Amal Perera" />
+  </div>
 
-    <label for="email">Email Address</label>
-    <div class="input-icons">
-    <i class="fa fa-envelope icon"> </i>
-    <input class="input-field" type="text" placeholder="abc@gmail.com"/>
-    </div>
+  <label for="email">Email Address</label>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="email" placeholder="abc@gmail.com" />
+  </div>
 
     <br/> <br/> <br/>
 
@@ -50,6 +51,11 @@ function UploadLabReport(){
 
    
       </form>
+      </div>
+
+      <div class="doc_footer">
+      <br/>
+      <AfterloginFutter />
       </div>
 
       </div> 
