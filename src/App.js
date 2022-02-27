@@ -13,7 +13,9 @@ import History from "./components/History";
 import UploadLabReport from "./components/UploadLabReport";
 import NavBar from "./components/navigationbar";
 import ReciNavBar from "./components/Recinavigationbar";
+import DoctorProfile from "./components/DoctorProfile";
 import Reci from "./components/Reci";
+
 const App=()=> {
   return (
    <Router>
@@ -32,6 +34,7 @@ const App=()=> {
        <Route exact path="/uploadLabReport"  element={<UploadLabReport/>}/>  
        <Route exact path="/history"  element={<History/>}/>
        <Route exact path="/nav"  element={<NavBar/>}/>
+       <Route exact path="/doctorProfile"  element={<DoctorProfile/>}/> 
        <Route exact path="/reciNav"  element={<ReciNavBar/>}/>   
        <Route exact path="/allAppointment"  element={<AllAppointment/>}/>  
        <Route exact path="/login"  element={<Login/>}/>
