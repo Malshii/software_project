@@ -9,6 +9,7 @@ import LabCard from "./components/LabCard";
 import AllAppointment from "./components/AllAppointment";
 import Login from "./components/Login";
 import Lab from "./components/Lab";
+import History from "./components/History";
 import UploadLabReport from "./components/UploadLabReport";
 import NavBar from "./components/navigationbar";
 import ReciNavBar from "./components/Recinavigationbar";
@@ -29,6 +30,7 @@ const App=()=> {
        <Route exact path="/lab"  element={<Lab/>}/>  
        <Route exact path="/reci"  element={<Reci/>}/>  
        <Route exact path="/uploadLabReport"  element={<UploadLabReport/>}/>  
+       <Route exact path="/history"  element={<History/>}/>
        <Route exact path="/nav"  element={<NavBar/>}/>
        <Route exact path="/reciNav"  element={<ReciNavBar/>}/>   
        <Route exact path="/allAppointment"  element={<AllAppointment/>}/>  

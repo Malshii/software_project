@@ -30,7 +30,7 @@ span{
     
     background-color: #578CCA;
     width: 320px;
-    height: 95vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     position: fixed;
