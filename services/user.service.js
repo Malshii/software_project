@@ -44,8 +44,11 @@ module.exports = {
             throw new Error("Invalid email");
         }
 
-    },
+    },    
+
 }
+
+
     
 
 
