@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const {profileDoctor}  = require("../services/doctor.profile.service");
+const {profileDoctor,findAllDoctorProfile}  = require("../services/doctor.profile.service");
 
 module.exports = {
       AddDoctorProile: async (req,res) => {
@@ -27,5 +27,5 @@ module.exports = {
         }catch(error){
           res.status(error.code || 409).send({message: error.message});
         }
-    }
+    },     
 }

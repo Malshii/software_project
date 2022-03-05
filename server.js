@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
+const assert = require('assert');
+
+global.__basedir = __dirname;
+
 require("dotenv").config();
 
 app.use(cors());
@@ -24,6 +28,7 @@ connection.once("open", () => {
 const userRouter = require("./routes/user.route.js");
 const staffRouter = require("./routes/user.route.js");
 const doctorProfileRouter = require("./routes/doctor.profile.route.js");
+const fileRouter = require("./routes/medicalreport.route.js");
 
 app.use("/user",userRouter);
 app.use("/doctor",staffRouter);
@@ -31,6 +36,7 @@ app.use("/admin",staffRouter);
 app.use("/receptionist",staffRouter);
 app.use("/labAssistant",staffRouter);
 app.use("/profile",doctorProfileRouter);
+app.use("/uploadfile",fileRouter);
 
 //listen to PORT
 app.listen(4000, () =>
