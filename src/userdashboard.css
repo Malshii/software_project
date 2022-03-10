@@ -1,0 +1,47 @@
+body{
+    background-color: #E4F1FF;
+}
+
+.card{
+    height: 170px;
+    width: 400px;
+    background: #FFFFFF;          
+    padding-left: 20px;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 8px;
+    margin-left: 30px;
+    margin-bottom: 250px;
+    display: flex;
+    border-radius: 30px;    
+}
+
+.cardRow2{
+    height: 170px;
+    width: 400px;
+    background: #FFFFFF;          
+    padding-left: 20px;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 8px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    border-radius: 30px;    
+}
+
+.card a{
+    background: #E4F1FF;
+    color: #578CCA;    
+}
+
+.dboard{
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.logo{
+    margin-right: 900px;
+    width: 150px;
+    height: 100px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function Header() {
+function HeaderAdmin() {
   return (
     <div>
 
@@ -29,7 +29,7 @@ function Header() {
         <nav class="navbar navbar-expand-sm bg-light">  
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link text-dark" href="#">
+                  <a class="nav-link text-dark" href="/">
                     HOME
                   </a>
               </li>
@@ -58,26 +58,12 @@ function Header() {
                     CONTACT US
                   </a>
               </li>
-
-              <Dropdown>
-	            	<Dropdown.Toggle>
-	            	LOGIN
-	            	</Dropdown.Toggle>
-	            	<Dropdown.Menu>
-	            	<Dropdown.Item href="/DoctorLogin">
-	            		DOCTOR
-	            	</Dropdown.Item>
-	            	<Dropdown.Item href="/AdminLogin">
-	            		ADMINISTRATOR
-	            	</Dropdown.Item>
-	            	<Dropdown.Item href="/ReceptionistLogin">
-	            		RECEPTIONIST
-	            	</Dropdown.Item>
-	            	<Dropdown.Item href="/LabAssistantLogin">
-	            		LAB ASSISTANT
-	            	</Dropdown.Item>
-	            	</Dropdown.Menu>
-	            </Dropdown>	
+              
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/AdminLogin">
+                  LOGIN
+                </a>
+              </li> 
 
               <Dropdown>
 	            	<Dropdown.Toggle>
@@ -107,5 +93,5 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderAdmin;
 

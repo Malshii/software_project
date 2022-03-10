@@ -1,11 +1,11 @@
 import React,{useState} from "react";
-import '../index.css';
-import Footer from "./Footer";
-import Header from "./HeaderStaff";
+import '../../index.css';
+import Footer from "../Footer";
+import Header from "../HeaderStaff";
 import axios from "axios"; 
 
 
-export default function RegisterLabAssistant() {
+export default function RegisterAdmin() {
     
     const [firstName,setFName] = useState("");
     const [lastName,setLName] = useState("");
@@ -18,7 +18,7 @@ export default function RegisterLabAssistant() {
     function sendData(e){
       e.preventDefault();
   
-      const newLabAss = {        
+      const newAdmin = {        
         firstName,
         lastName,
         email,
@@ -28,8 +28,8 @@ export default function RegisterLabAssistant() {
         confirmPassword,        
       }   
 
-      axios.post("http://localhost:4000/labAssistant/labSignup",newLabAss).then(()=>{
-        alert("Lab Assistant Added")      
+      axios.post("http://localhost:4000/admin/adminSignup",newAdmin).then(()=>{
+        alert("Admin Added")      
       }).catch((err)=>{
         alert(err)
       })
@@ -149,7 +149,7 @@ export default function RegisterLabAssistant() {
         </div>
         <button class="signup btn btn-primary" type="submit">Create Your Account</button>
         
-        <h6 class="text-center">Already an account? <a href="/LabAssistantLogin">Login here</a></h6>
+        <h6 class="text-center">Already an account? <a href="/AdminLogin">Login here</a></h6>
       </form>
       </div>
 

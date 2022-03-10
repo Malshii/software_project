@@ -1,37 +1,38 @@
 import React,{useState} from "react";
+import '../../index.css';
+import Footer from "../Footer";
+import Header from "../HeaderStaff";
 import axios from "axios"; 
-import '../index.css';
-import Footer from "./Footer";
-import NavbarPatient from "./HeaderPatient";
 
-export default function LoginPatient() {
-
+export default function StaffLogin() {
+    
     const [email,setEmail] = useState("");    
     const [password,setPassword] = useState("");    
   
     function sendData(e){
       e.preventDefault();
   
-      const loginUser = {        
+      const loginStaffMember = {        
         email,       
         password,       
-      }
-      
-      axios.post("http://localhost:4000/user/login",loginUser).then(()=>{
+      }     
+
+      axios.post("http://localhost:4000/receptionist/reclogin",loginStaffMember).then(()=>{
         alert("Login Successful!")      
       }).catch((err)=>{
         alert(err)
-      })
+      })      
     }
+  
 
   return(    
     <div>
 
-    <NavbarPatient/>
+    <Header/>
 
       <div class="shadowLogin shadow-lg p-4 mb-5 bg-white">
       <form onSubmit={sendData}> 
-      <h6>New Member? <a href="/signup">Register here</a></h6>     
+      <h6>New Member? <a href="/receptionist">Register here</a></h6>     
         <h1></h1>
         <h2>---------LOGIN---------</h2>
         <h1></h1>
@@ -42,8 +43,7 @@ export default function LoginPatient() {
             <input type="text" class="form-control" id="validationCustom03" placeholder="Email" required
             onChange={(e)=>{
               setEmail(e.target.value);
-            }}
-            />
+            }}/>
             <div class="invalid-feedback">
               Please provide a valid email.
             </div>
@@ -54,8 +54,7 @@ export default function LoginPatient() {
             <input type="text" class="form-control" id="validationCustom03" placeholder="Password" required
             onChange={(e)=>{
               setPassword(e.target.value);
-            }}
-            />
+            }}/>
             <div class="invalid-feedback">
               Please provide a valid password.
             </div>
@@ -93,3 +92,5 @@ export default function LoginPatient() {
   )    
   
 }
+
+

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
-import '../index.css';
-import Footer from "./Footer";
-import Header from "./HeaderStaff";
+import '../../index.css';
+import Footer from "../Footer";
+import Header from "../HeaderStaff";
 import axios from "axios"; 
 
 export default function StaffLogin() {
@@ -12,16 +12,18 @@ export default function StaffLogin() {
     function sendData(e){
       e.preventDefault();
   
-      const loginStaffMember = {        
+      const loginAdmin = {        
         email,       
         password,       
-      }     
-
-      axios.post("http://localhost:4000/receptionist/reclogin",loginStaffMember).then(()=>{
+      }      
+      
+      axios.post("http://localhost:4000/admin/adminlogin",loginAdmin).then(()=>{
         alert("Login Successful!")      
       }).catch((err)=>{
         alert(err)
-      })      
+      })
+
+      
     }
   
 
@@ -32,7 +34,7 @@ export default function StaffLogin() {
 
       <div class="shadowLogin shadow-lg p-4 mb-5 bg-white">
       <form onSubmit={sendData}> 
-      <h6>New Member? <a href="/receptionist">Register here</a></h6>     
+      <h6>New Member? <a href="/admin">Register here</a></h6>     
         <h1></h1>
         <h2>---------LOGIN---------</h2>
         <h1></h1>

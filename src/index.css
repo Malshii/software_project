@@ -39,6 +39,17 @@ h2{
     font-size: 18px    
 }
 
+.shadowDProfile{
+    width: 400px; 
+    height: 850px;
+    position: absolute;
+    margin: 5% 0 0 35%;   
+    background: #FFFFFF;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px    
+}
+
 .form-control{
     background: #E3F0FF;
     border: 2px solid #578CCA;

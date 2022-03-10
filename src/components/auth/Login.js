@@ -1,38 +1,40 @@
 import React,{useState} from "react";
-import '../index.css';
-import Footer from "./Footer";
-import Header from "./HeaderStaff";
 import axios from "axios"; 
+import '../../index.css';
+import Footer from "../Footer";
+import HeaderUsers from "../HeaderUsers";
+import { useNavigate } from "react-router-dom";
 
-export default function StaffLogin() {
-    
-    const [email,setEmail] = useState("");    
-    const [password,setPassword] = useState("");    
+export default function LoginPatient() {  
+
+  const navigate = useNavigate();
+
+  const [email,setEmail] = useState("");    
+  const [password,setPassword] = useState("");    
   
     function sendData(e){
       e.preventDefault();
   
-      const loginStaffMember = {        
+      const loginUser = {        
         email,       
         password,       
       }      
-
-      axios.post("http://localhost:4000/labAssistant/lablogin",loginStaffMember).then(()=>{
-        alert("Login Successful!")      
+      
+      axios.post("http://localhost:4000/user/login",loginUser).then(()=>{        
+        navigate("/dashboard");
       }).catch((err)=>{
         alert(err)
       })
     }
-  
 
   return(    
     <div>
 
-    <Header/>
+    <HeaderUsers/>
 
       <div class="shadowLogin shadow-lg p-4 mb-5 bg-white">
       <form onSubmit={sendData}> 
-      <h6>New Member? <a href="/labAssistant">Register here</a></h6>     
+      <h6>New Member? <a href="/signup">Register here</a></h6>     
         <h1></h1>
         <h2>---------LOGIN---------</h2>
         <h1></h1>
@@ -43,7 +45,8 @@ export default function StaffLogin() {
             <input type="text" class="form-control" id="validationCustom03" placeholder="Email" required
             onChange={(e)=>{
               setEmail(e.target.value);
-            }}/>
+            }}
+            />
             <div class="invalid-feedback">
               Please provide a valid email.
             </div>
@@ -54,7 +57,8 @@ export default function StaffLogin() {
             <input type="text" class="form-control" id="validationCustom03" placeholder="Password" required
             onChange={(e)=>{
               setPassword(e.target.value);
-            }}/>
+            }}
+            />
             <div class="invalid-feedback">
               Please provide a valid password.
             </div>
@@ -67,7 +71,7 @@ export default function StaffLogin() {
           </div>
         </div>
 
-        <button class="signup btn btn-primary" type="submit">Create Your Account</button>
+        <button class="signup btn btn-primary" type="submit">Click here to login</button>
         
         <div class="row align-items-start">
 
@@ -91,6 +95,4 @@ export default function StaffLogin() {
      
   )    
   
-}
-
-
+};
