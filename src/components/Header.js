@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import logo from "../Resources/Logo.png";
 
 function NavbarPatient() {
   return (
@@ -15,17 +16,18 @@ function NavbarPatient() {
           </span>
         </div>
       </nav>
-      </div>
+      </div>     
       
-      <div>        
-        <nav class="navbar navbar-expand-sm bg-light text-dark">  
+      <div>                
+        <nav class="navbar navbar-expand-sm bg-light text-dark">
+        
           <ul class="navbar-nav mr-auto"/>        
           <button type="button" class="btn btn-light text-dark">English</button>
           <h3>|</h3>  
-          <button type="button" class="btn btn-light text-dark">Sinhala</button>       
-        </nav>        
+          <button type="button" class="btn btn-light text-dark">Sinhala</button>                 
+        </nav>
 
-        <nav class="navbar navbar-expand-sm bg-light">  
+        <nav class="navbar navbar-expand-sm bg-light">                   
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                   <a class="nav-link text-dark" href="/">

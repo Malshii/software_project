@@ -1,10 +1,13 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 import '../../index.css';
 import Footer from "../Footer";
 import Header from "../HeaderStaff";
 import axios from "axios"; 
 
 export default function StaffLogin() {
+
+  const navigate = useNavigate();
     
     const [email,setEmail] = useState("");    
     const [password,setPassword] = useState("");    
@@ -18,7 +21,7 @@ export default function StaffLogin() {
       }
       
       axios.post("http://localhost:4000/doctor/doctorlogin",loginStaffMember).then(()=>{
-        alert("Login Successful!")      
+        navigate("/doctorDashboard");      
       }).catch((err)=>{
         alert(err)
       })

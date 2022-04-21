@@ -1,8 +1,7 @@
 import React from "react";
-import SidebarHeader from "../SidebarHeader";
-import Sidebar from "../Sidebar";
+import SidebarHeader from "../sidebar/SidebarHeader";
+import Sidebar from "../sidebar/User.sidebar";
 import '../../userdashboard.css';
-import Logo from '../../Resources/Logo1.JPG';
 
 export default function UserDashboard() {
   const styles = {
@@ -23,9 +22,7 @@ export default function UserDashboard() {
         <div style={styles.contentMargin}>
 
         <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img src={Logo} width="90" height="50" alt=""/>
-        </a>
+        
         </nav> 
 
           <nav class="navbar navbar-expand-lg navbar-light">            
@@ -38,7 +35,7 @@ export default function UserDashboard() {
                   <a class="nav-link" href="#">Find your Doctors</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">My Appointments</a>
+                  <a class="nav-link" href="/dashboard/appointmenthistory">My Appointments</a>
                 </li>
               </ul>
             </div>
@@ -49,7 +46,7 @@ export default function UserDashboard() {
           <div className="container">
           <div class="row">
           <div class="col-sm-6">
-            <div class="card">
+            <div class="cardRow1 card">
               <div class="card-body">
                 <h5 class="card-title">Make an Appointment</h5>                
                 <a href="#" class="dboard btn">Book Now</a>
@@ -57,7 +54,7 @@ export default function UserDashboard() {
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="card">
+            <div class="cardRow1 card">
               <div class="card-body">
                 <h5 class="card-title">Request Lab Report</h5>               
                 <a href="#" class="dboard btn">Request Now</a>

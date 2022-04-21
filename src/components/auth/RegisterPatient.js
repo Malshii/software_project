@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios"; 
 import '../../index.css';
-import Footer from "../Footer";
 import Header from "../Header"; 
 import { useNavigate } from "react-router-dom";
 
@@ -138,9 +137,7 @@ export default function RegisterPatient() {
         
         <h6 class="text-center">Already an account? <a href="/login">Login here</a></h6>
       </form>
-      </div>
-
-      <Footer/>  
+      </div>     
       
       </div>       
   )

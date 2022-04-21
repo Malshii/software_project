@@ -2,32 +2,53 @@ body{
     background-color: #E4F1FF;
 }
 
-.card{
-    height: 170px;
-    width: 400px;
+h4{    
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #578CCA;    
+}
+
+.cardRow1{
+    height: 11rem;
+    width: 25rem;
     background: #FFFFFF;          
-    padding-left: 20px;
-    padding-top: 5px;
+    padding-left: 2rem;
+    padding-top: 1rem;
     position: absolute;
-    bottom: 8px;
-    margin-left: 30px;
-    margin-bottom: 250px;
+    bottom: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 15rem;
     display: flex;
-    border-radius: 30px;    
+    border-radius: 2rem;    
 }
 
 .cardRow2{
-    height: 170px;
-    width: 400px;
+    height: 11rem;
+    width: 25rem;
     background: #FFFFFF;          
-    padding-left: 20px;
-    padding-top: 5px;
+    padding-left: 2rem;
+    padding-top: 1rem;
     position: absolute;
-    bottom: 8px;
-    margin-left: 30px;
-    margin-bottom: 40px;
+    bottom: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
     display: flex;
-    border-radius: 30px;    
+    border-radius: 2rem;      
+}
+
+.cardRow3{
+    height: 11rem;
+    width: 25rem;
+    background: #FFFFFF;          
+    padding-left: 2rem;
+    padding-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    margin-left: 2rem;
+    margin-bottom: -10rem;
+    display: flex;
+    border-radius: 2rem;      
 }
 
 .card a{
@@ -36,8 +57,13 @@ body{
 }
 
 .dboard{
-    margin-top: 50px;
-    margin-left: 200px;
+    margin-top: 3rem;
+    margin-left: 13rem;
+}
+
+.dboard1{
+    margin-top: 3rem;
+    margin-left: 13rem;
 }
 
 .logo{
@@ -45,3 +71,54 @@ body{
     width: 150px;
     height: 100px;
 }
+
+.shadowNewSchedule{
+    width: 30%; 
+    height: 21rem;
+    position: absolute; 
+    top: 10rem;     
+    right: 25rem;
+    background: #FFFFFF;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%    
+}
+
+.cardAppoinment{
+    height: 10rem;
+    width: 30rem;
+    background: #FFFFFF;          
+    padding-left: 2rem;
+    padding-top: 1rem;
+    position: absolute;
+    top: 20rem;
+    margin-left: 25%;
+    margin-bottom: 15rem;
+    display: flex;    
+}
+
+.cancel{
+    margin-left: 5rem;
+}
+
+.appointmenttitle{
+    margin-top: 5rem;
+}
+
+.cardUpdateAppoinment{
+    height: 10rem;
+    width: 30rem;
+    background: #FFFFFF;          
+    padding-left: 2rem;
+    padding-top: 1rem;
+    position: absolute;
+    top: 20rem;
+    margin-left: 26%;
+    margin-bottom: 15rem;
+    display: flex;
+}
+
+.updatebtn{
+    margin-left: 5rem;
+}
+

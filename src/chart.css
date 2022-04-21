@@ -1,0 +1,84 @@
+body{
+  font-family: sans-serif;
+}
+.cardRows{
+    height: 15rem;
+    width: 70rem;          
+    padding-left: 2rem;
+    padding-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    margin-left: -1rem;
+    margin-bottom: 20rem;
+    display: flex;
+    border-radius: 2rem;
+}
+
+.round{
+  width: 3rem;  
+}
+
+.chartRow1{
+  margin-top: -17rem;
+}
+
+.chartRow2{
+  margin-bottom: 1rem;  
+  margin-top: 2rem;
+}
+
+.chart {
+  background-color: #132737;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px+2vmin);
+  color: white;
+  font-family: sans-serif;
+}
+
+h2 {
+  color: #9dc6e0;
+}
+
+.profit{
+  background-color: #9dc6e0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px+2vmin);
+  color: #132737;
+  font-family: sans-serif;
+}
+
+h4{
+  color: #132737;
+}
+
+.tableH{
+  padding: 0.5rem;
+}
+
+table {  
+  border-collapse: collapse;
+  width: 100%;
+  color: #3f4950;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #9dc6e0;
+}
+
+
+
+
