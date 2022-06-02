@@ -122,3 +122,23 @@ h4{
     margin-left: 5rem;
 }
 
+.scheduletableH{
+    margin-top: -25rem;
+    width: 60rem;
+    margin-left: 5rem;
+}
+
+.scheduletable{    
+    width: 60rem;
+    margin-left: 5rem;    
+}
+
+.emailSend{
+    margin-top: -26rem;
+    margin-left: 20rem;
+    height: 34rem;
+}
+
+.emailSend button{
+    margin-left: 1rem;
+}

@@ -172,3 +172,14 @@ i {
     width: 10rem;
     height: 30rem;      
 }
+
+.appointmentHistory{
+    margin-left: 6rem;
+    bottom: 25rem;
+}
+
+.upcoming {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  

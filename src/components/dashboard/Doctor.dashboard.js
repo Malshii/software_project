@@ -2,6 +2,7 @@ import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar_Doctor from "../sidebar/Doctor.sidebar";
 import '../../userdashboard.css';
+import { Link } from "react-router-dom";
 
 export default function DoctorDashboard() {
   const styles = {
@@ -42,8 +43,8 @@ export default function DoctorDashboard() {
           <div class="col-sm-6">
             <div class="cardRow1 card">
               <div class="card-body">
-                <h5 class="card-title">Add New Schedule</h5>                
-                <a href="/addNewSchedule" class="dboard1 btn">Add Now</a>
+                <h5 class="card-title">Add New Schedule</h5>           
+                <Link to="/addNewSchedule" class="dboard1 btn">Add Now</Link>
               </div>
             </div>
           </div>          

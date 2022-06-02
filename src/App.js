@@ -27,6 +27,9 @@ import UpdateAppointment from "./components/UpdateAppointment";
 import ContactUs from "./components/EmailSend";
 import Dashboard from "./components/charts";
 import AppointmentHistory from "./components/user/AppointmentHistory";
+import UpcomingEvents from "./components/dashboard/UpcomingEvents";
+import ConfirmNewSchedule from "./components/ConfirmNewSchedule";
+import MarkDoctorAttendance from "./components/MarkDoctorAttendance";
 
 //import PrivateRoute from "./routers/PrivateRoute";
 
@@ -60,6 +63,9 @@ const App=()=> {
          <Route exact path="/emailSend"  element={<ContactUs/>}/>       
          <Route exact path="/chart"  element={<Dashboard/>}/>
          <Route exact path="/dashboard/appointmenthistory"  element={<AppointmentHistory/>}/>
+         <Route exact path="/upcomingEvents"  element={<UpcomingEvents/>}/>
+         <Route exact path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
+         <Route exact path="/markDoctorAttendance"  element={<MarkDoctorAttendance/>}/>
          
        </Routes>
      </Router>

@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar from "../sidebar/User.sidebar";
-import '../../userdashboard.css';
+import '../../index.css';
 
 export default function AppointmentHistory() {
   const styles = {
@@ -42,6 +42,29 @@ export default function AppointmentHistory() {
           </nav>
 
           <h1 style={{ padding: "20%" }}></h1>     
+
+          <div class="appointmentHistory card w-75">
+            <div class="card-body">
+              <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Last Appointment</a>
+                </li>               
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">History</a>
+                </li>
+              </ul>
+              <p></p>
+              <p></p>
+              <p class="historycontent card-text"><b>Specialist</b> - Cardiology, <b>Doctor Name</b> - Dr.Rajitha Senaratne, <b>Channeling Amount</b> -  Rs. 2500.00, 
+              <b>Channeling No</b> - 04, <b>Available Time</b> - 06.30 PM</p> 
+              <p></p>
+              <p class="historycontent card-text"><b>Specialist</b> - Cardiology, <b>Doctor Name</b> - Dr.Rajitha Senaratne, <b>Channeling Amount</b> -  Rs. 2500.00, 
+              <b>Channeling No</b> - 04, <b>Available Time</b> - 06.30 PM</p> 
+              <p></p>
+              <p class="historycontent card-text"><b>Specialist</b> - Cardiology, <b>Doctor Name</b> - Dr.Rajitha Senaratne, <b>Channeling Amount</b> -  Rs. 2500.00, 
+              <b>Channeling No</b> - 04, <b>Available Time</b> - 06.30 PM</p>              
+            </div>
+          </div>
          
         </div>
       </div>
