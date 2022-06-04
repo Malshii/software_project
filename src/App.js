@@ -9,6 +9,7 @@ import DoctorregistrationForm from "./components/DoctorregistrationForm";
 import userCards from "./components/userCards";
 import Navbar from "./components/DoctorProfile";
 import ChatArea from './components/ChatArea.js';
+import Signaturepadarea from './components/Signaturepad';
 //Card
 const App=()=> {
   return (<div>
@@ -25,7 +26,8 @@ const App=()=> {
        <Route exact path="/DoctorregistrationForm"  element={<DoctorregistrationForm/>}/>   
        <Route exact path="/medical_reqest"  element={<Navbar/>}/> 
        <Route exact path="/ChatArea"  element={<ChatArea/>}/> 
-     </Routes>
+       <Route exact path="/Signaturepad"  element={<Signaturepadarea/>}/> 
+      </Routes>
    </Router></div>
   );
 }
