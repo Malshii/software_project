@@ -22,8 +22,14 @@ connection.once("open", () => {
 });
 
 const patientRouter = require("./routes/patient.signup.route.js");
+const physicalPatientRouter = require("./routes/physicalPatient.profile.route.js");
+const onlinePatientRouter = require("./routes/onlinePatient.profile.route.js");
+const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
 
 app.use("/patient",patientRouter);
+app.use("/physicalPatient",physicalPatientRouter);
+app.use("/onlinePatient",onlinePatientRouter);
+app.use("/checkupDetails",chechupDetailsRouter);
 
 //listen to PORT
 app.listen(4000, () =>
