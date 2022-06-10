@@ -52,5 +52,5 @@ module.exports = {
         } catch (error) {
             res.status(error.code || 409).send({message: error.message});
         } 
-    }
+    },    
 }

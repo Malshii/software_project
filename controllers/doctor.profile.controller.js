@@ -1,12 +1,11 @@
 const Joi = require("joi");
-const {profileDoctor,findAllDoctorProfile}  = require("../services/doctor.profile.service");
+const {profileDoctor}  = require("../services/doctor.profile.service");
 
 module.exports = {
       AddDoctorProile: async (req,res) => {
         const schema = Joi.object({ 
             type:Joi.string(),
-            firstName : Joi.string().min(5).max(50).required(),
-            lastName : Joi.string().min(5).max(50).required(),
+            fullName : Joi.string().min(5).max(50).required(),            
             degree:Joi.string().min(5).max(50).required(),
             experience:Joi.string().min(5).max(50).required(),
             languages:Joi.string().min(5).max(50).required(),

@@ -5,18 +5,12 @@ const profileSchema  = new mongoose.Schema({
         type: String,
         default: "Dr",
     },     
-    firstName: {
+    fullName: {
         type: String,
         required: true,
         minlength: 5,
         maxlength: 50
-    },
-    lastName: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    },
+    },    
     degree:{
         type: String,
         required: true,

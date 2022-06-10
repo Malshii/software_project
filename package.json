@@ -17,6 +17,8 @@
     "create-gitignore-file": "^0.0.1",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "handlebars": "^4.7.7",
     "joi": "^17.5.0",
     "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^8.5.1",

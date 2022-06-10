@@ -2,9 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const app = express();
-const assert = require('assert');
 
 global.__basedir = __dirname;
 
@@ -29,6 +27,8 @@ const userRouter = require("./routes/user.route.js");
 const staffRouter = require("./routes/user.route.js");
 const doctorProfileRouter = require("./routes/doctor.profile.route.js");
 const fileRouter = require("./routes/medicalreport.route.js");
+const forgotRouter = require("./routes/user.route.js");
+const resetRouter = require("./routes/user.route.js");
 
 app.use("/user",userRouter);
 app.use("/doctor",staffRouter);
@@ -38,6 +38,8 @@ app.use("/labAssistant",staffRouter);
 app.use("/profile",doctorProfileRouter);
 app.use("/uploadfile",fileRouter);
 app.use("/email",fileRouter);
+app.use("/forgotPassword",forgotRouter);
+app.use("/resetPassword",resetRouter);
 
 //listen to PORT
 app.listen(4000, () =>
