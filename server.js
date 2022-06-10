@@ -37,6 +37,7 @@ app.use("/receptionist",staffRouter);
 app.use("/labAssistant",staffRouter);
 app.use("/profile",doctorProfileRouter);
 app.use("/uploadfile",fileRouter);
+app.use("/email",fileRouter);
 
 //listen to PORT
 app.listen(4000, () =>
