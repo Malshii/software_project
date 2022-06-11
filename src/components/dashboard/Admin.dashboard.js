@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar_Admin from "../sidebar/Admin.sidebar";
-import '../../userdashboard.css';
+import '../../Styles/userdashboard.css';
 
 export default function AdminDashboard() {
   const styles = {

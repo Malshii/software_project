@@ -1,4 +1,4 @@
-import "../../index.css";
+import '../../Styles/index.css';
 
 export default function UpcomingEvents() {
   return (

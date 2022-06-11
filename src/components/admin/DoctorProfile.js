@@ -1,15 +1,13 @@
 import React,{useState} from "react";
-import '../index.css';
-import Footer from "./Footer";
-import Header from "./HeaderStaff";
+import '../../Styles/index.css';
+import Header from "../HeaderStaff";
 import axios from "axios"; 
 
 
 export default function DoctorProfile() {
     
     const [type,setType] = useState("");
-    const [firstName,setFName] = useState("");
-    const [lastName,setLName] = useState("");
+    const [fullName,setFullName] = useState("");    
     const [degree,setDegree] = useState("");
     const [experience,setExperience] = useState("");
     const [languages,setLanguages] = useState("");
@@ -23,8 +21,7 @@ export default function DoctorProfile() {
   
       const newDoctorProfile = {        
         type,
-        firstName,
-        lastName,
+        fullName,
         degree,
         experience,
         languages,
@@ -51,9 +48,9 @@ export default function DoctorProfile() {
         <h1></h1>
         <h2>-------Doctor Profile-------</h2>
         <h1></h1>
-        <div class="form-row">
+    <div class="form-row">
 
-        <div class="col-12">
+    <div class="col-12">
         <label for="validationCustom03">Type</label>
         <input type="text" class="form-control" id="validationCustom03" placeholder="Dr." required
         onChange={(e)=>{
@@ -62,32 +59,14 @@ export default function DoctorProfile() {
         />        
       </div>
 
-        <div class="col-6">
-        <label for="validationCustom01">First name</label>
-        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required
+      <div class="col-12">
+        <label for="validationCustom03">Full Name</label>
+        <input type="text" class="form-control" id="validationCustom03" placeholder="Full Name" required
         onChange={(e)=>{
-          setFName(e.target.value);
+          setFullName(e.target.value);
         }}  
-        />
-        <div class="valid-feedback">
-          Looks good!
-        </div>
+        />        
       </div>
-
-      <div class="col-6">
-        <label for="validationCustom02">Last name</label>
-        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required
-        onChange={(e)=>{
-          setLName(e.target.value);
-        }}  
-        />
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>          
-    </div>
-
-    <div class="form-row">
 
     <div class="col-12">
         <label for="validationCustom03">Degree</label>

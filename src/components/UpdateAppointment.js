@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import SidebarHeader from "./sidebar/SidebarHeader";
 import Sidebar from "./sidebar/User.sidebar";
-import '../userdashboard.css';
+import '../Styles/userdashboard.css';
 
 function ButtonIncrement(props) {
   

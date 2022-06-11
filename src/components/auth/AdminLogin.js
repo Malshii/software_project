@@ -1,10 +1,13 @@
 import React,{useState} from "react";
-import '../../index.css';
+import '../../Styles/index.css';
 import Footer from "../Footer";
 import Header from "../HeaderStaff";
 import axios from "axios"; 
+import { useNavigate } from "react-router-dom";
 
 export default function StaffLogin() {
+
+    const navigate = useNavigate();
     
     const [email,setEmail] = useState("");    
     const [password,setPassword] = useState("");    
@@ -18,7 +21,7 @@ export default function StaffLogin() {
       }      
       
       axios.post("http://localhost:4000/admin/adminlogin",loginAdmin).then(()=>{
-        alert("Login Successful!")      
+        navigate("/adminDashboard");    
       }).catch((err)=>{
         alert(err)
       })
@@ -79,7 +82,7 @@ export default function StaffLogin() {
           </div>
 
           <div class="col">                          
-            <a href="#">Forgot Password?</a>        
+            <a href="/forgot-password">Forgot Password?</a>        
           </div>  
 
         </div>        

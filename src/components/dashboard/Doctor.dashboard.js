@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar_Doctor from "../sidebar/Doctor.sidebar";
-import '../../userdashboard.css';
+import '../../Styles/userdashboard.css';
 import { Link } from "react-router-dom";
 
 export default function DoctorDashboard() {

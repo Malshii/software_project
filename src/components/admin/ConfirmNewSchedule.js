@@ -1,7 +1,7 @@
 import React from "react";
-import SidebarHeader from "../components/sidebar/SidebarHeader";
-import Sidebar_Admin from "../components/sidebar/Admin.sidebar";
-import '../userdashboard.css';
+import SidebarHeader from "../sidebar/SidebarHeader";
+import Sidebar_Admin from "../sidebar/Admin.sidebar";
+import '../../Styles/userdashboard.css';
 
 export default function ConfirmNewSchedule() {
   const styles = {

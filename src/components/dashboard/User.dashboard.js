@@ -1,9 +1,13 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar from "../sidebar/User.sidebar";
-import '../../userdashboard.css';
+import '../../Styles/userdashboard.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useNavigate } from "react-router-dom";
 
 export default function UserDashboard() {
+  const navigate = useNavigate()
+
   const styles = {
     contentDiv: {
       display: "flex",            
@@ -13,17 +17,36 @@ export default function UserDashboard() {
       width: "100%",
     },    
   };
+
+  function logOut(){        
+      navigate("/login");    
+  } 
+
   return (
     <div>    
       <SidebarHeader/>
             
       <div style={styles.contentDiv}>
         <Sidebar/>
-        <div style={styles.contentMargin}>
+        <div style={styles.contentMargin}>      
 
-        <nav class="navbar navbar-light bg-light">
-        
-        </nav> 
+        <nav class="navbar navbar-expand-sm text-light">        
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto"/>                      
+            <span class="navbar-text">
+            <Dropdown>
+              <Dropdown.Toggle>              
+              <i class="fas fa-solid fa-user-tie"></i>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+              <Dropdown.Item onClick={logOut}>
+                Log Out
+              </Dropdown.Item>          
+              </Dropdown.Menu>
+            </Dropdown>
+            </span>
+          </div>
+        </nav>
 
           <nav class="navbar navbar-expand-lg navbar-light">            
             <div class="collapse navbar-collapse" id="navbarNav">

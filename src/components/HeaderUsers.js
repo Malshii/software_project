@@ -18,13 +18,7 @@ function HeaderUsers() {
       </nav>
       </div>
       
-      <div>        
-        <nav class="navbar navbar-expand-sm bg-light text-dark">  
-          <ul class="navbar-nav mr-auto"/>        
-          <button type="button" class="btn btn-light text-dark">English</button>
-          <h3>|</h3>  
-          <button type="button" class="btn btn-light text-dark">Sinhala</button>       
-        </nav>        
+      <div> 
 
         <nav class="navbar navbar-expand-sm bg-light">  
           <ul class="navbar-nav ml-auto">

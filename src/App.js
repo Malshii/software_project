@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import React, {useEffect,useState} from "react";
+import { BrowserRouter as Router,Route,Routes,Navigate } from 'react-router-dom';
 
 import Home from "./components/home";
 
@@ -20,7 +20,7 @@ import DoctorDashboard from "./components/dashboard/Doctor.dashboard";
 import ReceptionistDashboard from "./components/dashboard/Receptionist.dashboard";
 import AdminDashboard from "./components/dashboard/Admin.dashboard";
 
-import DoctorProfile from "./components/DoctorProfile";
+import DoctorProfile from "./components/admin/DoctorProfile";
 import AddNewSchedule from "./components/doctor/AddNewSchedule";
 import CheckAppointment from "./components/doctor/CheckAppointment";
 import UpdateAppointment from "./components/UpdateAppointment";
@@ -28,10 +28,118 @@ import ContactUs from "./components/EmailSend";
 import Dashboard from "./components/charts";
 import AppointmentHistory from "./components/user/AppointmentHistory";
 import UpcomingEvents from "./components/dashboard/UpcomingEvents";
-import ConfirmNewSchedule from "./components/ConfirmNewSchedule";
+import ConfirmNewSchedule from "./components/admin/ConfirmNewSchedule";
 import MarkDoctorAttendance from "./components/MarkDoctorAttendance";
+import ForgotPassword from "./components/ForogtPassword";
 
 //import PrivateRoute from "./routers/PrivateRoute";
+
+// const App = () => {
+//   //Control routes for user 
+//   const [auth, setAuth] = useState(null);
+
+//   useEffect(() => {
+//     let user = localStorage.getItem("user");
+//     user && JSON.parse(user) ? setAuth(true) : setAuth(false);
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem("user", auth);
+//   }, [auth]);
+
+//   //Control routes for doctor
+//   useEffect(() => {
+//     let doctor = localStorage.getItem("doctor");
+//     doctor && JSON.parse(doctor) ? setAuth(true) : setAuth(false);
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem("doctor", auth);
+//   }, [auth]);
+
+//   //Control routes for administrator
+//   useEffect(() => {
+//     let admin = localStorage.getItem("admin");
+//     admin && JSON.parse(admin) ? setAuth(true) : setAuth(false);
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem("admin", auth);
+//   }, [auth]);
+
+//   return (
+//     <Router>
+//     <Routes>
+//       <Route exact path="/" element={<Home/>} />
+      
+
+//       {!auth && (
+//         <Route
+//           path="/login"
+//           element={<Login authenticate={() => setAuth(true)} />}
+//         />
+//       )}
+
+//       {auth && (        
+//           <Route
+//             path="/dashboard"
+//             element={<UserDashboard logout={() => setAuth(false)} />}
+//           />        
+//       )}     
+
+//       <Route path="*" element={<Navigate to={auth ? "/dashboard" : "/login"} />} />
+
+
+
+//       {!auth && (
+//         <Route
+//           path="/DoctorLogin"
+//           element={<DoctorLogin authenticate={() => setAuth(true)} />}
+//         />
+//       )}
+
+//       {auth && (        
+//           <Route
+//             path="/doctorDashboard"
+//             element={<DoctorDashboard logout={() => setAuth(false)} />}
+//           />        
+//       )}     
+
+//       <Route path="*" element={<Navigate to={auth ? "/doctorDashboard" : "/DoctorLogin"} />} />
+
+
+
+
+//       {!auth && (
+//         <Route
+//           path="/AdminLogin"
+//           element={<AdminLogin authenticate={() => setAuth(true)} />}
+//         />
+//       )}
+
+//       {auth && (        
+//           <Route
+//             path="/adminDashboard"
+//             element={<AdminDashboard logout={() => setAuth(false)} />}
+//           />        
+//       )}     
+
+//       <Route path="*" element={<Navigate to={auth ? "/adminDashboard" : "/AdminLogin"} />} />
+
+
+
+//       <Route exact path="/signup"  element={<RegisterPatient/>}/>
+//       <Route exact path="/signupDoctor"  element={<RegisterDoctor/>}/>
+//       <Route exact path="/signupAdmin"  element={<RegisterAdmin/>}/>
+//       <Route exact path="/signupLab"  element={<RegisterLabAssistant/>}/>
+//       <Route exact path="/signupRec"  element={<RegisterReciptionist/>}/>
+
+//       <Route exact path="/resetPW"  element={<UserReset/>}/>
+
+//     </Routes>
+//     </Router>
+//   );
+// };
 
 const App=()=> {
     return (
@@ -66,7 +174,8 @@ const App=()=> {
          <Route exact path="/upcomingEvents"  element={<UpcomingEvents/>}/>
          <Route exact path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
          <Route exact path="/markDoctorAttendance"  element={<MarkDoctorAttendance/>}/>
-         
+
+         <Route exact path="/forgot-password"  element={<ForgotPassword/>}/>
        </Routes>
      </Router>
     );

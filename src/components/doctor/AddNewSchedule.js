@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar from "../sidebar/User.sidebar";
-import '../../userdashboard.css';
+import '../../Styles/userdashboard.css';
 
 export default function DoctorDashboard() {
   const styles = {

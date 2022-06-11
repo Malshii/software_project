@@ -1,6 +1,6 @@
 import React from "react";
 import { Collapse, Navbar } from "reactstrap";
-import '../../sidebarHeader.css';
+import '../../Styles/sidebarHeader.css';
 export default class Example extends React.PureComponent {
   constructor(props) {
     super(props);

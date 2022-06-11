@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
-import '../../index.css';
+import '../../Styles/index.css';
 import Footer from "../Footer";
 import Header from "../HeaderStaff";
 import axios from "axios"; 
@@ -98,7 +98,7 @@ export default function StaffLogin() {
           </div>
 
           <div class="col">                          
-            <a href="#">Forgot Password?</a>        
+            <a href="/forgot-password">Forgot Password?</a>        
           </div>  
 
         </div>        

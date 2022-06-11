@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar from "../sidebar/User.sidebar";
-import '../../index.css';
+import '../../Styles/index.css';
 
 export default function AppointmentHistory() {
   const styles = {

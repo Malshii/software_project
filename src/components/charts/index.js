@@ -3,7 +3,7 @@ import SidebarHeader from "../sidebar/SidebarHeader";
 import Sidebar from "../sidebar/User.sidebar";
 import IncomeChart from "./Income.chart";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
-import '../../chart.css';
+import "../../Styles/chart.css";
 import ProfitChart from "./Profit.chart";
 import AppointmentChart from "./Appointment.chart";
 import TableHeader from "./Table";

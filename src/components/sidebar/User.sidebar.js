@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import SidebarHeader from "./SidebarHeader";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../sidebar.css';
+import '../../Styles/sidebar.css';
 //import {user_menu_config,doctor_menu_config,admin_menu_config} from "./menu.config";
 
 class Sidebar extends React.Component {
@@ -56,10 +56,7 @@ class Sidebar extends React.Component {
             </a>
             <a className="sidebartextbox" href="#">
               Reports
-            </a>
-            <a className="sidebartextbox2" href="#">
-              Promotions
-            </a>
+            </a>            
             <a className="sidebartextbox" href="#">
               Upload Documents
             </a>

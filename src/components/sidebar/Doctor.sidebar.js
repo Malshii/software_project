@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import SidebarHeader from "./SidebarHeader";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../sidebar.css';
+import '../../Styles/sidebar.css';
 
 class Sidebar_Doctor extends React.Component {
   state = {

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios"; 
-import '../../index.css';
+import '../../Styles/index.css';
 import HeaderUsers from "../HeaderUsers";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ export default function LoginPatient() {
   const navigate = useNavigate();
 
   const [email,setEmail] = useState("");    
-  const [password,setPassword] = useState("");    
+  const [password,setPassword] = useState("");     
   
     function sendData(e){
       e.preventDefault();
@@ -23,7 +23,7 @@ export default function LoginPatient() {
         navigate("/dashboard");
       }).catch((err)=>{
         alert(err)
-      })
+      })     
     }
 
   return(    
@@ -80,7 +80,7 @@ export default function LoginPatient() {
           </div>
 
           <div class="col">                          
-            <a href="#">Forgot Password?</a>        
+            <a href="/forgot-password">Forgot Password?</a>        
           </div>  
 
         </div>        
