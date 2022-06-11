@@ -1,5 +1,7 @@
 const Joi = require("joi");
-const {signupUser,loginUser}  = require("../services/user.service");
+const User = require("../models/user.model");
+const {signupUser,loginUser,updateUser}  = require("../services/user.service");
+const {genSaltSync, hashSync} = require("bcrypt");
 
 module.exports = {
       RegisterUser: async (req,res) => {
@@ -52,5 +54,32 @@ module.exports = {
         } catch (error) {
             res.status(error.code || 409).send({message: error.message});
         } 
-    },    
+    },      
+
+    forgotPassword:async(req,res)=>{        
+        //fetch userID to update
+        //let userID = req.params.id;
+        //what need to update
+        const {email,password,confirmPassword} = req.body;        
+        
+        //after updated assign new value
+        const updatePatient = {
+            email,
+            password,
+            confirmPassword
+        }
+
+        const salt = genSaltSync(10);  //hashing password to save the user        
+        updatePatient.password = hashSync(updatePatient.password, salt);
+
+        await User.findOneAndUpdate({email},updatePatient)
+        .then((update)=>{
+            res.status(200).send({status: "user updated",user:update})
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).send({status:"Error with updating data",error:err.message});
+        }) 
+    }
+
+
 }
