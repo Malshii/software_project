@@ -2,6 +2,7 @@ import React from "react";
 import SidebarHeader from "../components/sidebar/SidebarHeader";
 import Sidebar_Admin from "../components/sidebar/Admin.sidebar";
 import '../Styles/userdashboard.css';
+import axios from "axios";
 
 export default function MarkDoctorAttendance() {
   const styles = {
@@ -12,10 +13,27 @@ export default function MarkDoctorAttendance() {
       marginLeft: "20px",
       width: "100%",
     },    
-  };
+  }; 
 
   const mystyle={
     background: 'linear-gradient(to right, #0093AB, #9dc6e0)'
+  }
+
+  //If status display cancel send sms to relevant patients. 
+  //Else hide send SMS button
+  const label = ["Confirmed","Canceled","Pending"]   
+  
+  function sendSMS(e){
+    e.preventDefault();    
+        
+    document.getElementById("Canceled").onclick = function(){
+      axios.post("http://localhost:4000/sendSMS").then(()=>{        
+        alert("Message send successfully.");
+      }).catch((err)=>{
+        alert(err)
+      }) 
+      //alert("Message send successfully!")
+    }
   }
 
   return (
@@ -45,72 +63,94 @@ export default function MarkDoctorAttendance() {
                 <th>Time range</th>
                 <th>Status</th>
                 <th>Mark Attendance</th>
+                <th>Send SMS</th>
               </tr>
+
               <tr>
                 <td>Gamage</td>
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>
-                <span class="badge badge-dark">Confirmed</span>               
+                <span class="badge badge-dark">{label[0]}</span>               
                 </td>
                 <td>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>                      
                     </div>            
                 </td>
+                <td>
+                  <button id="Confirmed" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                </td>
               </tr>
-              <tr>
+
+              <tr id="status2">
                 <td>Silva</td>
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>
-                <span class="badge badge-dark">Confirmed</span>                 
+                <span class="badge badge-dark">{label[0]}</span>                 
                 </td>
                 <td>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>                      
                     </div>            
                 </td>
+                <td>
+                  <button id="Confirmed" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                </td>                             
               </tr>
-              <tr>
+
+              <tr id="status3">
                 <td>Mohomad</td>
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>                  
-                <span class="badge badge-danger">Canceled</span>
+                <span class="badge badge-danger">{label[1]}</span>
                 </td>
                 <td>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>                      
                     </div>            
                 </td>
+                <td>
+                  <button id="Canceled" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                </td>
               </tr>
-              <tr>
+
+              <tr id="status4">
                 <td>Atapattu</td>
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>                  
-                <span class="badge badge-danger">Canceled</span>
+                <span class="badge badge-danger">{label[1]}</span>
                 </td>
                 <td>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>                      
                     </div>            
                 </td>
+                <td>
+                  <button id="Canceled" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                </td>
               </tr>
-              <tr>
+              
+              <tr id="status">
                 <td>Yohan Gamage</td>
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>                  
-                <span class="badge badge-warning">Pending</span>
+                <span class="badge badge-warning">{label[2]}</span>
                 </td>
                 <td>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>                      
                     </div>            
                 </td>
-              </tr>            
+                <td>
+                  <button id="Pending" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                </td>
+              </tr>    
+
             </table>
           </div>             
          
