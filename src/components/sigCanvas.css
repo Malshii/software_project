@@ -12,7 +12,12 @@
 
 }
 
+.cbutton{
+    align-self:center;
+    margin-left: 45%;
+    margin-bottom: 40%;
 
+}
 .belowtext{
     text-align:left;
     font-size:larger;
