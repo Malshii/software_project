@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import homeReducer from '../components/auth/redux/homeReducer';
+import authReducer from '../components/auth/redux/authReducer';
 
 // combining all the reducers in here
 export default combineReducers({
-  homeReducer, 
+  authReducer,
 });

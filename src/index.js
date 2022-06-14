@@ -1,42 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import { BrowserRouter } from "react-router-dom";
 import App from '../src/App';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './utils/rootSaga';
+import rootReducer from './utils/rootReducer';
+import { Provider } from 'react-redux';
+import {configureStore} from "@reduxjs/toolkit";
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import MaterialThemeProvider from "./components/contexts/ThemeContext";
+
+// const theme = createTheme({
+//     palette: {
+//         mode: 'light',
+//     },
+// });
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>  [...getDefaultMiddleware({
+        serializableCheck: false
+    }), sagaMiddleware],
+    devTools: true
+});
+const persistor = persistStore(store);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <React.StrictMode>   
-      <App />  
-  </React.StrictMode>,
+      <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <MaterialThemeProvider>
+                <App />
+              </MaterialThemeProvider>
+            </LocalizationProvider>
+          </PersistGate>
+      </Provider>,
   document.getElementById('root')
 );
-
-
-// import { Provider } from 'react-redux';
-// import createSagaMiddleware from 'redux-saga';
-// import { applyMiddleware, createStore } from 'redux';
-// import rootReducers from './utils/rootReducer';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import { persistStore } from 'redux-persist';
-// import rootSaga from './utils/rootSaga';
-// import { PersistGate } from 'redux-persist/integration/react';
-//import { BrowserRouter } from 'react-router-dom';
-
-// const sagaMiddleware = createSagaMiddleware();
-// const store = createStore(
-//   rootReducers,
-//   composeWithDevTools(applyMiddleware(sagaMiddleware))
-// );
-// const persister = persistStore(store);
-// sagaMiddleware.run(rootSaga);
-
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <PersistGate persistor={persister}>
-//       <App />
-//     </PersistGate>
-//   </Provider>,
-//   document.getElementById('root')
-// );

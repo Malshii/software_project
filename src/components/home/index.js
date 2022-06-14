@@ -2,7 +2,7 @@ import React from "react";
 import '../../Styles/index.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Footer from "../Footer";
-import Header from "../Header"; 
+// import Header from "../Header";
 import Home_Section1 from "./Home.Section1";
 import Home_Section2 from "./Home.Section2";
 import Home_Section3 from "./Home.Section3";
@@ -14,18 +14,18 @@ function Home(){
     return(
         <div>
 
-            <Header/>
-           
+            {/*<Header/>*/}
+
             <Home_Section1/>
-            
+
             <Home_Section2/>
-            
+
             <Home_Section3/>
 
             <hr/>
 
-            <Home_Section4/>               
-            
+            <Home_Section4/>
+
             <Footer/>
 
         </div>
@@ -33,4 +33,4 @@ function Home(){
 }
 
 export default Home;
- 
+

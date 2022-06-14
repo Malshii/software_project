@@ -1,202 +1,158 @@
-import React,{useState} from "react";
-import axios from "axios"; 
-import '../../Styles/index.css';
-import HeaderUsers from "../HeaderUsers";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
-
-export default function LoginPatient() {  
-
-  const navigate = useNavigate();
-
-  const [email,setEmail] = useState("");    
-  const [password,setPassword] = useState("");     
-  
-    function sendData(e){
-      e.preventDefault();
-  
-      const loginUser = {        
-        email,       
-        password,       
-      }      
-      
-      axios.post("http://localhost:4000/user/login",loginUser).then(()=>{        
-        navigate("/dashboard");
-      }).catch((err)=>{
-        alert(err)
-      })     
-    }
-
-  return(    
-    <div>
-
-    <HeaderUsers/>
-
-      <div class="shadowLogin shadow-lg p-4 mb-5 bg-white">
-      <form onSubmit={sendData}> 
-      <h6>New Member? <a href="/signup">Register here</a></h6>     
-        <h1></h1>
-        <h2>---------LOGIN---------</h2>
-        <h1></h1>
-        
-        <div class="form-row">
-          <div class="col-12">
-            <label for="validationCustom03">Email</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Email" required
-            onChange={(e)=>{
-              setEmail(e.target.value);
-            }}
-            />
-            <div class="invalid-feedback">
-              Please provide a valid email.
-            </div>
-          </div>
-                    
-          <div class="col-12">
-            <label for="validationCustom03">Password</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Password" required
-            onChange={(e)=>{
-              setPassword(e.target.value);
-            }}
-            />
-            <div class="invalid-feedback">
-              Please provide a valid password.
-            </div>
-          </div>                 
-          
-        </div>
-
-        <div class="form-group">
-          <div class="form-check">           
-          </div>
-        </div>
-
-        <button class="signup btn btn-primary" type="submit">Click here to login</button>
-        
-        <div class="row align-items-start">
-
-          <div class="col">          
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-            <label class="form-check-label" for="invalidCheck">Remember me</label>        
-          </div>
-
-          <div class="col">                          
-            <a href="/forgot-password">Forgot Password?</a>        
-          </div>  
-
-        </div>        
-        
-      </form>
-      </div>       
-
-      </div>       
-     
-  )    
-  
-};
-
-/*import React from 'react';
+import {useEffect, useState} from "react";
+import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { formsOpenClose, loginUser } from '../auth/redux/homeActions';
-import '../../index.css';
-import Footer from "../Footer";
-import HeaderUsers from "../HeaderUsers";
+import { loginUser } from './redux/authActions';
 
-const Transition = React.forwardRef(function Transition(props, ref) {  
-});
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-function LoginPatient(){ 
-  const dispatch = useDispatch();  
 
-  const [role, setRole] = React.useState('patient');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+export default function Login() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
-  const loginFormOpen = useSelector((state) => state.homeReducer.loginFormOpen);
-  const loading = useSelector((state) => state.homeReducer.loading);
+    const loginThisUser = () => {
+        dispatch(loginUser({ email: email, password: password, navigate }));
+    };
+    const loading = useSelector((state) => state.authReducer.loading);
+    const error = useSelector((state) => state.authReducer.error);
+    const errorMessage = useSelector((state) => state.authReducer.errorMessage);
+    const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
 
-  // close the login popup
-  const closeThisDialog = () => {
-    dispatch(formsOpenClose({ loginFormOpen: false }));
-  };
-
-  // close the login popup and open register form
-  const openRegDialog = () => {
-    dispatch(formsOpenClose({ loginFormOpen: false, RegisterFormOpen: true }));
-  };
-
-  const loginThisUser = () => {
-    dispatch(loginUser({ email, password, type: role }));
-  };
-
-  return ( 
-    <div>
-
-    <HeaderUsers/>
-
-      <div class="shadowLogin shadow-lg p-4 mb-5 bg-white">
-      <form> 
-      <h6>New Member? <a href="/signup">Register here</a></h6>     
-        <h1></h1>
-        <h2>---------LOGIN---------</h2>
-        <h1></h1>
-        
-        <div class="form-row">
-          <div class="col-12">
-            <label for="validationCustom03">Email</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Email" required
-            onChange={(e)=>{
-              setEmail(e.target.value);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        loginThisUser();
+    };
+    useEffect(
+        ()=>{
+            if(isAuthenticated){
+                navigate('/')
+            }
+        }
+    )
+  return (
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/GnLuuG9crEY/1600x900)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light'
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
             }}
-            />
-            <div class="invalid-feedback">
-              Please provide a valid email.
-            </div>
-          </div>
-                    
-          <div class="col-12">
-            <label for="validationCustom03">Password</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Password" required
-            onChange={(e)=>{
-              setPassword(e.target.value);
-            }}
-            />
-            <div class="invalid-feedback">
-              Please provide a valid password.
-            </div>
-          </div>                 
-          
-        </div>
-
-        <div class="form-group">
-          <div class="form-check">           
-          </div>
-        </div>
-
-        <button class="signup btn btn-primary" type="submit">Click here to login</button>
-        
-        <div class="row align-items-start">
-
-          <div class="col">          
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-            <label class="form-check-label" for="invalidCheck">Remember me</label>        
-          </div>
-
-          <div class="col">                          
-            <a href="#">Forgot Password?</a>        
-          </div>  
-
-        </div>        
-        
-      </form>
-      </div> 
-        
-      <Footer/>
-
-      </div>       
-     
-  )  
-}; 
-
-export default LoginPatient;
-*/
-
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 1 }}
+            >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+                { error &&  <Alert severity="error">{errorMessage}</Alert>}
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+              <Copyright sx={{ mt: 5 }} />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+  );
+}

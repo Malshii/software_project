@@ -1,12 +1,15 @@
+import * as actionTypes from './authActionTypes';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import * as actionTypes from './homeActionTypes';
 
 const initialState = {
-  name: 'Home Page',
-  loginFormOpen: false,
-  RegisterFormOpen: false,
+  isAuthenticated: false,
   loading: false,
+  error: false,
+  user: null,
+  idToken: null,
+  errorMessage: '',
+  theme: 'light'
 };
 
 // all the home page actions are handled here
@@ -22,20 +25,25 @@ function reducer(state = initialState, action) {
     case actionTypes.LOGIN_SUCCESS:
       return {
         ...state,
-        loginFormOpen: false,
+        isAuthenticated: true,
         user: action.data.user,
         idToken: action.data.token,
         loading: false,
+        error: false,
+        errorMessage: ''
       };
     case actionTypes.LOGIN_ERROR:
       return {
         ...state,
+        isAuthenticated: false,
         loading: false,
+        error: true,
+        errorMessage: action.data.message
       };
     case actionTypes.LOG_OUT:
       return {
         ...state,
-        loginFormOpen: false,
+        isAuthenticated: false,
         user: undefined,
         idToken: undefined,
       };
@@ -48,7 +56,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         RegisterFormOpen: false,
-        loginFormOpen: true,
+        isAuthenticated: true,
         loading: false,
       };
     case actionTypes.REGISTER_ERROR:
@@ -56,14 +64,19 @@ function reducer(state = initialState, action) {
         ...state,
         loading: false,
       };
+    case actionTypes.TOGGLE_THEME:
+      return {
+        ...state,
+        theme: state.theme === 'light' ? 'dark' : 'light',
+      };
     default:
       return state;
   }
 }
 
 const persistConfig = {
-  keyPrefix: 'fcode-',
-  key: 'cartlist',
+  keyPrefix: 'chamal-medicare-auth-',
+  key: 'cart-list',
   storage,
 };
 

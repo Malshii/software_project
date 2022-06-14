@@ -1,21 +1,26 @@
 import { toast } from 'react-toastify';
 import { put } from 'redux-saga/effects';
 import createRequest from '../../../utils/axios';
-import * as actionTypes from './homeActionTypes';
+import * as actionTypes from './authActionTypes';
 
 // this is the request to login a user
 export function* loginUser(action) {
   const Axios = yield createRequest();
   try {
-    const { data } = yield Axios.post(`${action.data.type}/login`, action.data);
-    localStorage.setItem('idToken', data.token);
+    const { data } = yield Axios.post('user/login', action.data);
+    localStorage.setItem('idToken', data.user.token);
+    console.log(data);
     yield put({
       type: actionTypes.LOGIN_SUCCESS,
-      data,
+      data: data.user,
     });
+    action.data.navigate("/");
+
   } catch (error) {
+    console.log('res error', error.response.data);
     yield put({
       type: actionTypes.LOGIN_ERROR,
+      data: error.response.data
     });
     toast.error(error.response ? error.response.data.message : 'Unknown Error');
   }

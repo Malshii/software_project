@@ -1,7 +1,7 @@
 import React,{useState} from "react";
-import axios from "axios"; 
+import axios from "axios";
 import '../../Styles/index.css';
-import Header from "../Header"; 
+// import Header from "../Header";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPatient() {
@@ -28,21 +28,21 @@ export default function RegisterPatient() {
       password,
       confirmPassword
     }
-    
+
     axios.post("http://localhost:4000/user/signup",newPatient).then(()=>{
-      navigate("/dashboard");      
+      navigate("/dashboard");
     }).catch((err)=>{
       alert(err)
     })
   }
-  
+
   return(
-    <div>  
-      
-    <Header/>    
+    <div>
+
+    {/*<Header/>*/}
 
     <div class="shadow shadow-lg p-4 mb-5 bg-white">
-      <form onSubmit={sendData}>      
+      <form onSubmit={sendData}>
         <h1></h1>
         <h2>---------SIGNUP---------</h2>
         <h1></h1>
@@ -66,7 +66,7 @@ export default function RegisterPatient() {
             <div class="valid-feedback">
               Looks good!
             </div>
-          </div>          
+          </div>
         </div>
         <div class="form-row">
           <div class="col-12">
@@ -119,8 +119,8 @@ export default function RegisterPatient() {
               Please provide a valid Confirm Password.
             </div>
           </div>
-         
-          
+
+
         </div>
         <div class="form-group">
           <div class="form-check">
@@ -134,12 +134,12 @@ export default function RegisterPatient() {
           </div>
         </div>
         <button class="signup btn btn-primary" type="submit">Create Your Account</button>
-        
+
         <h6 class="text-center">Already an account? <a href="/login">Login here</a></h6>
       </form>
-      </div>     
-      
-      </div>       
+      </div>
+
+      </div>
   )
 }
 
