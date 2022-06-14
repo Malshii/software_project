@@ -1,12 +1,12 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 global.__basedir = __dirname;
 
-require("dotenv").config();
+require('dotenv').config();
 
 app.use(express.json());
 app.use(cors());
@@ -14,30 +14,30 @@ app.use(bodyParser.json());
 
 const URL = process.env.MONGODB_URL;
 
-//create connection with mongodb 
+//create connection with mongodb
 const connect = mongoose.connect;
 connect(URL);
 
 //open connection
 const connection = mongoose.connection;
-connection.once("open", () => {
-    console.log("Mongodb Connection success!")
+connection.once('open', () => {
+  console.log('Mongodb Connection success!');
 });
 
-const userRouter = require("./routes/user.route.js");
-const staffRouter = require("./routes/user.route.js");
-const doctorProfileRouter = require("./routes/doctor.profile.route.js");
-const fileRouter = require("./routes/medicalreport.route.js"); 
+const userRouter = require('./routes/user.route.js');
+const staffRouter = require('./routes/user.route.js');
+const doctorProfileRouter = require('./routes/doctor.profile.route.js');
+const fileRouter = require('./routes/medicalreport.route.js');
 //const passwordReset = require("./routes/passwordReset.js");
 
-app.use("/user",userRouter);
-app.use("/doctor",staffRouter);
-app.use("/admin",staffRouter);
-app.use("/receptionist",staffRouter);
-app.use("/labAssistant",staffRouter);
-app.use("/profile",doctorProfileRouter);
-app.use("/uploadfile",fileRouter);
-app.use("/email",fileRouter);
+app.use('/user', userRouter);
+app.use('/doctor', staffRouter);
+app.use('/admin', staffRouter);
+app.use('/receptionist', staffRouter);
+app.use('/labAssistant', staffRouter);
+app.use('/profile', doctorProfileRouter);
+app.use('/uploadfile', fileRouter);
+app.use('/email', fileRouter);
 //app.use("/password-reset", passwordReset);
 
 //listen to PORT
@@ -46,30 +46,33 @@ app.use("/email",fileRouter);
 // );
 
 //SendSMS using vonage
-const Vonage = require('@vonage/server-sdk')
+const Vonage = require('@vonage/server-sdk');
 
 const vonage = new Vonage({
-  apiKey: "b9934ed5",
-  apiSecret: "tDNb5S64JpX7Inai"
-})
+  apiKey: 'b9934ed5',
+  apiSecret: 'tDNb5S64JpX7Inai',
+});
 
-const from = "Vonage APIs"
-const to = "94769396646"
-const text = 'The doctor will not be arriving today. We will refund your channeling charge. Please reschedule your appointment if necessary. Thank you very much! - Chamal Medicare -'
+const from = 'Vonage APIs';
+const to = '94769396646';
+const text =
+  'The doctor will not be arriving today. We will refund your channeling charge. Please reschedule your appointment if necessary. Thank you very much! - Chamal Medicare -';
 
 app.post('/sendSMS', (req, res) => {
-    // Send SMS
-    vonage.message.sendSms(from, to, text, (err, responseData) => {
-        if (err) {
-            console.log(err);
-        } else {
-            if(responseData.messages[0]['status'] === "0") {
-                console.log("Message sent successfully.");
-            } else {
-                console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
-            }
-        }
-    })
+  // Send SMS
+  vonage.message.sendSms(from, to, text, (err, responseData) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (responseData.messages[0]['status'] === '0') {
+        console.log('Message sent successfully.');
+      } else {
+        console.log(
+          `Message failed with error: ${responseData.messages[0]['error-text']}`
+        );
+      }
+    }
+  });
 });
 
 // //SendSMS using twilio
