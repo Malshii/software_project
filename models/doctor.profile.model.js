@@ -1,47 +1,47 @@
 const mongoose = require('mongoose')
 
-const patientSchema  = new mongoose.Schema({   
-     
+const profileSchema  = new mongoose.Schema({   
+    type:{
+        type: String,
+        default: "Dr",
+    },     
+    fullName: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 50
+    },    
+    degree:{
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 50
+    },
+    experience:{
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 50
+    },
+    languages:{
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 50
+    },
     category:{
         type: String,
         required: true,
         minlength: 5,
         maxlength: 50
     },
-    doctorname: {
+    speciality:{
         type: String,
         required: true,
         minlength: 5,
         maxlength: 50
     },
-
-    date:{
-        type: Date,
-        required:true
-    },
-    charges:{
-        type: Number,
-        required:true
-    },
-    firstname: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    },
-    lastname: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    },
-
-    dob:{
-        type: Date,
-        required:true
-    },
-    
-    mobileno:{
+    phoneNumber:{
         type: Number,
         required:true
     },
@@ -51,15 +51,8 @@ const patientSchema  = new mongoose.Schema({
         minlength: 5,
         maxlength: 255,
         unique: true
-    },   
-    
-    address:{
-        type: String,
-        required:true
-    },
+    },          
 })
 
-
-const physicalPatientProfile=mongoose.model("PhysicalPatient",patientSchema);
-
-module.exports=physicalPatientProfile;
+const DoctorProfile = mongoose.model("profile",profileSchema);
+module.exports = DoctorProfile;

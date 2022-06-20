@@ -25,11 +25,17 @@ const patientRouter = require("./routes/patient.signup.route.js");
 const physicalPatientRouter = require("./routes/physicalPatient.profile.route.js");
 const onlinePatientRouter = require("./routes/onlinePatient.profile.route.js");
 const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
+const doctorProfileRouter = require("./routes/doctor.profile.route.js");
+const paymentRouter = require("./routes/payment.route.js");
+const labReportRouter = require("./routes/LabReport.route.js");
 
 app.use("/patient",patientRouter);
 app.use("/physicalPatient",physicalPatientRouter);
 app.use("/onlinePatient",onlinePatientRouter);
 app.use("/checkupDetails",chechupDetailsRouter);
+app.use("/profile",doctorProfileRouter);
+app.use("/payment",paymentRouter);
+app.use("/LabReport", labReportRouter);
 
 //listen to PORT
 app.listen(4000, () =>
@@ -37,6 +43,6 @@ app.listen(4000, () =>
 );
 
 
-const doctortRouter = require("./controllers/doctorRegistrationController.js");
+//const doctortRouter = require("./controllers/doctorRegistrationController.js");
 
-app.use("/doctor",doctortRouter);
+//app.use("/doctor",doctortRouter);

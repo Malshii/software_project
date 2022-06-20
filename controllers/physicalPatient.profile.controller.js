@@ -4,7 +4,7 @@ const {physicalPatientAdd,findAllPhysicalPatientProfile}  = require("../services
 module.exports = {
   PhysicalPatientProfile : async (req,res) => {
         const schema = Joi.object({ 
-          specialization:Joi.string().min(5).max(50).required(),
+          category:Joi.string().min(5).max(50).required(),
           doctorname : Joi.string().min(5).max(50).required(),
           date : Joi.date().required(),
           charges:Joi.number().required(),

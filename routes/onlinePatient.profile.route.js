@@ -13,15 +13,15 @@ router.get('/displayOnline', onlinePatientProfileService.findAllOnlinePatientPro
 
 //Get One Online Patient profile 
 //localhost:4000/profile/onlineprofile/:id
-router.get('/onlineprofile/:id', onlinePatientProfileService.findOneOnlinePatientProfile);
+router.get('/onlineprofile/:email', onlinePatientProfileService.findOneOnlinePatientProfile);
 
 //Update one Online Patient profile 
 //localhost:4000/profile/onlineprofile/:id
-router.put('/onlineprofile/:id', onlinePatientProfileService.UpdateOneOnlinePatientProfile);
+router.put('/onlineprofile/:email', onlinePatientProfileService.UpdateOneOnlinePatientProfile);
 
 //Delete one Online Patient profile 
 //localhost:4000/profile/onlineprofile/:id
-router.delete('/onlineprofile/:id', onlinePatientProfileService.DeleteOneOnlinePatientProfile);
+router.delete('/onlineprofile/:email', onlinePatientProfileService.DeleteOneOnlinePatientProfile);
 
 
 

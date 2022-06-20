@@ -26,29 +26,29 @@ module.exports = {
 
     // Find a single Online Patient with a id    
     findOneOnlinePatientProfile : async (req, res) => {
-        onlinePatientProfile.findById(req.params.id)
+        onlinePatientProfile.findOne(req.params.email)
             .then(oPatient => {
                 if (!oPatient) {
                     return res.status(404).send({
-                        message: "Online Patient's profile not found with email " + req.params.id
+                        message: "Online Patient's profile not found with email " + req.params.email
                     });
                 }
                 res.send(oPatient);
             }).catch(err => {
                 if (err) {
                     return res.status(404).send({
-                        message: "Online Patient's profile not found with email " + req.params.id
+                        message: "Online Patient's profile not found with email " + req.params.email
                     });
                 }
                 return res.status(500).send({
-                    message: "Error retrieving Online Patient's profile with email " + req.params.id
+                    message: "Error retrieving Online Patient's profile with email " + req.params.email
                 });
         });
     },
 
     // Update a Online Patient identified by the id in the request
     UpdateOneOnlinePatientProfile : (req, res) => {
-        onlinePatientProfile.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        onlinePatientProfil.findOneAndUpdate(req.params.email, req.body, { new: true })
             .then((oPatient) => {
                 if (!oPatient) {
                     return res.status(404).send({
@@ -66,22 +66,22 @@ module.exports = {
 
     // Delete a Online Patient with the specified id in the request
     DeleteOneOnlinePatientProfile : (req, res) => {
-        onlinePatientProfile.findByIdAndRemove(req.params.id)
+        onlinePatientProfile.findOneAndDelete(req.params.email)
             .then(oPatient => {
                 if(!oPatient) {
                 return res.status(404).send({
-                message: "Online Patient profile not found with id " + req.params.id
+                message: "Online Patient profile not found with email " + req.params.email
                 });
                 }
                 res.send({ message: "Online Patient profile deleted successfully!" });
             }).catch(err => {
                 if (err.kind === 'ObjectId' || err.name === 'NotFound') {
                     return res.status(404).send({ 
-                        message: "Online Patient profile not found with id " + req.params.id
+                        message: "Online Patient profile not found with email " + req.params.email
                     });
                 }
                 return res.status(500).send({
-                    message: "Could not delete Online Patient with id " + req.params.id
+                    message: "Could not delete Online Patient with email " + req.params.email
                 });
             });
     },

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const onlinePatientSchema  = new mongoose.Schema({   
        
-    specialization:{
+    category:{
         type: String,
         required: true,
         minlength: 5,
@@ -13,6 +13,10 @@ const onlinePatientSchema  = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 50
+    },
+    doctorId: {
+        type: String,
+       
     },
 
     date:{

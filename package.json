@@ -18,6 +18,10 @@
     "joi-objectid": "^4.0.2",
     "mongodb": "^4.3.1",
     "mongoose": "^6.1.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "react-stripe": "^0.1.0",
+    "react-stripe-checkout": "^2.6.3",
+    "stripe": "^9.8.0",
+    "uuid": "^8.3.2"
   }
 }
