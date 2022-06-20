@@ -59,8 +59,9 @@ img {
     margin: 110px 0;
     display: flex;
     flex-direction: column;
-    background-image: url('C:\Users\User\Desktop\frontend\software_project\public\doc_reges.jpg');
+    background-color: #7d9ecb;
   }
+
   
   
   @media (max-width: 775px) {

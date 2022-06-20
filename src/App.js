@@ -11,6 +11,9 @@ import Navbar from "./components/DoctorProfile";
 import ChatArea from './components/ChatArea.js';
 import Signaturepadarea from './components/Signaturepad';
 import ConfirmNewSchedule from './components/medical_certificate/reqest_medical';
+import CanReqestMedicalCertificate from './components/medical_certificate/RequestMedicalForPatients';
+import MedicalCertificate from './components/medical_certificate/medicalCertificate';
+import MedicalIssueForm from './components/medical_certificate/doctorIssueForm';
 //Card
 const App=()=> {
   return (<div>
@@ -29,6 +32,9 @@ const App=()=> {
        <Route exact path="/ChatArea"  element={<ChatArea/>}/> 
        <Route exact path="/Signaturepad"  element={<Signaturepadarea/>}/> 
        <Route exact path="/ConfirmNewSchedule"  element={<ConfirmNewSchedule/>}/> 
+       <Route exact path="/CanReqestMedicalCertificate"  element={<CanReqestMedicalCertificate/>}/> 
+       <Route exact path="/MedicalCertificate"  element={<MedicalCertificate/>}/> 
+       <Route exact path="/MedicalIssueForm"  element={<MedicalIssueForm/>}/> 
       </Routes>
    </Router></div>
   );
