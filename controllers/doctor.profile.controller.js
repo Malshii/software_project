@@ -2,31 +2,30 @@ const Joi = require("joi");
 const {profileDoctor}  = require("../services/doctor.profile.service");
 
 module.exports = {  
-      AddDoctorProile: async (req,res) => {
-        const schema = Joi.object({ 
-            type:Joi.string(),
-            fullName : Joi.string().min(5).max(50).required(), 
-            registrationNumber : Joi.string().min(5).max(10).required(),
-            university : Joi.string().min(5).max(20).required(),                   
-            degree:Joi.string().min(5).max(50).required(),
-            experience:Joi.string().min(5).max(50).required(),
-            languages:Joi.string().min(5).max(50).required(),
-            category:Joi.string().min(5).max(50).required(),
-            speciality:Joi.string().min(5).max(50).required(),
-            phoneNumber : Joi.number().required(), 
-            email : Joi.string().email().required(),                                    
-        });
-        const validation = schema.validate(req.body);
-        if (validation.error) {
-            res.status(400).send({message: validation.error.message});
-            return;
-        } 
-        const data = validation.value;
-        try{
-          const result = await profileDoctor(data);          
-          res.status(200).send({success:result});
-        }catch(error){
-          res.status(error.code || 409).send({message: error.message});
-        }
-    },     
+  AddDoctorProile: async (req,res) => {
+    const schema1 = Joi.object({ 
+      registrationNumber: Joi.string().required(),  
+      university: Joi.string().required(),
+      degree: Joi.string().required(),
+      experience: Joi.string().required(),
+      workingHospital: Joi.string().required(),                  
+      address: Joi.string().required(),
+      chargePerPatient: Joi.number().required(),
+      languages: Joi.string().required(),
+      category: Joi.string().required(),
+    });
+    const validation1 = schema1.validate(req.body);
+    if (validation1.error) {
+        res.status(400).send({message: validation1.error.message});
+        return;
+    } 
+    const data = validation1.value;
+    try{
+      const result1 = await profileDoctor(data);
+      result1.password = undefined;
+      res.status(200).send({success:1,result1});
+    }catch(error){
+      res.status(error.code || 409).send({message: error.message});
+    }
+  },
 }

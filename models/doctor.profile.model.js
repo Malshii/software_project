@@ -1,77 +1,47 @@
 const mongoose = require('mongoose')
 
-const profileSchema  = new mongoose.Schema({  
-    type:{
-        type: String,
-        default: "Dr",
-    },         
-    fullName: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    },
+const doctorSchema = new mongoose.Schema({         
     registrationNumber:{
-        type:String,
-        required: true
+        type:String,        
     },
     university:{
-        type:String,
-        required: true
+        type:String,        
     },    
     degree:{
-        type: String,
-        required: true,
+        type: String,        
         minlength: 5,
         maxlength: 50
     },
     experience:{
-        type: String,
-        required: true,
+        type: String,        
         minlength: 5,
         maxlength: 50
     },
     workingHospital:{
-        type:String,
-        required: true
+        type:String,        
     },
     address:{
-        type:String,
-        required: true
+        type:String,        
     },
     chargePerPatient:{
-        type:Number,
-        required: true
+        type:Number,        
     },
     languages:{
-        type: String,
-        required: true,
+        type: String,       
         minlength: 5,
         maxlength: 50
     },
     category:{
-        type: String,
-        required: true,
+        type: String,        
         minlength: 5,
         maxlength: 50
-    },    
-    phoneNumber:{
-        type: Number,
-        required:true
-    },
-    email: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 255,
-        unique: true
-    },
-    password : { 
-        type: String,              
-        minlength: 5,
-        required: true 
-    },          
+    },   
+    id: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'user' 
+    }]  
 })
 
-const DoctorProfile = mongoose.model("profile",profileSchema);
-module.exports = DoctorProfile;
+const Doctor = mongoose.model("doctor",doctorSchema);
+module.exports = Doctor;
+

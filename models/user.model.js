@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const userSchema  = new mongoose.Schema({ 
     role: {
-        type: String,        
+        type: String,                
         enum : ["patient", "doctor", "receptionist", "labAssistant"],        
     },  
     firstName: {
@@ -28,42 +28,7 @@ const userSchema  = new mongoose.Schema({
     password : { 
         type: String,              
         minlength: 5,  
-    },       
-    registrationNumber:{
-        type:String,        
-    },
-    university:{
-        type:String,        
     },    
-    degree:{
-        type: String,        
-        minlength: 5,
-        maxlength: 50
-    },
-    experience:{
-        type: String,        
-        minlength: 5,
-        maxlength: 50
-    },
-    workingHospital:{
-        type:String,        
-    },
-    address:{
-        type:String,        
-    },
-    chargePerPatient:{
-        type:Number,        
-    },
-    languages:{
-        type: String,       
-        minlength: 5,
-        maxlength: 50
-    },
-    category:{
-        type: String,        
-        minlength: 5,
-        maxlength: 50
-    },   
 })
 
 

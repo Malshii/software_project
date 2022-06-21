@@ -25,7 +25,6 @@ connection.once('open', () => {
 });
 
 const userRouter = require('./routes/user.route.js');
-const staffRouter = require('./routes/user.route.js');
 const doctorProfileRouter = require('./routes/doctor.profile.route.js');
 const fileRouter = require('./routes/medicalreport.route.js');
 const forgot_Password = require('./routes/forgotPassword');
@@ -33,11 +32,7 @@ const reset_Password = require('./routes/resetPassword');
 const update_PasswordViaEmail = require('./routes/updatePasswordViaEmail');
 
 app.use('/user', userRouter);
-app.use('/doctor', staffRouter);
-app.use('/admin', staffRouter);
-app.use('/receptionist', staffRouter);
-app.use('/labAssistant', staffRouter);
-app.use('/profile', doctorProfileRouter);
+app.use('/doctor', doctorProfileRouter);
 app.use('/uploadfile', fileRouter);
 app.use('/email', fileRouter);
 app.use('/forgotpassword',forgot_Password);

@@ -1,9 +1,9 @@
-const DoctorProfile = require("../models/doctor.profile.model");
+const Doctor = require("../models/doctor.profile.model");
 
 module.exports = {    
     profileDoctor: async (data) => {        
-        const dProfile = new DoctorProfile(data);
-        const isExist = await DoctorProfile.findOne({email: data.email});
+        const dProfile = new Doctor(data);
+        const isExist = await Doctor.findById({id: data.id});
         if (isExist) {
             throw new Error("Doctor profile is already exist");
         }
@@ -13,7 +13,7 @@ module.exports = {
     
     // Retrieve and return all doctors' profiles from the database.
     findAllDoctorProfile : async (req, res) => {
-        DoctorProfile.find()
+        Doctor.find()
           .then(dProfile => {
               res.send(dProfile);
           }).catch(err => {
@@ -26,7 +26,7 @@ module.exports = {
 
     // Find a single doctor with a id    
     findOneDoctorProfile : async (req, res) => {
-        DoctorProfile.findById(req.params.id)
+        Doctor.findById(req.params.id)
             .then(dProfile => {
                 if (!dProfile) {
                     return res.status(404).send({
@@ -48,7 +48,7 @@ module.exports = {
 
     // Update a doctor identified by the id in the request
     UpdateOneDoctorProfile : (req, res) => {
-        DoctorProfile.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        Doctor.findByIdAndUpdate(req.params.id, req.body, { new: true })
             .then((dProfile) => {
                 if (!dProfile) {
                     return res.status(404).send({
