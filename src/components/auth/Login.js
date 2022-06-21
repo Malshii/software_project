@@ -12,10 +12,14 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from './redux/authActions';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function Copyright(props) {
   return (
@@ -25,13 +29,11 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+    {'All rights reserved.Chamal Medicare © '}
+      {' '}
       {new Date().getFullYear()}
       {'.'}
-    </Typography>
+    </Typography>                  
   );
 }
 
@@ -39,11 +41,12 @@ function Copyright(props) {
 export default function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [role, setRole] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const loginThisUser = () => {
-        dispatch(loginUser({ email: email, password: password, navigate }));
+        dispatch(loginUser({ email, password, role, navigate }));
     };
     const loading = useSelector((state) => state.authReducer.loading);
     const error = useSelector((state) => state.authReducer.error);
@@ -59,7 +62,7 @@ export default function Login() {
             if(isAuthenticated){
                 navigate('/')
             }
-        }
+        },[]
     )
   return (
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -70,7 +73,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/GnLuuG9crEY/1600x900)',
+            backgroundImage: 'url(https://source.unsplash.com/8JKNDO0Jtcc/1600x900)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light'
@@ -80,7 +83,7 @@ export default function Login() {
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -102,6 +105,24 @@ export default function Login() {
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+            <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Role</InputLabel>
+          <Select
+            required           
+            value={role}
+            label="role"
+            autoComplete="role"
+            autoFocus
+            onChange={(e) => setRole(e.target.value)}
+          >
+            <MenuItem value={10}>patient</MenuItem>            
+            <MenuItem value={20}>doctor</MenuItem>            
+            <MenuItem value={40}>receptionist</MenuItem>
+            <MenuItem value={50}>lab assistant</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
               <TextField
                 margin="normal"
                 required
@@ -139,12 +160,12 @@ export default function Login() {
                 { error &&  <Alert severity="error">{errorMessage}</Alert>}
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/forgot-password" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

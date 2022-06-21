@@ -23,6 +23,7 @@ import MaterialThemeProvider from "./components/contexts/ThemeContext";
 
 const sagaMiddleware = createSagaMiddleware();
 
+//'sagaMiddleware' to used apply middlewares to our store — sagas
 const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>  [...getDefaultMiddleware({

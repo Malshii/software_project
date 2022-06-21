@@ -20,3 +20,7 @@ export function logOutUser() {
 export function registerUser(data) {
   return { type: actionTypes.REGISTER, data };
 }
+
+export function addDoctorProfile(data) {
+  return { type: actionTypes.DOCTOR_PROFILE, data };
+}

@@ -56,7 +56,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         RegisterFormOpen: false,
-        isAuthenticated: true,
+        isAuthenticated: false,
         loading: false,
       };
     case actionTypes.REGISTER_ERROR:
@@ -68,6 +68,22 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         theme: state.theme === 'light' ? 'dark' : 'light',
+      };
+    case actionTypes.DOCTOR_PROFILE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.DOCTOR_PROFILE_SUCCESS:
+      return {
+        ...state,        
+        isAuthenticated: true,
+        loading: false,
+      };
+    case actionTypes.DOCTOR_PROFILE_ERROR:
+      return {
+        ...state,
+        loading: false,
       };
     default:
       return state;

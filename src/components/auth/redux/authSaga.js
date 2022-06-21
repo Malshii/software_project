@@ -29,15 +29,38 @@ export function* loginUser(action) {
 export function* registerUser(action) {
   const Axios = yield createRequest();
   try {
-    const { data } = yield Axios.post(`user/signup`, action.data);
+    const { data } = yield Axios.post('user/signup', action.data);
     toast.success('Registered Successfully');
     yield put({
       type: actionTypes.REGISTER_SUCCESS,
       data,
     });
+    action.data.navigate("/login");
+
   } catch (error) {
     yield put({
       type: actionTypes.REGISTER_ERROR,
+      data: error.response.data
+    });
+    toast.error(error.response ? error.response.data.message : 'Unknown Error');
+  }
+}
+
+export function* addDoctorProfile(action) {
+  const Axios = yield createRequest();
+  try {
+    const { data } = yield Axios.post('user/addProfile', action.data);
+    toast.success('Profile created successfully');
+    yield put({
+      type: actionTypes.DOCTOR_PROFILE_SUCCESS,
+      data,
+    });
+    action.data.navigate("/doctorProfile");
+
+  } catch (error) {
+    yield put({
+      type: actionTypes.DOCTOR_PROFILE_ERROR,
+      data: error.response.data
     });
     toast.error(error.response ? error.response.data.message : 'Unknown Error');
   }

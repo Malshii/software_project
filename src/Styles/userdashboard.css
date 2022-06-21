@@ -102,7 +102,7 @@ h4{
 }
 
 .appointmenttitle{
-    margin-top: 5rem;
+    margin-left: 2%;
 }
 
 .cardUpdateAppoinment{
@@ -123,14 +123,14 @@ h4{
 }
 
 .scheduletableH{
-    margin-top: -25rem;
+    margin-top: -17rem;
     width: 60rem;
-    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 .scheduletable{    
     width: 60rem;
-    margin-left: 5rem;    
+    margin-right: -5rem;    
 }
 
 .emailSend{

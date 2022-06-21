@@ -19,7 +19,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import AccountMenu from './AccountMenu';
 import {useDispatch, useSelector} from "react-redux";
-import menu_config from "./config/navbar/menu.config";
+import menu_config, { patient_menu_config } from "./config/navbar/menu.config";
 import doctor_menu_config from "./config/navbar/menu.config";
 import administrator_menu_config from "./config/navbar/menu.config";
 import labAssistant_menu_config from "./config/navbar/menu.config";
@@ -146,7 +146,7 @@ const Header = (props) => {
                             </IconButton>
                         </DrawerHeader>
                         {(user.role === 'patient'
-                                ? menu_config
+                                ? patient_menu_config
                                 : user.role === 'doctor'
                                     ? doctor_menu_config
                                     : user.role === 'receptionist'

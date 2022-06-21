@@ -1,38 +1,27 @@
 import React from "react";
-import SidebarHeader from "../sidebar/SidebarHeader";
-import Sidebar from "../sidebar/User.sidebar";
 import IncomeChart from "./Income.chart";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import "../../Styles/chart.css";
 import ProfitChart from "./Profit.chart";
 import AppointmentChart from "./Appointment.chart";
 import TableHeader from "./Table";
+import Grid from '@mui/material/Grid';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export default function Chart() {
-  const styles = {
-    contentDiv: {
-      display: "flex",            
-    },
-    contentMargin: {
-      marginLeft: "20px",
-      width: "100%",
-    },    
-  };
-  return (
-    <div>    
-      <SidebarHeader/>
-            
-      <div style={styles.contentDiv}>
-        <Sidebar/>
-        <div style={styles.contentMargin}>              
-
-          <h1 style={{ padding: "20%" }}></h1>          
-         
-        <div className="cardRows header bg-gradient-info pb-8 pt-5 pt-md-8">
+  
+  return (     
+    <Grid container component="main" sx={{ height: '100vh'}}>
+    <CssBaseline/>
+    <Grid container rowSpacing={3}/> 
+    <Grid item xs={15}>  
+      <h1 style={{ padding: "20%" }}/>
+      <div className="cardRows header bg-gradient-info pb-8 pt-5 pt-md-8">
         <Container fluid>
           <div className="header-body">
             {/* Card stats */}
-            <Row className="">
+            <Row>
+              {/* Income */}
               <Col lg="6" xl="3">
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody>
@@ -61,6 +50,7 @@ export default function Chart() {
                   </CardBody>
                 </Card>
               </Col>
+              {/*Appointment*/}
               <Col lg="6" xl="3">
               <Card className="card-stats mb-4 mb-xl-0">
               <CardBody>
@@ -89,6 +79,8 @@ export default function Chart() {
               </CardBody>
             </Card>                
               </Col>
+
+              {/*Refunds*/}
               <Col lg="6" xl="3">
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody>
@@ -115,6 +107,8 @@ export default function Chart() {
                   </CardBody>
                 </Card>
               </Col>
+
+              {/*Profit*/}
               <Col lg="6" xl="3">
                 <Card className="card-stats mb-4 mb-xl-0">
                   <CardBody>
@@ -126,15 +120,17 @@ export default function Chart() {
                         >
                           Profit
                         </CardTitle>
-                        <span className="h4 font-weight-bold mb-0">49,65%</span>
+                        <span className="h4 font-weight-bold mb-0">
+                          350,897
+                        </span>
                       </div>
-                      <Col>
-                          <i className="fas fa-percent text-info" />                        
+                      <Col>                        
+                        <i className="fas fa-percent text-info" />                        
                       </Col>
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
                       <span className="text-success mr-2">
-                        <i className="fas fa-arrow-up" /> 12%
+                        <i className="fa fa-arrow-up" /> 3.48%
                       </span>{" "}
                       <span className="text-nowrap">Since last month</span>
                     </p>
@@ -144,7 +140,7 @@ export default function Chart() {
             </Row>
           </div>
         </Container>
-      </div>      
+      </div>     
       
       <Container className="chartRow1">
       {/*chart row 1*/}
@@ -179,17 +175,9 @@ export default function Chart() {
       </Row>
       </Container> 
       
-      <div></div>
-      
-      <div class="footer-c py-2">
-            <div class="container text-center">
-                <p class="text-light mb-0 py-2">© 2022 Chamal MedicarePLC. All risghts reserved.</p>
-                <h6 class="text-light mb-0 py-2">Solution by Greeklords</h6>
-            </div>
-      </div>
-        
-    </div>
-    </div>
-    </div>
+      <div></div>      
+        </Grid>
+    </Grid>
+   
   );
 }
