@@ -28,7 +28,9 @@ const userRouter = require('./routes/user.route.js');
 const staffRouter = require('./routes/user.route.js');
 const doctorProfileRouter = require('./routes/doctor.profile.route.js');
 const fileRouter = require('./routes/medicalreport.route.js');
-//const passwordReset = require("./routes/passwordReset.js");
+const forgot_Password = require('./routes/forgotPassword');
+const reset_Password = require('./routes/resetPassword');
+const update_PasswordViaEmail = require('./routes/updatePasswordViaEmail');
 
 app.use('/user', userRouter);
 app.use('/doctor', staffRouter);
@@ -38,7 +40,9 @@ app.use('/labAssistant', staffRouter);
 app.use('/profile', doctorProfileRouter);
 app.use('/uploadfile', fileRouter);
 app.use('/email', fileRouter);
-//app.use("/password-reset", passwordReset);
+app.use('/forgotpassword',forgot_Password);
+app.use('/resetpassword',reset_Password);
+app.use('/updatepassword',update_PasswordViaEmail);
 
 //listen to PORT
 // app.listen(4000, () =>
@@ -47,6 +51,7 @@ app.use('/email', fileRouter);
 
 //SendSMS using vonage
 const Vonage = require('@vonage/server-sdk');
+const { forgotPassword } = require('./controllers/user.controller.js');
 
 const vonage = new Vonage({
   apiKey: 'b9934ed5',

@@ -1,59 +1,72 @@
 const mongoose = require('mongoose')
-const jwt = require("jsonwebtoken");
-const Joi = require("joi");
 
-const userSchema  = new mongoose.Schema({    
+const userSchema  = new mongoose.Schema({ 
+    role: {
+        type: String,        
+        enum : ["patient", "doctor", "receptionist", "labAssistant"],        
+    },  
     firstName: {
-        type: String,
-        //required: true,
+        type: String,        
         minlength: 5,
         maxlength: 50
     },
     lastName: {
-        type: String,
-        //required: true,
+        type: String,        
         minlength: 5,
         maxlength: 50
     },
     email: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 255,
+        type: String,      
         unique: true
     },
     phoneNumber:{
-        type: Number,
-        //required: true
+        type: Number,        
     },
     dob: {
-        type: Date,
-        //required: true
+        type: Date,        
     },
     password : { 
         type: String,              
-        minlength: 5,        
-        required: true 
+        minlength: 5,  
+    },       
+    registrationNumber:{
+        type:String,        
     },
-   
+    university:{
+        type:String,        
+    },    
+    degree:{
+        type: String,        
+        minlength: 5,
+        maxlength: 50
+    },
+    experience:{
+        type: String,        
+        minlength: 5,
+        maxlength: 50
+    },
+    workingHospital:{
+        type:String,        
+    },
+    address:{
+        type:String,        
+    },
+    chargePerPatient:{
+        type:Number,        
+    },
+    languages:{
+        type: String,       
+        minlength: 5,
+        maxlength: 50
+    },
+    category:{
+        type: String,        
+        minlength: 5,
+        maxlength: 50
+    },   
 })
 
 
 const User = mongoose.model("user",userSchema);
 module.exports = User;
 
-// const validate = (user) => {
-// 	const schema = Joi.object({
-// 		firstName: Joi.string().required(),
-// 		lastName: Joi.string().required(),
-// 		email: Joi.string().email().required(),
-// 		password: Joi.string().required()
-// 	});
-// 	return schema.validate(user);
-// };
-
-
-// module.exports = {
-//     User,
-//     validate,
-// };

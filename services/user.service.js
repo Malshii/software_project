@@ -1,6 +1,6 @@
 const { genSaltSync, hashSync, compareSync } = require('bcrypt');
 const { sign } = require('jsonwebtoken');
-const UserPatient = require('../models/user.model');
+const User = require('../models/user.model');
 const moment = require('moment');
 
 module.exports = {
@@ -10,8 +10,8 @@ module.exports = {
     const updatedDob = dob.set('hour', 3);
     data.dob = updatedDob;
     data.password = hashSync(data.password, salt);
-    const user = new UserPatient(data);
-    const isExist = await UserPatient.findOne({ email: data.email });
+    const user = new User(data);
+    const isExist = await User.findOne({ email: data.email });
     if (isExist) {
       throw new Error('User is already exist');
     }
@@ -19,7 +19,7 @@ module.exports = {
     return result;
   },
   loginUser: async (data) => {
-    const user = await UserPatient.findOne({ email: data.email });
+    const user = await User.findOne({ email: data.email });
     if (user) {
       const result = compareSync(data.password, user.password);
       if (result) {
