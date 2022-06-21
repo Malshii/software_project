@@ -91,10 +91,27 @@ export default function SignupRoles() {
             mx: 4,            
             flexDirection: 'column',            
             }}                              
-        >
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-          <TextField
+        >        
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Role</InputLabel>
+              <Select
+                required           
+                value={role}
+                label="role"
+                autoComplete="role"
+                autoFocus
+                onChange={(e) => setRole(e.target.value)}
+              >            
+                <MenuItem value={10}>doctor</MenuItem>  
+                <MenuItem value={20}>receptionist</MenuItem>
+                <MenuItem value={30}>lab assistant</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>                           
+                
+                        
+        <TextField
             margin="normal"
             required
             fullWidth
@@ -104,41 +121,19 @@ export default function SignupRoles() {
             autoComplete="firstname"
             autoFocus
             onChange={(e) => setFName(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="lastname"
-              label="Last Name"
-              name="lastname"
-              autoComplete="lastname"
-              autoFocus
-              onChange={(e) => setLName(e.target.value)}
-            />
-        </Grid>            
-        </Grid>
-        <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
-          <Select
-            required           
-            value={role}
-            label="role"
-            autoComplete="role"
-            autoFocus
-            onChange={(e) => setRole(e.target.value)}
-          >            
-            <MenuItem value={20}>receptionist</MenuItem>
-            <MenuItem value={30}>lab assistant</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-           
-                        
-          <TextField
+          /> 
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="lastname"
+          label="Last Name"
+          name="lastname"
+          autoComplete="lastname"
+          autoFocus
+          onChange={(e) => setLName(e.target.value)}
+          />  
+        <TextField
             margin="normal"
             required
             fullWidth

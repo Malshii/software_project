@@ -31,7 +31,8 @@ export default function DisplayData(){
             <div>            
                 {comments.map((row, index) => (
                 <p key={index}>
-                    Full name : {row.fullName} ---                     
+                    ID : {row._id} ,
+                    Full name : {row.fullName} ,                   
                     Degree : {row.degree}                    
                 </p>
                 ))}

@@ -40,13 +40,12 @@ function Copyright(props) {
 
 export default function Login() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [role, setRole] = React.useState('');
+    const navigate = useNavigate();    
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const loginThisUser = () => {
-        dispatch(loginUser({ email, password, role, navigate }));
+        dispatch(loginUser({ email, password, navigate }));
     };
     const loading = useSelector((state) => state.authReducer.loading);
     const error = useSelector((state) => state.authReducer.error);
@@ -104,25 +103,7 @@ export default function Login() {
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
-            >
-            <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Role</InputLabel>
-          <Select
-            required           
-            value={role}
-            label="role"
-            autoComplete="role"
-            autoFocus
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <MenuItem value={10}>patient</MenuItem>            
-            <MenuItem value={20}>doctor</MenuItem>            
-            <MenuItem value={40}>receptionist</MenuItem>
-            <MenuItem value={50}>lab assistant</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
+            >            
               <TextField
                 margin="normal"
                 required
