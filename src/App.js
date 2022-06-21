@@ -49,9 +49,6 @@ const App=()=> {
                     <Main open={open}>
                         <DrawerHeader />
                         <Routes>
-                          <Route path="/login" element={<Login/>} />
-                          <Route path="/signup"  element={<RegisterPatient/>}/>
-                          <Route path="/forgot-password"  element={<ForgotPassword/>}/>
                             <React.Fragment>
                                 <Route path="/" element={<PrivateRoute/>} >
                                     <Route exact path='/' element={<Home/>}/>
@@ -59,6 +56,11 @@ const App=()=> {
                             </React.Fragment>
                         </Routes>
                     </Main>
+                    <Routes>
+                        <Route path="/login" element={<Login/>} />
+                        <Route path="/signup"  element={<RegisterPatient/>}/>
+                        <Route path="/forgot-password"  element={<ForgotPassword/>}/>
+                    </Routes>
                 </Box>
             </BrowserRouter>
         </React.Fragment>
