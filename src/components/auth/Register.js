@@ -142,7 +142,7 @@ export default function Register() {
                           </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item md={12} lg={6} padding='0 10px'>
+                    <Grid item xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
                         required
@@ -155,7 +155,7 @@ export default function Register() {
                         onChange={(e) => setFName(e.target.value)}
                       />
                     </Grid>
-                    <Grid item md={12} lg={6} padding='0 10px'>
+                    <Grid item xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
                         required
@@ -181,7 +181,7 @@ export default function Register() {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </Grid>
-                    <Grid md={12} lg={6} padding='0 10px'>
+                    <Grid xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
                         required
@@ -194,7 +194,7 @@ export default function Register() {
                         onChange={(e) => setPhoneNumber(e.target.value)}
                       />
                     </Grid>
-                    <Grid md={12} lg={6} padding='0 10px'>
+                    <Grid xs={12} lg={6} padding='0 10px'>
                         <Stack spacing={3} paddingTop='16px'>
                             <DesktopDatePicker
                                 label="Date desktop"
