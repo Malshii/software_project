@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -12,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from './redux/authActions';
@@ -25,10 +24,8 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+    {'All rights reserved.Chamal Medicare © '}
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -43,7 +40,7 @@ export default function Login() {
     const [password, setPassword] = React.useState('');
 
     const loginThisUser = () => {
-        dispatch(loginUser({ email: email, password: password, navigate }));
+        dispatch(loginUser({ email, password, navigate }));
     };
     const loading = useSelector((state) => state.authReducer.loading);
     const error = useSelector((state) => state.authReducer.error);
@@ -60,7 +57,7 @@ export default function Login() {
             if(isAuthenticated){
                 navigate('/')
             }
-        }
+        },[]
     )
 
   return (
@@ -71,7 +68,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/GnLuuG9crEY/1600x900)',
+            backgroundImage: 'url(https://source.unsplash.com/8JKNDO0Jtcc/1600x900)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light'
@@ -81,7 +78,7 @@ export default function Login() {
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square display='flex' flexDirection='column' justifyContent='center'>
           <Box
             sx={{
               my: 8,
@@ -140,12 +137,12 @@ export default function Login() {
                 { error &&  <Alert severity="error">{errorMessage}</Alert>}
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/forgot-password" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

@@ -1,110 +1,96 @@
 import HomeIcon from '@mui/icons-material/Home';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import HotelIcon from '@mui/icons-material/Hotel';
 import StarIcon from '@mui/icons-material/Star';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
+import HelpIcon from '@mui/icons-material/Help';
+import FolderSharedIcon from '@mui/icons-material/FolderShared';
 
 export const menu_config = [
+    { name: 'Home', to: '/', icon: <HomeIcon /> },    
+    {
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
+        sub: [
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
+        ],
+    },    
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
+    { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
+];
+
+export const patient_menu_config = [
     { name: 'Home', to: '/', icon: <HomeIcon /> },
     {
-        name: 'Restaurant',
-        icon: <RestaurantMenuIcon />,
-        sub: [
-            { name: 'Food & Beverages', to: '/foods' },
-            { name: 'Special offers', to: '/offers' },
-            { name: 'Reserve Table', to: '/reserve' },
-            { name: 'Reservations', to: '/reservations' },
-        ],
+        name: 'Dashboard',
+        icon: <DashboardIcon />,        
     },
     {
-        name: 'Hotel',
-        icon: <HotelIcon />,
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
         sub: [
-            { name: 'Rooms', to: '/rooms' },
-            { name: 'Book Now', to: '/book-now' },
-            { name: 'Bookings', to: '/bookings' },
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
         ],
     },
+    { name: 'History', to: '/rating', icon: <WorkHistoryIcon /> },
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
     { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
 ];
 
 export const doctor_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Home', to: '/', icon: <HomeIcon /> },    
     {
-        name: 'Restaurant',
-        icon: <RestaurantMenuIcon />,
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
         sub: [
-            { name: 'Food & Beverages', to: '/foods' },
-            { name: 'Special offers', to: '/offers' },
-            { name: 'Reservations', to: '/reservations' },
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
         ],
-    },
-    {
-        name: 'Hotel',
-        icon: <HotelIcon />,
-        sub: [{ name: 'Rooms', to: '/rooms' }],
-    },
+    },    
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
+    { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
 ];
 export const administrator_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Home', to: '/', icon: <HomeIcon /> },    
     {
-        name: 'Restaurant',
-        icon: <RestaurantMenuIcon />,
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
         sub: [
-            { name: 'Food & Beverages', to: '/foods' },
-            { name: 'Special offers', to: '/offers' },
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
         ],
-    },
-    {
-        name: 'Hotel',
-        icon: <HotelIcon />,
-        sub: [
-            { name: 'Rooms', to: '/rooms' },
-            { name: 'Book Now', to: '/book-now' },
-            { name: 'Bookings', to: '/bookings' },
-        ],
-    },
+    },    
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
+    { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
 ];
 
 export const labAssistant_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Home', to: '/', icon: <HomeIcon /> },    
     {
-        name: 'Restaurant',
-        icon: <RestaurantMenuIcon />,
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
         sub: [
-            { name: 'Food & Beverages', to: '/foods' },
-            { name: 'Special offers', to: '/offers' },
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
         ],
-    },
-    {
-        name: 'Hotel',
-        icon: <HotelIcon />,
-        sub: [
-            { name: 'Rooms', to: '/rooms' },
-            { name: 'Book Now', to: '/book-now' },
-            { name: 'Bookings', to: '/bookings' },
-        ],
-    },
+    },    
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
+    { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
 ];
 
 export const receptionist_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Home', to: '/', icon: <HomeIcon /> },    
     {
-        name: 'Restaurant',
-        icon: <RestaurantMenuIcon />,
+        name: 'Reports',
+        icon: <FolderSharedIcon />,
         sub: [
-            { name: 'Food & Beverages', to: '/foods' },
-            { name: 'Special offers', to: '/offers' },
+            { name: 'Medical Reports', to: '#' },
+            { name: 'Lab reports', to: '#' },            
         ],
-    },
-    {
-        name: 'Hotel',
-        icon: <HotelIcon />,
-        sub: [
-            { name: 'Rooms', to: '/rooms' },
-            { name: 'Book Now', to: '/book-now' },
-            { name: 'Bookings', to: '/bookings' },
-        ],
-    },
+    },    
+    { name: 'Helps & Services', to: '/rating', icon: <HelpIcon /> },
+    { name: 'Ratings & Reviews', to: '/rating', icon: <StarIcon /> },
 ];
 
 

@@ -1,20 +1,8 @@
 import React from "react";
-import SidebarHeader from "../components/sidebar/SidebarHeader";
-import Sidebar_Admin from "../components/sidebar/Admin.sidebar";
-import '../Styles/userdashboard.css';
+import '../../Styles/userdashboard.css';
 import axios from "axios";
 
 export default function MarkDoctorAttendance() {
-  const styles = {
-    contentDiv: {
-      display: "flex",            
-    },
-    contentMargin: {
-      marginLeft: "20px",
-      width: "100%",
-    },    
-  }; 
-
   const mystyle={
     background: 'linear-gradient(to right, #0093AB, #9dc6e0)'
   }
@@ -32,28 +20,22 @@ export default function MarkDoctorAttendance() {
       }).catch((err)=>{
         alert(err)
       }) 
-      //alert("Message send successfully!")
+      // alert("Message send successfully!")
     }
   }
 
   return (
-    <div>    
-      <SidebarHeader/>
-            
-      <div style={styles.contentDiv}>
-        <Sidebar_Admin/>
-        <div style={styles.contentMargin}>
-
+    <div>
         <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">          
         </a>
         </nav>           
 
-          <h1 style={{ padding: "20%" }}></h1>          
+          <h1 style={{ padding: "15%" }}></h1>          
          
           <div className="container">          
           
-          <div className="scheduletableH" style={mystyle}>
+          <div className="scheduletableH">
               <h4>Doctor Status</h4>
           </div> 
             <table className="scheduletable">
@@ -122,7 +104,7 @@ export default function MarkDoctorAttendance() {
                 <td>2022/02/05</td>
                 <td>8am - 5pm</td>
                 <td>                  
-                <span class="badge badge-danger">{label[1]}</span>
+                <span class="badge badge-warning">{label[2]}</span>
                 </td>
                 <td>
                     <div class="form-check">
@@ -130,7 +112,7 @@ export default function MarkDoctorAttendance() {
                     </div>            
                 </td>
                 <td>
-                  <button id="Canceled" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
+                  <button id="Confirmed" class="btn btn-primary" type="submit" onClick={sendSMS}>Click here to send SMS</button>        
                 </td>
               </tr>
               
@@ -154,16 +136,7 @@ export default function MarkDoctorAttendance() {
             </table>
           </div>             
          
-        </div>
-      </div>
+        </div>        
 
-      <div class="footer-c py-2">
-            <div class="container text-center">
-                <p class="text-light mb-0 py-2">© 2022 Chamal MedicarePLC. All risghts reserved.</p>
-                <h6 class="text-light mb-0 py-2">Solution by Greeklords</h6>
-            </div>
-        </div>
-        
-    </div>
   );
 }

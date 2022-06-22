@@ -1,17 +1,15 @@
 import React, {useState} from "react";
-import SidebarHeader from "./sidebar/SidebarHeader";
-import Sidebar from "./sidebar/User.sidebar";
+import SidebarHeader from "../sidebar/SidebarHeader";
+import Sidebar from "../sidebar/User.sidebar";
 import '../Styles/userdashboard.css';
 
-function ButtonIncrement(props) {
-  
+function ButtonIncrement(props) {  
     return (     
       <a class="btn btn-primary"  onClick={props.onClickFunc}>Add Appointment</a>
     )
- }
+}
  
- function ButtonDecrement(props) {
-   
+ function ButtonDecrement(props) {   
    return (
       <a class="updatebtn btn btn-primary"  onClick={props.onClickFunc}>Remove Appointment</a>
    )

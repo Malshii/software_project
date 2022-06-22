@@ -56,18 +56,74 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         RegisterFormOpen: false,
-        isAuthenticated: true,
+        isAuthenticated: false,
         loading: false,
       };
     case actionTypes.REGISTER_ERROR:
       return {
         ...state,
         loading: false,
+        error: true,
+        errorMessage: action.data.message
+      };
+    case actionTypes.FORGOT_PASSWORD:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.FORGOT_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errorMessage: ''
+      };
+    case actionTypes.FORGOT_PASSWORD_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        errorMessage: action.data.message
+      };
+    case actionTypes.RESET_PASSWORD:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.RESET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        errorMessage: ''
+      };
+    case actionTypes.RESET_PASSWORD_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        errorMessage: action.data.message
       };
     case actionTypes.TOGGLE_THEME:
       return {
         ...state,
         theme: state.theme === 'light' ? 'dark' : 'light',
+      };
+    case actionTypes.DOCTOR_PROFILE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.DOCTOR_PROFILE_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+      };
+    case actionTypes.DOCTOR_PROFILE_ERROR:
+      return {
+        ...state,
+        loading: false,
       };
     default:
       return state;

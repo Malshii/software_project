@@ -1,15 +1,25 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import RegisterPatient from "../src/components/auth/RegisterPatient";
-import Login from "../src/components/auth/Login";
-import Home from "../src/components/home"
-import ForgotPassword from "./components/ForogtPassword";
-import PrivateRoute from "./components/PrivateRoute";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import Login from "../src/components/auth/Login";
+import Home from "../src/components/home";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import PrivateRoute from "./components/PrivateRoute";
 import Header from "./components/Header";
-
+import Register from "./components/auth/Register";
+import ResetPassword from "./components/auth/ResetPassword";
+import Dashboard from "./components/dashboard/Dashboard";
+import Attendance from "./components/receptionist/Attendance";
+import SignupRoles from "./components/admin/SignupRoles";
+import Chart from "./components/charts";
+import DoctorProfile from "./components/admin/DoctorProfile";
+import AddNewSchedule from "./components/doctor/AddNewSchedule";
+import ConfirmNewSchedule from "./components/admin/ConfirmNewSchedule";
+import CheckAppointment from "./components/doctor/CheckAppointment";
+import CheckIncomeDetails from "./components/doctor/CheckIncomeDetails";
+import DisplayData from "./components/DisplayData";
 
 const drawerWidth = 300;
 
@@ -58,8 +68,19 @@ const App=()=> {
                     </Main>
                     <Routes>
                         <Route path="/login" element={<Login/>} />
-                        <Route path="/signup"  element={<RegisterPatient/>}/>
+                        <Route path="/signup"  element={<Register/>}/>
                         <Route path="/forgot-password"  element={<ForgotPassword/>}/>
+                        <Route path="/reset-password/:userId/:token"  element={<ResetPassword/>}/>
+                        <Route path="/markDoctorAttendance"  element={<Attendance/>}/>
+                        <Route path="/dashboard"  element={<Dashboard/>}/>
+                        <Route path="/signupRoles"  element={<SignupRoles/>}/>
+                        <Route path="/chart"  element={<Chart/>}/>
+                        <Route path="/doctorProfile"  element={<DoctorProfile/>}/>
+                        <Route path="/addNewSchedule"  element={<AddNewSchedule/>}/>
+                        <Route path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
+                        <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
+                        <Route path="/checkIncomeDetails"  element={<CheckIncomeDetails/>}/>
+                        <Route path="/displaydata"  element={<DisplayData/>}/>
                     </Routes>
                 </Box>
             </BrowserRouter>

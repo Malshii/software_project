@@ -20,3 +20,16 @@ export function logOutUser() {
 export function registerUser(data) {
   return { type: actionTypes.REGISTER, data };
 }
+
+export function forgotPassword(data) {
+  return { type: actionTypes.FORGOT_PASSWORD, data };
+}
+
+export function resetPassword(data) {
+  console.log(data);
+  return { type: actionTypes.RESET_PASSWORD, data };
+}
+
+export function addDoctorProfile(data) {
+  return { type: actionTypes.DOCTOR_PROFILE, data };
+}
