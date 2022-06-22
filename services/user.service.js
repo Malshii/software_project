@@ -1,23 +1,26 @@
 const { genSaltSync, hashSync, compareSync } = require('bcrypt');
 const { sign } = require('jsonwebtoken');
 const User = require('../models/user.model');
-const moment = require('moment');
+const Token = require('../models/token.model');
+const sendEmail = require('../utils/sendEmail');
+const crypto = require('crypto');
 
 module.exports = {
   signupUser: async (data) => {
     const salt = genSaltSync(10); //hashing password to save the user
-    const dob = moment(data.dob);
-    const updatedDob = dob.set('hour', 3);
-    data.dob = updatedDob;
+    const dob = data.dob.slice(0, 10);
+    data.dob = dob;
     data.password = hashSync(data.password, salt);
     const user = new User(data);
     const isExist = await User.findOne({ email: data.email });
     if (isExist) {
-      throw new Error('User is already exist');
+      return { success: false, message: 'User is already exist' };
     }
     const result = await user.save();
-    return result;
+
+    return { success: true, result: result };
   },
+
   loginUser: async (data) => {
     const user = await User.findOne({ email: data.email });
     if (user) {
@@ -39,18 +42,64 @@ module.exports = {
     }
   },
 
-  // updateUser: async (data) => {
-  //     const salt = genSaltSync(10);  //hashing password to save the user
-  //     data.password = hashSync(data.password, salt);
-  //     const user = new UserPatient(data);
-  //     const update = await UserPatient.findOneAndUpdate({email},data.email)
-  //     .then((update)=>{
-  //         res.status(200).send({status: "user updated",user:update})
-  //     }).catch((err)=>{
-  //         console.log(err);
-  //         res.status(500).send({status:"Error with updating data",error:err.message});
-  //     })
-  //     const result = await user.save();
-  //     return result;
-  // },
+  forgotPassword: async (data) => {
+    const user = await User.findOne({ email: data.email });
+    if (user) {
+      //Generate a Token
+      let token = await Token.findOne({ userId: user._id });
+      if (!token) {
+        token = await new Token({
+          userId: user._id,
+          token: crypto.randomBytes(32).toString('hex'),
+        }).save();
+      }
+
+      const link = `${process.env.BASE_URL}/reset-password/${user._id}/${token.token}`;
+      const result = await sendEmail(user.email, 'Password reset', link);
+      return result;
+    } else {
+      return { success: false, message: 'Invalid email' };
+    }
+  },
+
+  resetPassword: async (data) => {
+    const user = await User.findById(data.userId);
+    if (!user) return { success: false, message: 'invalid link or expired' };
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: data.token,
+    });
+    if (!token) return { success: false, message: 'invalid link or expired' };
+
+    const salt = genSaltSync(10);
+    data.password = hashSync(data.password, salt);
+
+    user.password = data.password;
+
+    await user.save();
+    await token.delete();
+    return { success: true, message: 'Password reset has been successful' };
+  },
+
+  resetPasswordValid: async (data) => {
+    if (data.userId.match(/^[0-9a-fA-F]{24}$/)) {
+      const user = await User.findById(data.userId);
+      if (user) {
+        const token = await Token.findOne({
+          userId: user._id,
+          token: data.token,
+        });
+        if (token) {
+          return { success: true, message: 'Valid Reset Link' };
+        } else {
+          return { success: false, message: 'invalid link or expired' };
+        }
+      } else {
+        return { success: false, message: 'invalid link or expired' };
+      }
+    } else {
+      return { success: false, message: 'invalid link or expired' };
+    }
+  },
 };

@@ -3,37 +3,54 @@ const User = require('../models/user.model');
 const {
   signupUser,
   loginUser,
-  updateUser,
+  forgotPassword,
+  resetPassword,
+  resetPasswordValid,
 } = require('../services/user.service');
 const { genSaltSync, hashSync } = require('bcrypt');
 
 module.exports = {
-  RegisterUser: async (req,res) => {
-    const schema = Joi.object({ 
-      role : Joi.string().required(),
+  RegisterUser: async (req, res) => {
+    const schema = Joi.object({
+      role: Joi.string().required(),
       firstName: Joi.string().min(5).max(50).required(),
       lastName: Joi.string().min(5).max(50).required(),
       email: Joi.string().email().required(),
       phoneNumber: Joi.number().required(),
       dob: Joi.date().raw().required(),
       password: Joi.string().min(5).required(),
-      confirmPassword: Joi.string().required().valid(Joi.ref('password')),                     
+      confirmPassword: Joi.string().required().valid(Joi.ref('password')),
+    });
+
+    const validation = schema.validate(req.body);
+    if (validation.error) {
+      res.status(400).send({ message: validation.error.message });
+      return;
+    }
+    const data = validation.value;
+    const result = await signupUser(data);
+    if (result.success) {
+      return res.status(200).json({
+        success: true,
+        message: 'Register Success',
+        result: result.result,
+      });
+    } else {
+      return res.status(400).send({ message: result.message });
+    }
+  },
+
+  userLogin: async (req, res) => {
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+      password: Joi.string().min(5).required(),
     });
     const validation = schema.validate(req.body);
     if (validation.error) {
-        res.status(400).send({message: validation.error.message});
-        return;
-    } 
-    const data = validation.value;
-    try{
-      const result = await signupUser(data);
-      result.password = undefined;
-      res.status(200).send({success:1,result});
-    }catch(error){
-      res.status(error.code || 409).send({message: error.message});
+      res.status(400).send({ message: validation.error.message });
+      return;
     }
-  },
-  userLogin: async (req, res) => { 
+    const body = validation.value;
 
     const result = await loginUser(req.body);
     if (result.success) {
@@ -48,30 +65,62 @@ module.exports = {
   },
 
   forgotPassword: async (req, res) => {
-    //fetch userID to update
-    //let userID = req.params.id;
-    //what need to update
-    const { email, password, confirmPassword } = req.body;
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+    });
+    const validation = schema.validate(req.body);
+    const data = validation.value;
 
-    //after updated assign new value
-    const updatePatient = {
-      email,
-      password,
-      confirmPassword,
-    };
+    const result = await forgotPassword(data);
 
-    const salt = genSaltSync(10); //hashing password to save the user
-    updatePatient.password = hashSync(updatePatient.password, salt);
-
-    await User.findOneAndUpdate({ email }, updatePatient)
-      .then((update) => {
-        res.status(200).send({ status: 'user updated', user: update });
-      })
-      .catch((err) => {
-        console.log(err);
-        res
-          .status(500)
-          .send({ status: 'Error with updating data', error: err.message });
+    if (result.success) {
+      return res.status(200).json({
+        success: true,
+        message:
+          'Password Reset link has been successfully sent to your email!',
+        response: result.response,
       });
+    } else {
+      return res.status(400).send({ message: result.message });
+    }
+  },
+
+  resetPassword: async (req, res) => {
+    const schema = Joi.object({ password: Joi.string().min(5).required() });
+
+    const validation = schema.validate(req.body);
+    const data = validation.value;
+
+    console.log(data);
+    const result = await resetPassword({
+      userId: data.userId,
+      password: data.password,
+      token: data.token,
+    });
+
+    if (result.success) {
+      return res.status(200).json({
+        success: true,
+        message: result.message,
+      });
+    } else {
+      return res.status(400).send({ message: result.message });
+    }
+  },
+
+  resetPasswordValid: async (req, res) => {
+    const result = await resetPasswordValid({
+      userId: req.params.userId,
+      token: req.params.token,
+    });
+
+    if (result.success) {
+      return res.status(200).json({
+        success: true,
+        message: result.message,
+      });
+    } else {
+      return res.status(400).send({ message: result.message });
+    }
   },
 };

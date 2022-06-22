@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+require('dotenv').config();
 
 global.__basedir = __dirname;
 
@@ -27,7 +28,6 @@ connection.once('open', () => {
 const userRouter = require('./routes/user.route.js');
 const doctorProfileRouter = require('./routes/doctor.profile.route.js');
 const fileRouter = require('./routes/medicalreport.route.js');
-const forgot_Password = require('./routes/forgotPassword');
 const reset_Password = require('./routes/resetPassword');
 const update_PasswordViaEmail = require('./routes/updatePasswordViaEmail');
 
@@ -35,9 +35,8 @@ app.use('/user', userRouter);
 app.use('/doctor', doctorProfileRouter);
 app.use('/uploadfile', fileRouter);
 app.use('/email', fileRouter);
-app.use('/forgotpassword',forgot_Password);
-app.use('/resetpassword',reset_Password);
-app.use('/updatepassword',update_PasswordViaEmail);
+app.use('/resetpassword', reset_Password);
+app.use('/updatepassword', update_PasswordViaEmail);
 
 //listen to PORT
 // app.listen(4000, () =>
