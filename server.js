@@ -46,11 +46,6 @@ app.use("/payment",paymentRouter);
 app.use("/LabReport", labReportRouter);
 app.use("/schedule", newScheduleRouter);
 
-//listen to PORT
-// app.listen(4000, () =>
-//   console.log('Example app listening on port no: 4000!'),
-// );
-
 //SendSMS using vonage
 const Vonage = require('@vonage/server-sdk');
 
