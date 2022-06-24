@@ -1,0 +1,21 @@
+.hmbger {
+  color: white;
+  float: right;
+}
+
+/*
+@media screen and (max-width: 768px) {
+  .hmbger {
+    color: white;
+    float: left;
+    margin-right: 10px;
+  }
+}*/
+
+.mainheader {
+  background-color: #578cca;    
+}
+
+#homeicon {
+  color: white;
+}
