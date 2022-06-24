@@ -13,6 +13,13 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
+app.all('*', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  //...
+});
+
 const URL = process.env.MONGODB_URL;
 
 //create connection with mongodb
