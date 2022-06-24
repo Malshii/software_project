@@ -4,6 +4,7 @@ const {profileDoctor}  = require("../services/doctor.profile.service");
 module.exports = {  
   AddDoctorProile: async (req,res) => {
     const schema1 = Joi.object({ 
+      id: Joi.object().required(),
       registrationNumber: Joi.string().required(),  
       university: Joi.string().required(),
       degree: Joi.string().required(),

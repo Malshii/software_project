@@ -28,11 +28,23 @@ connection.once('open', () => {
 const userRouter = require('./routes/user.route.js');
 const doctorProfileRouter = require('./routes/doctor.profile.route.js');
 const fileRouter = require('./routes/medicalreport.route.js');
+const physicalPatientRouter = require("./routes/physicalPatient.profile.route.js");
+const onlinePatientRouter = require("./routes/onlinePatient.profile.route.js");
+const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
+const paymentRouter = require("./routes/payment.route.js");
+const labReportRouter = require("./routes/LabReport.route.js");
+const newScheduleRouter = require("./routes/newSchedule.route.js");
 
 app.use('/user', userRouter);
 app.use('/doctor', doctorProfileRouter);
 app.use('/uploadfile', fileRouter);
 app.use('/email', fileRouter);
+app.use("/physicalPatient",physicalPatientRouter);
+app.use("/onlinePatient",onlinePatientRouter);
+app.use("/checkupDetails",chechupDetailsRouter);
+app.use("/payment",paymentRouter);
+app.use("/LabReport", labReportRouter);
+app.use("/schedule", newScheduleRouter);
 
 //listen to PORT
 // app.listen(4000, () =>
