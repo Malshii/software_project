@@ -32,7 +32,7 @@ const physicalPatientRouter = require("./routes/physicalPatient.profile.route.js
 const onlinePatientRouter = require("./routes/onlinePatient.profile.route.js");
 const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
 const paymentRouter = require("./routes/payment.route.js");
-const labReportRouter = require("./routes/LabReport.route.js");
+const labReportRouter = require("./routes/labReport.route.js");
 const newScheduleRouter = require("./routes/newSchedule.route.js");
 
 app.use('/user', userRouter);
