@@ -2,21 +2,20 @@
     background-image: url( "https://wallpaperaccess.com/full/7284323.jpg");
 }
 .was-validated{
-    background: #E3F0FF;
+    background: #5884b6;
     box-sizing: border-box;
     border: 2px solid #6d9ace;
     border-radius: 5px;
     font-size: 16px; 
     font-family:Arial, Helvetica, sans-serif;
-    width: 800px; 
+    width: 800%; 
     position: absolute;
-    padding: 3px 50px;
+    padding: 3% 50%;
     align-tracks:center;
     margin-top: 2%;
-    margin-left: 15%;  
-    margin-right: 25%;
+    margin-left: 25%;  
+    margin-right: 30%;
     margin-bottom: 30%;
-    box-shadow: 2px 5px 4px 5px #c4c9c9;
    
 
 }
@@ -52,9 +51,13 @@
 
 .btn-btn-primary{
     background: #7ea4cf;
-    border-radius: 5px;
-    padding: 5px 50px;
+    border-radius: 5%;
+    padding: 5% 50%;
     align-items: right;
     line-break: auto;
+}
+
+.p_text{
+    color: rgb(237, 59, 59);
 }
 

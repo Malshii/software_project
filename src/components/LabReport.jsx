@@ -1,19 +1,19 @@
 import React from "react";
-import '../components/UploadLabReport.css';
+import '../components/LabReport.css';
 import NavBar from "./navigationbar";
-import SearchBar from "./SearchBar";
+//import SearchBar from "./SearchBar";
 import AfterloginFutter from "./AfterloginFutter";
 
-function UploadLabReport(){
+function LabReport(){
     return(
 
         <>
       <div className="form-body-up">
       <NavBar/>
-      <SearchBar/>
+     {/* <SearchBar/>*/}
       
     
-      <div className="form" >
+      <div className="form_1" >
       <div className="container">
       <form className="form-style">
       <div class="input-icons">
@@ -65,4 +65,4 @@ function UploadLabReport(){
         
     )
 }
-export default UploadLabReport;
+export default LabReport;
