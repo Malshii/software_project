@@ -6,11 +6,11 @@ import { MdSettingsPower } from "react-icons/md";
 import { AiTwotoneSetting } from "react-icons/ai";
 import { AiOutlineHistory } from "react-icons/ai";
 
-function Navbar() {
-return (	
+export default function Navbar() {
+return (
 	<Dropdown>
 		<Dropdown.Toggle>
-		<BsPersonCircle/>
+		<BsPersonCircle color='white'/>
 		</Dropdown.Toggle>
 		<Dropdown.Menu>
 		<Dropdown.Item href="/Doctorprofile">
@@ -23,10 +23,10 @@ return (
 			<AiTwotoneSetting/>  &nbsp;Account Setting
 		</Dropdown.Item>
 		<Dropdown.Item href="#">
-			<MdSettingsPower/>  &nbsp; Logout 
+			<MdSettingsPower color='red'/>  &nbsp; Logout
 		</Dropdown.Item>
 		</Dropdown.Menu>
-	</Dropdown>	
+	</Dropdown>
 );
 }
-export default Navbar;
+

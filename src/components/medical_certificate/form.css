@@ -1,0 +1,171 @@
+body{
+    background: #DBECFF;
+    min-height: 100vh;
+    font-family: Roboto;
+
+}
+
+h2{
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #578CCA;
+}
+
+h6{
+    text-align: center;
+  }
+
+/*Form*/
+.shadow{
+
+    width: 400px;
+    height: 650px;
+    position: absolute;
+    margin: 5% 0 0 35%;
+    background: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px
+}
+
+.shadowLogin{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    margin: 5% 0 0 35%;
+    background: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px
+}
+
+.form-control{
+    background: #E3F0FF;
+    border: 2px solid #578CCA;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.form-check{
+    text-align: center;
+}
+
+button.signup{
+    background: #578CCA;
+    border-radius: 15px;
+    padding: 5px 105px;
+}
+
+.col{
+    text-align: center;
+}
+
+
+/*First Navbar*/
+#nav1{
+    background-color: #578CCA;
+}
+
+/*Third Navbar*/
+#nav3 a:hover{
+    background-color: #85a0be;
+}
+
+/*Footer*/
+footer{
+    margin-top: 800px;
+}
+
+#button-addon1 {
+    color: white
+}
+
+i {
+    color: white;
+    font-size: 20px
+}
+
+.footer-bg{
+    background-color: #578CCA;;
+}
+
+.footer-c{
+    background-color: rgba(112, 172, 242, 0.5);;
+}
+
+
+.profille_vertical_line{
+    border-left: 6px solid rgba(112, 172, 242, 0.5);
+    height: 75%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    margin-top: 15%;
+    margin-bottom: 20%;
+    top: 0;
+}
+
+.fullsidebar{
+    height: 100%;
+    width: 150px;
+    background-color: #0e2642;
+}
+
+.doc_footer{
+    margin-bottom: 0%;
+    margin-top: 5%;
+
+}
+
+.Doctor_reg_view{
+
+    height: 100%;
+    width:100% ;
+}
+
+.formDoc{
+
+    background-image: url('./img/234.jpg.jpg');
+    box-shadow: 2px 5px 4px 5px #c4c9c9;
+    padding: 5%;
+     margin-top: 2%;
+     margin-left: 32%;
+     margin-right: 25%;
+     margin-bottom: 30%;
+   position:absolute;
+}
+
+#submit{
+    color: green;
+  }
+  .custom-svg{
+    color: rgb(76, 0, 255);
+  }
+  .formDoc{
+    background-color: #abcdf3;
+    box-shadow: 2px 5px 4px 5px #c4c9c9;
+    padding: 5%;
+     margin-top: 2%;
+     margin-left: 32%;
+     margin-right: 25%;
+     margin-bottom: 30%;
+   position:absolute;
+}
+.Doctor_reg_view{
+    background-image: url("./img/RegisterDoctor.jpg.jpg");
+    height: 100%;
+    width:100% ;
+}
+
+.Doctor_reg_view_1{
+    background-image: url("./img/reg_doctor.jpg");
+    height: 100%;
+    width:100% ;
+}
+
+.Doctor_reg_view_2{
+    background-image: url("./img/234.jpg.jpg");
+    height: 100%;
+    width:100% ;
+}

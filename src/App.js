@@ -42,6 +42,19 @@ import Payment from "./components/Payment";
 import Reci from "./components/Reci";
 import Dog from "./components/Dog";
 import Kol from "./components/Kol";
+import ChatArea from './components/chat/ChatArea.js';
+import Signaturepadarea from './components/Signaturepad';
+import ReqMedicalReportList from './components/medical_certificate/reqest_medical';
+import CanReqestMedicalCertificate from './components/medical_certificate/RequestMedicalForPatients';
+import MedicalCertificate from './components/medical_certificate/medicalCertificate';
+import MedicalIssueForm from './components/medical_certificate/doctorIssueForm';
+import Patientreq_view from './components/medical_certificate/patientrequestview';
+import ReqestForm from './components/medical_certificate/reqestform';
+import UserresView from './components/medical_certificate/PatentResView';
+import Imguplad from './components/medical_certificate/imgUpload';
+import ImageView from './components/medical_certificate/ImgView';
+import RecepView from './components/medical_certificate/RecepView';
+
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
     flexGrow: 1,
@@ -70,6 +83,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const drawerWidth = 300;
 
+
+//RecepView
+//Card
 const App=()=> {
     const [open, setOpen] = React.useState(false);
     return (
@@ -95,7 +111,6 @@ const App=()=> {
                                     <Route exact path="/uploadLabReport"  element={<LabReport/>}/>
                                     <Route exact path="/history"  element={<History/>}/>
                                     <Route exact path="/nav"  element={<NavBar/>}/>
-
                                     <Route exact path="/rohitha"  element={<Rohitha/>}/>
                                     <Route exact path="/reciNav"  element={<ReciNavBar/>}/>
                                     <Route exact path="/allAppointment"  element={<AllAppointment/>}/>
@@ -103,11 +118,22 @@ const App=()=> {
                                     <Route exact path="/labReportList"  element={<LabReportList/>}/>
                                     <Route exact path="/labReportIssue"  element={<LabReportIssue/>}/>
                                     <Route exact path="/requestLabReport"  element={<RequestLabReport/>}/>
-
                                     <Route exact path="/payment"  element={<Payment/>}/>
                                     <Route exact path="/viewDoctorsProfile"  element={<ViewDoctorsProfile/>}/>
                                     <Route exact path="/dog"  element={<Dog/>}/>
                                     <Route exact path="/kol"  element={<Kol/>}/>
+                                    <Route exact path="/ChatArea"  element={<ChatArea/>}/>
+                                    <Route exact path="/Signaturepad"  element={<Signaturepadarea/>}/>
+                                    <Route exact path="/ReqMedicalReportList"  element={<ReqMedicalReportList/>}/>
+                                    <Route exact path="/CanReqestMedicalCertificate"  element={<CanReqestMedicalCertificate/>}/>
+                                    <Route exact path="/MedicalCertificate"  element={<MedicalCertificate/>}/>
+                                    <Route exact path="/MedicalIssueForm"  element={<MedicalIssueForm/>}/>
+                                    <Route exact path="/Patientreq_view"  element={<Patientreq_view/>}/>
+                                    <Route exact path="/ReqestForm"  element={<ReqestForm/>}/>
+                                    <Route exact path="/UserresView"  element={<UserresView/>}/>
+                                    <Route exact path="/Img_uplad"  element={<Imguplad/>}/>
+                                    <Route exact path="/ImageView"  element={<ImageView/>}/>
+                                    <Route exact path="/RecepView"  element={<RecepView/>}/>
                                 </Route>
                             </React.Fragment>
                         </Routes>

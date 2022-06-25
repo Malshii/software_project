@@ -92,3 +92,51 @@ i {
 .footer-c{
   background-color: rgba(112, 172, 242, 0.5);;
 }
+
+
+.profille_vertical_line{
+    border-left: 6px solid rgba(112, 172, 242, 0.5);
+    height: 75%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    margin-top: 15%;
+    margin-bottom: 20%;
+    top: 0;
+}
+
+.fullsidebar{
+    height: 100%;
+    width: 150px;
+    background-color: #0e2642;
+}
+
+.doc_footer{
+    margin-bottom: 0%;
+    margin-top: 5%;
+
+}
+
+.Doctor_reg_view{
+    background-image: url("../public/RegisterDoctor.jpg.jpg");
+    height: 100%;
+    width:100% ;
+}
+
+.formDoc{
+    background-color: #abcdf3;
+    box-shadow: 2px 5px 4px 5px #c4c9c9;
+    padding: 5%;
+     margin-top: 2%;
+     margin-left: 32%;
+     margin-right: 25%;
+     margin-bottom: 30%;
+   position:absolute;
+}
+
+#submit{
+    color: green;
+  }
+  svg{
+    color: rgb(76, 0, 255);
+  }

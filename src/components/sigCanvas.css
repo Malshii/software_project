@@ -1,0 +1,30 @@
+.signatureCanva{
+    border: 1px solid black;
+    background-color: aliceblue;
+    width: 100%;
+    min-height: 500px;
+}
+.sigapp{
+    /*background-image: url('C:\Users\User\Desktop\frontend\software_project\public\doc_reges.jpg');*/
+    background-image: url('../../public/doc_reges.jpg');
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+}
+
+.cbutton{
+    align-self:center;
+    margin-left: 45%;
+    margin-bottom: 40%;
+
+}
+.belowtext{
+    text-align:left;
+    font-size:larger;
+    color: rgb(7, 12, 14);
+
+}
+.abovetext{
+    text-align: center;
+}
