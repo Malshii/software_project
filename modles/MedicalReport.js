@@ -44,7 +44,7 @@ const medicalSchema=new Schema({
     },
     other_recomendation:{
         type:String,
-        required: false
+       
     },
     recemendedDateDuration:{
         type:Number,

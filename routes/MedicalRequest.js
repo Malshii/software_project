@@ -1,4 +1,5 @@
 const router= require("express").Router();
+//const {v4,uuid4}=require("uu")
 //const multer=require("multer");
 let Medicalreq=require("../modles/MedicalRequest");
 router.route("/add").post((req,res)=>{
@@ -8,7 +9,12 @@ router.route("/add").post((req,res)=>{
     const appoinment_id=req.body.appoinment_id;
     const workingplace=req.body.workingplace;
     const medical_status=req.body.medical_status;
+    const first_name=req.body.first_name;
+    const last_name=req.body.last_name;
+    const address=req.body.address;//first_name//last_name//address
     const reqestedDate=req.body.reqestedDate;
+    const Effected_Date=req.body.Effected_Date;
+    const Imageurl=req.body.Imageurl;
     
 
     const newmedicalreq=new Medicalreq({
@@ -18,7 +24,12 @@ router.route("/add").post((req,res)=>{
         appoinment_id,
         workingplace,
         medical_status,
-        reqestedDate
+        first_name,
+        last_name,
+        address,
+        reqestedDate,
+        Imageurl,
+        Effected_Date
     })
 
 //data add 
@@ -41,7 +52,7 @@ router.route("/").get((req,res)=>{
 //update
 router.route("/update/:id").put(async(req,res)=>{
     let medicalreqId=req.params.id;
-    const{User_id,Doc_id,appoinment_id,workingplace,medical_status,reqestedDate}=req.body;
+    const{User_id,Doc_id,appoinment_id,workingplace,medical_status,first_name,last_name,address,reqestedDate,Imageurl,Effected_Date}=req.body;//first_name//last_name//address//Effected_Date
 
     const updateMedicalreq={
         User_id,
@@ -49,7 +60,12 @@ router.route("/update/:id").put(async(req,res)=>{
         appoinment_id,
         workingplace,
         medical_status,
-        reqestedDate
+        first_name,
+        last_name,
+        address,
+        reqestedDate,
+        Imageurl,
+        Effected_Date
     }
 
     const update=await Medicalreq.findByIdAndUpdate(medicalreqId,updateMedicalreq).then(()=>{

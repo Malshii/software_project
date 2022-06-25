@@ -6,30 +6,51 @@ const medicalreqSchema=new Schema({
     
     User_id:{
         type:String,
-        required: true
+        
     },
 
     Doc_id:{
         type:String,
-        required: true
+        
     },
     appoinment_id:{
         type:String,
-        required: true
+        
     },
     workingplace:{
         type:String,
-        required: true
+        
     },
    
     medical_status:{
         type:String,
-        required: true
+        
+    },
+    first_name:{
+        type:String,
+        
+    },
+    last_name:{
+        type:String,
+        
+    },
+    address:{
+        type:String,
+        
+    },
+    Imageurl:{
+        type:String,
+        
     },
     reqestedDate:{
         type :Date,
-        required: true
+        
+    },
+    Effected_Date:{
+        type :Date,
+        
     }
+
     
 })
 

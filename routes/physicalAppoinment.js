@@ -11,6 +11,17 @@ router.route("/add").post((req,res)=>{
     const age=Number(req.body.age);
     const mobileno=Number(req.body.mobileno);
     const address=req.body.address;
+    const Doc_id=req.body.Doc_id;
+    const patientId=req.body.patientId;
+    const markstatus1=req.body.markstatus1;
+    /*Doc_id
+:"62b05bd025c59c8cdd5bc318"
+patientId
+:
+"62b0ee748e1a2b8fb0751ece"
+status
+:
+"enable" */
 
     const newphysicalAppintment=new PhysicalAppintment({
 
@@ -22,7 +33,10 @@ router.route("/add").post((req,res)=>{
         lastname,
         age,
         mobileno,
-        address
+        address,
+        Doc_id,
+        patientId,
+        markstatus1
     })
 
 //data add 
@@ -45,7 +59,7 @@ router.route("/").get((req,res)=>{
 //update
 router.route("/update/:id").put(async(req,res)=>{
     let userId=req.params.id;
-    const{specialization,doctorname,date,charges,firstname,lastname,age,mobileno,address}=req.body;
+    const{specialization,doctorname,date,charges,firstname,lastname,age,mobileno,address,Doc_id,patientId,markstatus1}=req.body;
 
     const updatephysicalAppoinment={
         specialization,
@@ -56,9 +70,12 @@ router.route("/update/:id").put(async(req,res)=>{
         lastname,
         age,
         mobileno,
-        address
+        address,
+        Doc_id,
+        patientId,
+        markstatus1
     }
-
+    
     const update=await PhysicalAppintment.findByIdAndUpdate(userId,updatephysicalAppoinment).then(()=>{
         res.status(200).send({status:"user update"})
     }).catch((err)=>{
