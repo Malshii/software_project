@@ -14,11 +14,15 @@ const patientSchema  = new mongoose.Schema({
         minlength: 5,
         maxlength: 50
     },
+    doctorId: {
+        type: String   
+    },
 
     date:{
         type: Date,
         required:true
     },
+    
     charges:{
         type: Number,
         required:true

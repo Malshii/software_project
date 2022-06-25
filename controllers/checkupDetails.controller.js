@@ -6,11 +6,15 @@ module.exports = {
         const schema = Joi.object({ 
           firstname:Joi.string().min(5).max(50).required(),
           lastname:Joi.string().min(5).max(50).required(),
+          collectedDate:Joi.date().required(),
           dob:Joi.date().required(),
           age:Joi.number().required(),
           mobileno:Joi.number().required(), 
           email : Joi.string().email().required(), 
-          address : Joi.string().required(),                                    
+          address : Joi.string().required(),
+          report_status : Joi.string().required(),   
+          issuedDate:Joi.date(),  
+          description : Joi.string(),                               
         });
         const validation = schema.validate(req.body);
         if (validation.error) {

@@ -6,6 +6,7 @@ module.exports = {
         const schema = Joi.object({ 
           category:Joi.string().min(5).max(50).required(),
           doctorname : Joi.string().min(5).max(50).required(),
+          doctorId : Joi.string(),
           date : Joi.date().required(),
           charges:Joi.number().required(),
           firstname:Joi.string().min(5).max(50).required(),

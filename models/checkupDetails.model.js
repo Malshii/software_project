@@ -16,6 +16,13 @@ const checkupDetailsSchema  = new mongoose.Schema({
         maxlength: 50
     },
 
+    
+
+    collectedDate:{
+        type:Date,
+        required: true
+    },
+
     dob:{
         type: Date,
         required:true
@@ -41,7 +48,18 @@ const checkupDetailsSchema  = new mongoose.Schema({
      address:{
         type: String,
         required:true
-    },       
+    },     
+    
+    report_status:{
+        type: String,
+        required:true
+    },
+    issuedDate:{
+        type: Date
+    },
+    description:{
+        type: String
+    }
 })
 
 

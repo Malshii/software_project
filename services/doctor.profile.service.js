@@ -24,6 +24,19 @@ module.exports = {
         });
     }, 
 
+    //find a doctor category
+    findDoctorCategory : async (req, res) => {
+        DoctorProfile.find({category:req.params.id})
+          .then(dProfile => {
+              res.send(dProfile);
+          }).catch(err => {
+              res.status(500).send({
+                  message: err.message || 
+                    "Some error occurred while retrieving doctors' profiles."
+              });
+        });
+    }, 
+
     // Find a single doctor with a id    
     findOneDoctorProfile : async (req, res) => {
         DoctorProfile.findById(req.params.id)

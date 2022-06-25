@@ -11,6 +11,9 @@ router.post('/addProfile', doctorProfileController.AddDoctorProile);
 //localhost:4000/profile/displaydoctors
 router.get('/displaydoctors', doctorProfileService.findAllDoctorProfile);
 
+//Get Doctor Category
+router.get('/displaydoctorscategory/:id', doctorProfileService.findDoctorCategory);
+
 //Get One Doctor profile 
 //localhost:4000/profile/doctorprofile/:id
 router.get('/doctorprofile/:id', doctorProfileService.findOneDoctorProfile);
