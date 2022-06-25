@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from 'firebase/compat/app';
-import {auth} from '../firabase'
+import {auth} from './firabase'
 
  function Signin(){
    function singinwithgoogle(){

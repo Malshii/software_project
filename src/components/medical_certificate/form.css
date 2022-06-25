@@ -2,6 +2,7 @@ body{
     background: #DBECFF;
     min-height: 100vh; 
     font-family: Roboto;  
+    
 }
 
 h2{    
@@ -125,7 +126,7 @@ i {
 
 .formDoc{
     
-    background-image: url("C:\Users\User\Desktop\frontend\software_project\public\RegisterDoctor.jpg.jpg");
+    background-image: url('./img/234.jpg.jpg');
     box-shadow: 2px 5px 4px 5px #c4c9c9;
     padding: 5%;
      margin-top: 2%;
@@ -141,3 +142,30 @@ i {
   svg{
     color: rgb(76, 0, 255);
   }
+  .formDoc{
+    background-color: #abcdf3;
+    box-shadow: 2px 5px 4px 5px #c4c9c9;
+    padding: 5%;
+     margin-top: 2%;
+     margin-left: 32%;
+     margin-right: 25%;
+     margin-bottom: 30%;
+   position:absolute;
+}
+.Doctor_reg_view{
+    background-image: url("./img/RegisterDoctor.jpg.jpg");
+    height: 100%;
+    width:100% ;
+}
+
+.Doctor_reg_view_1{
+    background-image: url("./img/reg_doctor.jpg");
+    height: 100%;
+    width:100% ;
+}
+
+.Doctor_reg_view_2{
+    background-image: url("./img/234.jpg.jpg");
+    height: 100%;
+    width:100% ;
+}

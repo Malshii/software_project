@@ -17,7 +17,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 
 
-function ReqMedicalReportList() {
+function RecepView() {
     let navigate = useNavigate();
     var doctor_id = "62b05bd025c59c8cdd5bc318";
     var x = "doc_id=" + doctor_id;
@@ -62,7 +62,7 @@ function ReqMedicalReportList() {
 
         console.log(e.target.value);
         var filteredData = users.filter((users) => {
-            return users.medical_status == "validated" && users.Doc_id == doctor_id;
+            return users.medical_status == "notValidated" ;
         })
 
         setFilterData(
@@ -72,21 +72,8 @@ function ReqMedicalReportList() {
 
 
     }
-    const Filtermedicals = (e) => {
-
-        console.log(e.target.value);
-        var filteredData = users.filter((users) => {
-            return users.medical_status == "finished";
-        })
-
-        setCertificate(
-
-            filteredData
-        );
-
-
-    }
-
+    
+    
     const mystyle = {
         background: 'linear-gradient(to right, #0093AB, #9dc6e0)'
     }
@@ -96,9 +83,10 @@ function ReqMedicalReportList() {
     const mystyle2 = {
         background: 'linear-gradient(to right, #C83B3D ,#E7787A)'
     }
+    
 
     return (
-        <div className="Doctor_reg_view_1">
+        <div className="Doctor_reg_view_2">
             <HeaderDoctorProfile />
 
             <div style={styles.contentDiv}>
@@ -151,28 +139,38 @@ function ReqMedicalReportList() {
                                         </td>
                                         <td>&emsp; &emsp;</td>
                                         <td>
-                                            <button type="button" formMethod="post" class="btn btn-dark" value={ce.id} on onClick={() => { navigate(`/MedicalIssueForm?uniqid=${ce._id}&doc_id=${doctor_id}&id=${ce.User_id}&appinmentid=${ce.appoinment_id}&u_name=${ce.first_name}&l_name=${ce.last_name}&add=${ce.address}&company=${ce.workingplace}&reqd=${ce.reqestedDate}&e_d=${ce.Effected_Date}`) }}>< FaArrowUp
+                                            <button type="button" formMethod="post" class="btn btn-success" value={ce.id} onClick={()=>{
+                                                  var medical_status = "validated";
+                                                  const updateMedical = {
+                                                      medical_status
+                                                  }
+                                                  axios.put(`http://localhost:4004/MedicalRequests/update/${ce._id}`, updateMedical).then(() => {
+                                                      alert("reqest validated")
+                                                  }).catch((err) => {
+                                                      alert(err)
+                                                  })  
+                                                }}>< FaArrowUp
 
                                                 color='white'
-                                                size={25} />&nbsp;Issue Certificate</button> &nbsp;
+                                                size={25} />&nbsp;Conform Reqest</button> &nbsp;
                                         </td>
                                         <td>&emsp; &emsp;</td>
                                         <td>
                                             <form>
 
-                                                <button type="button" class="btn btn-danger" onClick={() => {
-                                                    var medical_status = "rejected";
-                                                    const updateMedical = {
-                                                        medical_status
-                                                    }
-                                                    axios.put(`http://localhost:4004/MedicalRequests/update/${ce._id}`, updateMedical).then(() => {
-                                                        alert("reqest rejected")
-                                                    }).catch((err) => {
-                                                        alert(err)
-                                                    })
+                                                <button type="button" class="btn btn-danger" value={ce._id}  onClick={()=>{
+                                                  var medical_status = "rejected";
+                                                  const updateMedical = {
+                                                      medical_status
+                                                  }
+                                                  axios.put(`http://localhost:4004/MedicalRequests/update/${ce._id}`, updateMedical).then(() => {
+                                                      alert("reqest rejected")
+                                                  }).catch((err) => {
+                                                      alert(err)
+                                                  })  
                                                 }} ><FaTimesCircle
-                                                        color='white'
-                                                        size={25} />&nbsp;Reject request</button>
+                                                    color='white'
+                                                    size={25} />&nbsp;Reject request</button>
                                             </form>
 
 
@@ -189,60 +187,6 @@ function ReqMedicalReportList() {
 
                     </div>
                     <br></br>
-                    <div className="container">
-
-                        <div className="scheduletableH" style={mystyle}>
-                            <h4>Issueded Medical Report Reqest </h4>
-                        </div>
-                        <div>
-                            <button onClick={Filtermedicals} class="btn btn-success"><BiRefresh
-                                color='white'
-                                size={25} />Refresh records</button>
-                        </div>
-                        <table className="scheduletable">
-
-                            {Certificate.map((ce) => (
-                                <div key={ce.id}>
-                                    <tr>
-                                        <th>Patient Name</th>
-                                        <th>&emsp; &emsp;</th>
-                                        <th>Date</th>
-                                        <th>&emsp; &emsp;</th>
-                                        <th>Medical Certificate</th>
-                                        <th>&emsp; &emsp;</th>
-
-
-                                    </tr>
-
-
-                                    <tr>
-                                        <td >
-                                            {ce.first_name}&nbsp;
-                                        </td>
-                                        <td>&emsp; &emsp;</td>
-                                        <td>
-                                            {ce.reqestedDate}
-                                        </td>
-                                        <td>&emsp; &emsp;</td>
-                                        <td>
-
-                                            <button type="button" formMethod="post" class="btn btn-secondary" on onClick={() => { navigate(`/MedicalCertificate?doc_id=${ce.Doc_id}&id=${ce.User_id}&appinmentid=${ce.appoinment_id}`) }} target="_blank"> Learn more&nbsp;<FiMoreHorizontal
-                                                color='white'
-                                                size={25} /></button> &nbsp;
-
-                                        </td>
-
-                                    </tr>
-
-
-
-                                </div>
-                            ))}
-
-
-                        </table>
-
-                    </div>
 
                 </div>
             </div >
@@ -260,7 +204,7 @@ function ReqMedicalReportList() {
     );
 }
 
-export default ReqMedicalReportList;
+export default RecepView;
 //on onClick={() => { navigate(`/ImageView?appinmentid=${ce.appoinment_id}`)}}
 //<a href="/MedicalCertificate/?id=12345" ></a>
 //on onClick={() => { navigate(`/MedicalCertificate?doc_id=${ce.Doc_id}&id=${ce.User_id}&appinmentid=${ce.appoinment_id}`)}} 

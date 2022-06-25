@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { db, auth } from '../firabase'
+import { db, auth } from './firabase'
 import firebase from 'firebase/compat/app';
 //import { Input, Button } from '@material-ui/core'
 

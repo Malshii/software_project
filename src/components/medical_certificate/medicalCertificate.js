@@ -68,7 +68,7 @@ function MedicalCertificate() {
                             <h2>Chamal Medicare</h2>
                             <h4>chamal,Meegahathanna.</h4>
                             <h1>MEDICAL CERTIFICATE</h1>
-
+                            
                         </td>
                     </tr>
                     <tr>

@@ -1,5 +1,5 @@
 import React from "react";
-import {auth} from '../firabase'
+import {auth} from './firabase'
 
  function SignOut(){
      return(

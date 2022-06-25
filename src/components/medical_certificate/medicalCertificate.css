@@ -32,3 +32,24 @@ h4{
     text-align: center;
 }
 
+.patientreqview{
+    background-image: url('C:\Users\User\Desktop\frontend\software_project\public\RegisterDoctor.jpg.jpg');
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    filter: brightness(10%);
+   filter: contrast(120%);
+}
+
+.watermark { position: relative; }
+.watermark::after { position: absolute; bottom: 0; right: 0; }
+
+.img1 {
+    border-radius: 0%;
+    width:480px;height:480px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  }
