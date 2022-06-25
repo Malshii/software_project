@@ -1,0 +1,38 @@
+.card-body {
+    font-size: 19px;
+    text-Align: 'justify';
+    line-Height: 1.5;
+    color: rgb(3, 24, 74); 
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url( "https://media.istockphoto.com/vectors/abstract-geometric-medical-cross-shape-medicine-and-science-concept-vector-id911633218?k=20&m=911633218&s=612x612&w=0&h=B79KF2ZS-VbB_9valjf3xkrCrdKLCP0cyQa7G7YWWd8=");
+}
+
+.card-header h5{
+    font-size: 22px;
+    font-weight: bold; 
+    text-Align: 'justify';
+    line-Height: 4;
+    color: rgb(255, 255, 255); 
+}
+
+.para-body {
+    font-size: 19px;
+    font-weight: bold; 
+    text-Align: 'justify';
+    color: rgb(76, 76, 80); 
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(209, 243, 243);
+}
+
+.custom-control {
+    font-size: 16px;
+    text-Align: 'justify';
+    line-Height: 2.5;
+    color: rgb(24, 115, 113); 
+}
+
+.header h1{
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(26, 17, 84); 
+}

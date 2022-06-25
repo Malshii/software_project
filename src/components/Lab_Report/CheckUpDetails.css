@@ -1,0 +1,60 @@
+.ckeck-up-form{
+    background-image: url( "https://wallpapercave.com/wp/wp8800422.jpg");
+}
+.was-validated{
+    background: #E3F0FF;
+    box-sizing: border-box;
+    border:a 2px solid #6d9ace;
+    border-radius: 5px;
+    font-size: 16px; 
+    font-family:Arial, Helvetica, sans-serif;
+    width: 800px; 
+    position: absolute;
+    padding: 3px 50px;
+    align-tracks:center;
+    margin-top: 2%;
+    margin-left: 15%;  
+    margin-right: 25%;
+    margin-bottom: 30%;
+    box-shadow: 2px 5px 4px 5px #c4c9c9;
+   
+
+}
+.text{
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #578CCA;
+    line-height: 3.5;
+}
+
+.form-group{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria; 
+}
+
+.col-md-6{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria
+}
+
+.row-md-6{
+    font-style: normal;
+    font-weight: bold;
+    color: #245fa3;
+    font-family:cambria
+}
+
+
+.btn-btn-primary{
+    background: #7ea4cf;
+    border-radius: 5px;
+    padding: 5px 50px;
+    align-items: right;
+    line-break: auto;
+}
+

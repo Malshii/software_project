@@ -15,12 +15,6 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import MaterialThemeProvider from "./components/contexts/ThemeContext";
 
-// const theme = createTheme({
-//     palette: {
-//         mode: 'light',
-//     },
-// });
-
 const sagaMiddleware = createSagaMiddleware();
 
 //'sagaMiddleware' to used apply middlewares to our store — sagas
@@ -33,6 +27,7 @@ const store = configureStore({
 });
 const persistor = persistStore(store);
 sagaMiddleware.run(rootSaga);
+
 
 ReactDOM.render(
       <Provider store={store}>

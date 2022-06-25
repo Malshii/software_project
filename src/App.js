@@ -20,8 +20,28 @@ import ConfirmNewSchedule from "./components/admin/ConfirmNewSchedule";
 import CheckAppointment from "./components/doctor/CheckAppointment";
 import CheckIncomeDetails from "./components/doctor/CheckIncomeDetails";
 import DisplayData from "./components/DisplayData";
-
-const drawerWidth = 300;
+import PhysicalPatientAdd from "./components/PhysicalPatientAdd";
+import OnlinePatientAdd from "./components/OnlinePatientAdd";
+import ReciCard from "./components/ReciCard";
+import LabCard from "./components/LabCard";
+import AllAppointment from "./components/AllAppointment";
+import Lab from "./components/Lab";
+import History from "./components/History";
+import LabReport from "./components/LabReport";
+import NavBar from "./components/navigationbar";
+import ReciNavBar from "./components/Recinavigationbar";
+import Rohitha from "./components/Rohitha";
+import CheckUpDetails from "./components/Lab_Report/CheckUpDetails";
+import RequestLabReport from "./components/Lab_Report/RequestLabReport";
+import LabReportList from "./components/Lab_Report/LabReportList";
+import LabReportIssue from "./components/Lab_Report/LabReportIssue";
+import ViewDoctorCard from "./components/View_Doctor_Profile/ViewDoctorCard";
+import DisplayDoctorCard from "./components/View_Doctor_Profile/DisplayDoctorCard";
+import ViewDoctorsProfile from "./components/View_Doctor_Profile/ViewDoctorsProfile";
+import Payment from "./components/Payment";
+import Reci from "./components/Reci";
+import Dog from "./components/Dog";
+import Kol from "./components/Kol";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
     flexGrow: 1,
@@ -48,6 +68,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
+const drawerWidth = 300;
+
 const App=()=> {
     const [open, setOpen] = React.useState(false);
     return (
@@ -62,6 +84,30 @@ const App=()=> {
                             <React.Fragment>
                                 <Route path="/" element={<PrivateRoute/>} >
                                     <Route exact path='/' element={<Home/>}/>
+                                    <Route exact path="/physicalpatientAdd"  element={<PhysicalPatientAdd/>}/>
+                                    <Route exact path="/onlinePatientAdd"  element={<OnlinePatientAdd/>}/>
+                                    <Route exact path="/receptionistProfile"  element={<ReciCard/>}/>
+                                    <Route exact path="/viewDoctorCard"  element={<ViewDoctorCard/>}/>
+                                    <Route exact path="/displayDoctorCard/:id"  element={<DisplayDoctorCard/>}/>
+                                    <Route exact path="/labAssistantProfile"  element={<LabCard/>}/>
+                                    <Route exact path="/lab"  element={<Lab/>}/>
+                                    <Route exact path="/reci"  element={<Reci/>}/>
+                                    <Route exact path="/uploadLabReport"  element={<LabReport/>}/>
+                                    <Route exact path="/history"  element={<History/>}/>
+                                    <Route exact path="/nav"  element={<NavBar/>}/>
+
+                                    <Route exact path="/rohitha"  element={<Rohitha/>}/>
+                                    <Route exact path="/reciNav"  element={<ReciNavBar/>}/>
+                                    <Route exact path="/allAppointment"  element={<AllAppointment/>}/>
+                                    <Route exact path="/checkUpDetails"  element={<CheckUpDetails/>}/>
+                                    <Route exact path="/labReportList"  element={<LabReportList/>}/>
+                                    <Route exact path="/labReportIssue"  element={<LabReportIssue/>}/>
+                                    <Route exact path="/requestLabReport"  element={<RequestLabReport/>}/>
+
+                                    <Route exact path="/payment"  element={<Payment/>}/>
+                                    <Route exact path="/viewDoctorsProfile"  element={<ViewDoctorsProfile/>}/>
+                                    <Route exact path="/dog"  element={<Dog/>}/>
+                                    <Route exact path="/kol"  element={<Kol/>}/>
                                 </Route>
                             </React.Fragment>
                         </Routes>
@@ -89,50 +135,4 @@ const App=()=> {
 }
 export default App;
 
-// {/*<React.Fragment>*/}
-// {/*  <PrivateRoute exact path="/dashboard" component={UserDashboard} />*/}
-// {/*  <PrivateRoute exact path="/addNewSchedule"  element={<AddNewSchedule/>}/>*/}
-// {/*  <PrivateRoute exact path="/doctorProfile"  element={<DoctorProfile/>}/>*/}
-// {/*  <PrivateRoute exact path="/checkAppoinment"  element={<CheckAppointment/>}/>*/}
-// {/*  <PrivateRoute exact path="/updateAppointment"  element={<UpdateAppointment/>}/>*/}
-// {/*  <PrivateRoute exact path="/emailSend"  element={<ContactUs/>}/>*/}
-// {/*  <PrivateRoute exact path="/chart"  element={<Dashboard/>}/>*/}
-// {/*  <PrivateRoute exact path="/dashboard/appointmenthistory"  element={<AppointmentHistory/>}/>*/}
-// {/*  <PrivateRoute exact path="/upcomingEvents"  element={<UpcomingEvents/>}/>*/}
-// {/*  <PrivateRoute exact path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>*/}
-// {/*  <PrivateRoute exact path="/markDoctorAttendance"  element={<MarkDoctorAttendance/>}/>*/}
-// {/*  /!*<Footer />*!/*/}
-// {/*</React.Fragment>*/}
-// <Router>
-//   <Routes>
-//     <Route exact path="/" element={<Home />} />
-//
-//     <Route exact path="/signupDoctor"  element={<RegisterDoctor/>}/>
-//     <Route exact path="/signupAdmin"  element={<RegisterAdmin/>}/>
-//     <Route exact path="/signupLab"  element={<RegisterLabAssistant/>}/>
-//     <Route exact path="/signupRec"  element={<RegisterReciptionist/>}/>
-//
-//     <Route exact path="/DoctorLogin"  element={<DoctorLogin/>}/>
-//     <Route exact path="/AdminLogin"  element={<AdminLogin/>}/>
-//     <Route exact path="/ReceptionistLogin"  element={<ReceptionistLogin/>}/>
-//     <Route exact path="/LabAssistantLogin"  element={<LabAssistantLogin/>}/>
-//
-//     <Route exact path="/dashboard"  element={<UserDashboard/>}/>
-//     <Route exact path="/doctorDashboard"  element={<DoctorDashboard/>}/>
-//     <Route exact path="/recepDashboard"  element={<ReceptionistDashboard/>}/>
-//     <Route exact path="/adminDashboard"  element={<AdminDashboard/>}/>
-//
-//     <Route exact path="/addNewSchedule"  element={<AddNewSchedule/>}/>
-//     <Route exact path="/doctorProfile"  element={<DoctorProfile/>}/>
-//     <Route exact path="/checkAppoinment"  element={<CheckAppointment/>}/>
-//     <Route exact path="/updateAppointment"  element={<UpdateAppointment/>}/>
-//     <Route exact path="/emailSend"  element={<ContactUs/>}/>
-//     <Route exact path="/chart"  element={<Dashboard/>}/>
-//     <Route exact path="/dashboard/appointmenthistory"  element={<AppointmentHistory/>}/>
-//     <Route exact path="/upcomingEvents"  element={<UpcomingEvents/>}/>
-//     <Route exact path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
-//     <Route exact path="/markDoctorAttendance"  element={<MarkDoctorAttendance/>}/>
-//
-//     <Route exact path="/forgot-password"  element={<ForgotPassword/>}/>
-//   </Routes>
-// </Router>
+
