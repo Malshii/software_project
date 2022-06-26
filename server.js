@@ -31,6 +31,13 @@ const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
 const paymentRouter = require("./routes/payment.route.js");
 const labReportRouter = require("./routes/labReport.route.js");
 const scheduleRouter = require("./routes/schedule.route.js");
+const patientsRouter=require("./routes/physicalAppoinment.js");
+const ImgUploadRouter=require("./routes/img.js");
+const doctorRouter=require("./routes/doctor.js");
+const MedicalReportRouter=require("./routes/MedicalReport.js");
+const ReviewtRouter=require("./routes/MedicalReport.js");
+const MedicalRequestRouter=require("./routes/MedicalRequest");
+const staffRouter = require("./routes/user.route.js");
 
 app.use('/user', userRouter);
 app.use('/doctor', doctorProfileRouter);
@@ -43,6 +50,14 @@ app.use("/payment",paymentRouter);
 app.use("/LabReport", labReportRouter);
 app.use("/schedule",scheduleRouter);
 app.use("/patient",patientRouter);
+app.use("/patients",patientsRouter);
+app.use("/image",ImgUploadRouter);
+app.use("/doctors",doctorRouter);
+app.use("/MedicalReports",MedicalReportRouter);
+app.use("/ReviewtRouters",ReviewtRouter);
+app.use("/MedicalRequests",MedicalRequestRouter);
+app.use("/receptionist",staffRouter);
+app.use("/labAssistant",staffRouter);
 
 //SendSMS using vonage
 const Vonage = require('@vonage/server-sdk');
