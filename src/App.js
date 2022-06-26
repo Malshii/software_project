@@ -134,6 +134,16 @@ const App=()=> {
                                     <Route exact path="/Img_uplad"  element={<Imguplad/>}/>
                                     <Route exact path="/ImageView"  element={<ImageView/>}/>
                                     <Route exact path="/RecepView"  element={<RecepView/>}/>
+                                    <Route path="/markDoctorAttendance"  element={<Attendance/>}/>
+                                    <Route path="/dashboard"  element={<Dashboard/>}/>
+                                    <Route path="/signupRoles"  element={<SignupRoles/>}/>
+                                    <Route path="/chart"  element={<Chart/>}/>
+                                    <Route path="/doctorProfile"  element={<DoctorProfile/>}/>
+                                    <Route path="/addNewSchedule"  element={<AddNewSchedule/>}/>
+                                    <Route path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
+                                    <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
+                                    <Route path="/checkIncomeDetails"  element={<CheckIncomeDetails/>}/>
+                                    <Route path="/displaydata"  element={<DisplayData/>}/>
                                 </Route>
                             </React.Fragment>
                         </Routes>
@@ -143,16 +153,6 @@ const App=()=> {
                         <Route path="/signup"  element={<Register/>}/>
                         <Route path="/forgot-password"  element={<ForgotPassword/>}/>
                         <Route path="/reset-password/:userId/:token"  element={<ResetPassword/>}/>
-                        <Route path="/markDoctorAttendance"  element={<Attendance/>}/>
-                        <Route path="/dashboard"  element={<Dashboard/>}/>
-                        <Route path="/signupRoles"  element={<SignupRoles/>}/>
-                        <Route path="/chart"  element={<Chart/>}/>
-                        <Route path="/doctorProfile"  element={<DoctorProfile/>}/>
-                        <Route path="/addNewSchedule"  element={<AddNewSchedule/>}/>
-                        <Route path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
-                        <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
-                        <Route path="/checkIncomeDetails"  element={<CheckIncomeDetails/>}/>
-                        <Route path="/displaydata"  element={<DisplayData/>}/>
                     </Routes>
                 </Box>
             </BrowserRouter>
