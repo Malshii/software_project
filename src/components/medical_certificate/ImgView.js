@@ -8,7 +8,7 @@ import HeaderDoctorProfile from "../HeaderDoctorProfile";
 import './medicalCertificate.css';
 import { BiRefresh } from "react-icons/bi";
 import { BsBoxArrowRight } from "react-icons/bs";//BsBoxArrowRight
-import { BsArrowRightCircleFill } from "react-icons/bs";//BsArrowRightCircleFill
+// import { BsArrowRightCircleFill } from "react-icons/bs";//BsArrowRightCircleFill
 import './medicalCertificate.css';
 
 
@@ -73,8 +73,8 @@ function ImageView() {
                     <img src={ce.ImgURL} alt="Girl in a jacket" className="img1"></img>
                     <br/><br/><br/>
                 </div>
-                
-                
+
+
             ))}
 
         </>
