@@ -29,10 +29,13 @@
     "mongoose": "^6.1.7",
     "multer": "^1.4.4",
     "nodemailer": "^6.7.3",
-    "nodemon": "^2.0.15",
     "sequelize": "^6.20.1",
     "stripe": "^9.9.0",
     "twilio": "^3.77.2",
-    "util": "^0.12.4"
+    "util": "^0.12.4",
+    "nodemon": "^2.0.15",
+    "react-stripe": "^0.1.0",
+    "react-stripe-checkout": "^2.6.3",
+    "uuid": "^8.3.2"
   }
 }

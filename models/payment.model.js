@@ -1,12 +1,8 @@
 const mongoose = require('mongoose')
 
-const paymentSchema  = new mongoose.Schema({   
-       
-    name: {
-        type: String,
-        required: true,
-    
-    },
+const paymentSchema  = new mongoose.Schema({
+
+
     amount: {
         type: Number,
         required:true
@@ -17,14 +13,26 @@ const paymentSchema  = new mongoose.Schema({
     },
 
     customer:{
-        type: Number,
+        type: String,
         required:true
     },
 
     receiptEmail:{
         type: String,
         required: true
-    }       
+    } ,
+    paymentId:{
+        type: String,
+        required: true
+    },
+    paymentDate:{
+        type:Date,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    }
 })
 
 const PaymentMethod = mongoose.model("payment",paymentSchema);

@@ -1,24 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const dotenv = require("dotenv");
 const app = express();
-require('dotenv').config();
-
-global.__basedir = __dirname;
-
-require('dotenv').config();
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
-
-// app.all('*', function (req, res) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-//   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-//   //...
-// });
 
 const URL = process.env.MONGODB_URL;
 
@@ -31,7 +21,7 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('Mongodb Connection success!');
 });
-
+const patientRouter = require("./routes/patient.signup.route.js");
 const userRouter = require('./routes/user.route.js');
 const doctorProfileRouter = require('./routes/doctor.profile.route.js');
 const fileRouter = require('./routes/medicalreport.route.js');
@@ -40,7 +30,7 @@ const onlinePatientRouter = require("./routes/onlinePatient.profile.route.js");
 const chechupDetailsRouter = require("./routes/checkupDetails.route.js");
 const paymentRouter = require("./routes/payment.route.js");
 const labReportRouter = require("./routes/labReport.route.js");
-const newScheduleRouter = require("./routes/newSchedule.route.js");
+const scheduleRouter = require("./routes/schedule.route.js");
 
 app.use('/user', userRouter);
 app.use('/doctor', doctorProfileRouter);
@@ -51,7 +41,8 @@ app.use("/onlinePatient",onlinePatientRouter);
 app.use("/checkupDetails",chechupDetailsRouter);
 app.use("/payment",paymentRouter);
 app.use("/LabReport", labReportRouter);
-app.use("/schedule", newScheduleRouter);
+app.use("/schedule",scheduleRouter);
+app.use("/patient",patientRouter);
 
 //SendSMS using vonage
 const Vonage = require('@vonage/server-sdk');

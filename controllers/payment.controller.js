@@ -1,8 +1,8 @@
-const payments = require("../models/payment.model");
+const PaymentMethod = require("../models/payment.model");
 //const fs = require("fs");
 //const baseUrl = "http://localhost:4000/files/";
-const stripe = require("stripe")("sk_test_51KiUUbE07CJhQDYnQwmDGQfETHmwALbLQa24bGqrX6LCD1rV2J73rp6TNoIsiZ0xgEH1HKhLTY0yvpur0L2NnGou00uBtCHSVb"
-); 
+ const stripe = require("stripe")("sk_test_51KiUUbE07CJhQDYnQwmDGQfETHmwALbLQa24bGqrX6LCD1rV2J73rp6TNoIsiZ0xgEH1HKhLTY0yvpur0L2NnGou00uBtCHSVb"
+);
 
 //const uuid = require("uuid/v4");
 const{v4:uuidv4}=require('uuid');
@@ -13,20 +13,35 @@ const paymentDetails=async (req, res) => {
 };
 
 const payment = async (req, res)  => {
-  
-    console.log("Request:", req.body);
-  
+
+
+     console.log("Request:", req.body);
+
     let error;
     let status;
-     try { 
+     try {
+      const paymentData=new PaymentMethod({
+
+        amount:5000,
+        currency:"usd",
+        customer:"Tester",
+        receiptEmail:"token.email",
+        paymentId:"token.card.id",
+        paymentDate:Date.now(),
+        description:"medical"
+
+      })
+      await paymentData.save();
+      res.status(200).send({status:"Successfully Paid & Data Save",response:paymentData})
       const {token } = req.body;
-  
+
       const customer = await stripe.customers.create({
         email: token.email,
         source: token.id,
         name:"User"
       });
-  
+
+
       const idempotency_key = uuidv4()
       const charge = await stripe.charges.create(
         {
@@ -44,21 +59,22 @@ const payment = async (req, res)  => {
               country: token.card.address_country,
               postal_code: token.card.address_zip
             }
-          } */
+          }*/
         },
         {
           idempotency_key
         }
       );
+
       console.log("Charge:", { charge });
       status = "success";
     } catch (error) {
       console.error("Error:", error);
       status = "failure";
-    } 
-  
-     res.json({ error, status }); 
- 
+    }
+
+     res.json({ error, status });
+
 };
 
 

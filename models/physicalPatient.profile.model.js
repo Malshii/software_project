@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const patientSchema  = new mongoose.Schema({   
-     
+const patientSchema  = new mongoose.Schema({
+
     category:{
         type: String,
         required: true,
@@ -15,14 +15,14 @@ const patientSchema  = new mongoose.Schema({
         maxlength: 50
     },
     doctorId: {
-        type: String,
-       
+        type: String
     },
 
     date:{
         type: Date,
         required:true
     },
+
     charges:{
         type: Number,
         required:true
@@ -44,7 +44,7 @@ const patientSchema  = new mongoose.Schema({
         type: Date,
         required:true
     },
-    
+
     mobileno:{
         type: Number,
         required:true
@@ -55,8 +55,8 @@ const patientSchema  = new mongoose.Schema({
         minlength: 5,
         maxlength: 255,
         unique: true
-    },   
-    
+    },
+
     address:{
         type: String,
         required:true

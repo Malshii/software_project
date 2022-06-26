@@ -1,7 +1,7 @@
 const Doctor = require("../models/doctor.profile.model");
 
-module.exports = {    
-    profileDoctor: async (data) => {        
+module.exports = {
+    profileDoctor: async (data) => {
         const dProfile = new Doctor(data);
         const isExist = await Doctor.findById({id: data.id});
         if (isExist) {
@@ -9,8 +9,8 @@ module.exports = {
         }
         const result = await dProfile.save();
         return result;
-    },   
-    
+    },
+
     // Retrieve and return all doctors' profiles from the database.
     findAllDoctorProfile : async (req, res) => {
         Doctor.find()
@@ -18,13 +18,13 @@ module.exports = {
               res.send(dProfile);
           }).catch(err => {
               res.status(500).send({
-                  message: err.message || 
+                  message: err.message ||
                     "Some error occurred while retrieving doctors' profiles."
               });
         });
-    }, 
+    },
 
-    // Find a single doctor with a id    
+    // Find a single doctor with a id
     findOneDoctorProfile : async (req, res) => {
         Doctor.findById(req.params.id)
             .then(dProfile => {
@@ -85,10 +85,23 @@ module.exports = {
                 });
             });
     },
+
+    //find a doctor category
+    findDoctorCategory : async (req, res) => {
+        DoctorProfile.find({category:req.params.id})
+            .then(dProfile => {
+                res.send(dProfile);
+            }).catch(err => {
+            res.status(500).send({
+                message: err.message ||
+                    "Some error occurred while retrieving doctors' profiles."
+            });
+        });
+    },
 }
 
 
-    
+
 
 
 
