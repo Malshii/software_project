@@ -38,6 +38,7 @@ const MedicalReportRouter=require("./routes/MedicalReport.js");
 const ReviewtRouter=require("./routes/MedicalReport.js");
 const MedicalRequestRouter=require("./routes/MedicalRequest");
 const staffRouter = require("./routes/user.route.js");
+const offerRouter = require("./routes/offers.js");
 
 app.use('/user', userRouter);
 app.use('/doctor', doctorProfileRouter);
@@ -58,6 +59,7 @@ app.use("/ReviewtRouters",ReviewtRouter);
 app.use("/MedicalRequests",MedicalRequestRouter);
 app.use("/receptionist",staffRouter);
 app.use("/labAssistant",staffRouter);
+app.use("/offers",offerRouter);
 
 //SendSMS using vonage
 const Vonage = require('@vonage/server-sdk');
