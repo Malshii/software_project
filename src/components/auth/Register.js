@@ -25,7 +25,6 @@ import Select from '@mui/material/Select';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-
 function Copyright(props) {
   return (
     <Typography
@@ -42,40 +41,47 @@ function Copyright(props) {
   );
 }
 
-const validationSchema = Yup.object({  
-  role: Yup.string().required('Role is required'),
-  firstName: Yup.string().required('First name is required'),
-  lastName: Yup
-      .string('Enter your last name')      
-      .required('Last name is required'),
-  email: Yup
-      .string('Enter your email')
-      .email('Enter a valid email')
-      .required('Email is required'),
-  phoneNumber: Yup
-      .string()
-      .required("Phone number is required")
-      .matches(/^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,"Invalid phone number"), 
-  password: Yup
-      .string('Enter your password')
-      .min(5, 'Password should be of minimum 5 characters length')
-      .required('Password is required'),
-  confirmPassword: Yup
-      .string()
-      .when("password", {
-        is: val => (val && val.length > 0 ? true : false),
-        then: Yup.string().oneOf(
-          [Yup.ref("password")],
-          "Both password need to be the same"
-        )
-      })  
-});
-
 export default function Register() {
+    const roles = ['patient', "lab-assistant", "receptionist", "doctor"];
+
+    const validationSchema = Yup.object({ 
+      role: Yup.string().required("Please select a role").oneOf(roles),
+      firstName: Yup
+        .string()
+        .required('First name is required')
+        .max(10, 'First name should be of maximum 10 characters length'),
+      lastName: Yup
+          .string('Enter your last name')      
+          .required('Last name is required')
+          .max(20, 'First name should be of maximum 10 characters length'),
+      email: Yup
+          .string('Enter your email')
+          .email('Enter a valid email')
+          .required('Email is required'),
+      phoneNumber: Yup
+          .number()
+          .required("Phone number is required")
+          .min(10, 'Phone number cannot be less than 10 numbers'), 
+      dob: Yup
+        .date()
+        .default(() => new Date()),
+      password: Yup
+          .string('Enter your password')
+          .min(5, 'Password should be of minimum 5 characters length')
+          .required('Password is required'),
+      confirmPassword: Yup
+          .string()
+          .when("password", {
+            is: val => (val && val.length > 0 ? true : false),
+            then: Yup.string().oneOf(
+              [Yup.ref("password")],
+              "Both password need to be the same"
+            )
+          })  
+    });
+
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    // const [role,setRole] = useState("");  
-    const [dob, setDob] = React.useState(new Date('2014-08-18T21:11:54'));
+    const navigate = useNavigate();       
     
     const registerThisUser = (role,firstName,lastName,email,phoneNumber,dob,password,confirmPassword,) => {
         dispatch(registerUser({
@@ -84,7 +90,7 @@ export default function Register() {
             lastName,
             email,
             phoneNumber,
-            dob,   
+            dob,  
             password,
             confirmPassword,                 
             navigate }));
@@ -100,11 +106,12 @@ export default function Register() {
 
     const formik = useFormik({
       initialValues: {
+          role:'',
           firstName: '',
           lastName:'',
           email: '',
           phoneNumber:'',
-          // dob:new Date('2014-08-18T21:11:54'),
+          dob: new Date(),
           password: '',
           confirmPassword:''
       },
@@ -158,10 +165,10 @@ export default function Register() {
             </Typography>
             <Box
               component="form"
-              noValidate
-              onSubmit={formik.handleSubmit}
+              noValidate              
               sx={{ mt: 1 }}
             >
+            <form onSubmit={formik.handleSubmit}>
                 <Grid container xs={12}>
                     <Grid item xs={12} padding='0 10px'>
                         <FormControl fullWidth>
@@ -254,10 +261,12 @@ export default function Register() {
                                 inputFormat="MM/dd/yyyy"
                                 container="inline"
                                 inputStyle={{ textAlign: 'center' }}                                
-                                onChange={(newValue) => setDob(newValue)}
+                                onChange={formik.handleChange}
+                                error={formik.touched.role && Boolean(formik.errors.role)}
+                                helperText={formik.touched.role && formik.errors.role}
                                 renderInput={(params) => <TextField {...params} />}
-                            />
-                        </Stack>
+                            />                                
+                            </Stack>
                     </Grid>
                     <Grid xs={12} padding='0 10px'>
                       <TextField
@@ -312,9 +321,10 @@ export default function Register() {
                           </Link>
                         </Grid>
                       </Grid>
-                      <Copyright sx={{ mt: 5 }} />
-                    </Grid>
+                      <Copyright sx={{ mt: 5 }} />                     
+                    </Grid>                    
                 </Grid>
+                </form>
             </Box>
           </Box>
         </Grid>

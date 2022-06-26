@@ -69,9 +69,7 @@ function RequestLabReport() {
     }
 
     return (
-        <div>
-            <HeaderDoctorProfile />
-
+        <div>            
             <div style={styles.contentDiv}>
 
                 <div style={styles.contentMargin}>

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Login from "../src/components/auth/Login";
-import Home from "../src/components/home";
+import Home from "../src/components/home/Home";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
 import Header from "./components/Header";
@@ -56,6 +56,7 @@ import ImageView from './components/medical_certificate/ImgView';
 import RecepView from './components/medical_certificate/RecepView';
 import AppointmentHistory from "./components/AppointmentHistory";
 import PatientAppointmentHistory from "./components/user/PatientAppointmentHistory";
+import Income from "./components/charts/Income";
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
@@ -135,19 +136,20 @@ const App=()=> {
                                     <Route exact path="/UserresView"  element={<UserresView/>}/>
                                     <Route exact path="/Img_uplad"  element={<Imguplad/>}/>
                                     <Route exact path="/ImageView"  element={<ImageView/>}/>
-                                    <Route exact path="/RecepView"  element={<RecepView/>}/>
-                                    <Route path="/markDoctorAttendance"  element={<Attendance/>}/>
-                                    <Route path="/dashboard"  element={<Dashboard/>}/>
+                                    <Route exact path="/RecepView"  element={<RecepView/>}/>                                                                 
+                                    <Route path="/displaydata"  element={<DisplayData/>}/>                              
+                                    
                                     <Route path="/signupRoles"  element={<SignupRoles/>}/>
-                                    <Route path="/chart"  element={<Chart/>}/>                                    
+                                    <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
+                                    <Route path="/chart"  element={<Chart/>}/>
+                                    <Route path="/checkIncomeDetails"  element={<CheckIncomeDetails/>}/>
                                     <Route path="/addNewSchedule"  element={<AddNewSchedule/>}/>
                                     <Route path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
-                                    <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
-                                    <Route path="/get/:id"  element={<CheckIncomeDetails/>}/>
-                                    <Route path="/displaydata"  element={<DisplayData/>}/>
                                     <Route path="/appointmenthistory"  element={<AppointmentHistory/>}/>
                                     <Route path="/onlineprofile/:id"  element={<PatientAppointmentHistory/>}/>
                                     <Route path="/getUser/:id"  element={<DoctorProfile/>}/>
+                                    <Route path="/dashboard"  element={<Dashboard/>}/>  
+                                    <Route path="/markDoctorAttendance"  element={<Attendance/>}/>                           
                                 </Route>
                             </React.Fragment>
                         </Routes>
@@ -157,6 +159,9 @@ const App=()=> {
                         <Route path="/signup"  element={<Register/>}/>
                         <Route path="/forgot-password"  element={<ForgotPassword/>}/>
                         <Route path="/reset-password/:userId/:token"  element={<ResetPassword/>}/>
+
+                        <Route path="/income"  element={<Income/>}/>
+                        
                         
                     </Routes>
                 </Box>

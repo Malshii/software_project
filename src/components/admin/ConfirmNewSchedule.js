@@ -13,8 +13,14 @@ export default function ConfirmNewSchedule() {
     <Grid container rowSpacing={1}/>    
     <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
+    <Grid item xs={6}> 
+          <Typography sx ={{fontSize: 30, textAlign:'right'}}> Requested Schedules</Typography>  
+    </Grid>
+
+    <Grid container rowSpacing={1}/>
+    
     <Grid item xs={5}> 
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', marginLeft:5}}>
+    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml:5, mb:15}}>
       <Box sx={{ my: 3, mx: 2 }}>
         <Grid container alignItems="center">
           <Grid item xs>

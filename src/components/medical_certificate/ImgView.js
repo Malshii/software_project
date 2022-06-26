@@ -7,7 +7,7 @@ import HeaderDoctorProfile from "../HeaderDoctorProfile";
 //import '../../Styles/userdashboard.css';
 import './medicalCertificate.css';
 import { BiRefresh } from "react-icons/bi";
-import { BsBoxArrowRight } from "react-icons/bs";//BsBoxArrowRight
+//import { BsBoxArrowRight } from "react-icons/bs";//BsBoxArrowRight
 import { BsArrowRightCircleFill } from "react-icons/bs";//BsArrowRightCircleFill
 import './medicalCertificate.css';
 

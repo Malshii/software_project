@@ -131,9 +131,10 @@ export default function Home() {
               justifyContent="center"
             >
               <Button
-                variant="contained"                            
-              >
-                Make an appointment
+                variant="contained"     
+                href="/onlinePatientAdd"                       
+              >              
+                Make an appointment                
               </Button>
               <Button variant="outlined">
                 Medical Services

@@ -154,9 +154,7 @@ const Header = (props) => {
                                         ? receptionist_menu_config
                                         : user.role === 'lab-assistant'
                                             ? labAssistant_menu_config
-                                            : user.role === 'administrator'
-                                                ? administrator_menu_config
-                                                : menu_config
+                                            : administrator_menu_config
                         ).map((listItem) =>
                             !listItem.sub ? (
                                 <React.Fragment key={listItem.name}>

@@ -102,8 +102,7 @@ export default function SignupRoles() {
                 autoComplete="role"
                 autoFocus
                 onChange={(e) => setRole(e.target.value)}
-              >            
-                <MenuItem value={'patient'}>Patient</MenuItem>
+              >               
                 <MenuItem value={'lab-assistant'}>Lab Assistant</MenuItem>
                 <MenuItem value={'receptionist'}>Receptionist</MenuItem>
                 <MenuItem value={'doctor'}>Doctor</MenuItem>

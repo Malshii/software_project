@@ -60,7 +60,7 @@ export default function PatientAppointmentHistory(){
           <Grid container rowSpacing={1}/>
 
           <Grid item xs={5}> 
-          <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', marginLeft:5}}>
+          <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml:25, mb:25}}>
             <Box sx={{ my: 3, mx: 2 }}>
               <Grid container alignItems="center">
                 <Grid item xs>
@@ -83,7 +83,8 @@ export default function PatientAppointmentHistory(){
               <Button
                 type="submit"          
                 variant="contained"
-                sx={{ mt: 3, mb: 2, marginLeft:2}}                                  
+                sx={{ mt: 3, mb: 2, marginLeft:2}}   
+                href='/onlinePatientAdd'                               
               >
                 Reschedule
               </Button>  
