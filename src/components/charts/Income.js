@@ -12,7 +12,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function AppointmentHistory(){    
+export default function Income(){    
 
   const [comments, setComments] = useState([]);
 
@@ -34,7 +34,7 @@ export default function AppointmentHistory(){
         <Grid container rowSpacing={3}/>    
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         
-        <Grid item md={12} mr={10} mt={5}> 
+        <Grid item xs={6} marginLeft={25} marginTop={10}> 
             <div> 
             <Typography variant="h3" component="h2">
               Appointment History
@@ -42,29 +42,21 @@ export default function AppointmentHistory(){
             <br/> 
 
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: '750' }} aria-label="simple table">
+            <Table sx={{ minWidth: 400 }} aria-label="simple table">
               <TableHead>
-                <TableRow>
-                  <TableCell>Doctor name</TableCell>
+                <TableRow>                  
                   <TableCell align="right">Channeled date</TableCell>
-                  <TableCell align="right">Channeling fee</TableCell>
-                  <TableCell align="right">First name</TableCell>
-                  <TableCell align="right">Last name</TableCell>
+                  <TableCell align="right">Channeling fee</TableCell>                  
                 </TableRow>
               </TableHead>
-              <TableBody>
+              <TableBody>              
                 {comments.map((row, index) => (
                   <TableRow
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.doctorname}
-                    </TableCell>
+                  >                    
                     <TableCell align="right">{row.date}</TableCell>
-                    <TableCell align="right">{row.charges}</TableCell>
-                    <TableCell align="right">{row.firstname}</TableCell>
-                    <TableCell align="right">{row.lastname}</TableCell>
+                    <TableCell align="right">{row.charges}</TableCell>                    
                   </TableRow>
                 ))}
               </TableBody>

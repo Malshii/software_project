@@ -10,10 +10,11 @@ export default function CheckIncomeDetails() {
   return (     
     <Grid container component="main" sx={{ height: '100vh'}}>
     <CssBaseline/>
-    <Grid container rowSpacing={3}/> 
+    <Grid container rowSpacing={3}/>     
     <Grid item xs={15} marginLeft={20}>  
-      <h1 style={{ padding: "15%" }}/> 
+      <h1 style={{ padding: "15%" }}/>      
       
+
       <Container className="chartRow1">
       {/*chart row 1*/}
       <Row>
