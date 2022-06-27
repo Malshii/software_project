@@ -35,7 +35,7 @@ const patientsRouter=require("./routes/physicalAppoinment.js");
 const ImgUploadRouter=require("./routes/img.js");
 const doctorRouter=require("./routes/doctor.js");
 const MedicalReportRouter=require("./routes/MedicalReport.js");
-const ReviewtRouter=require("./routes/MedicalReport.js");
+const ReviewtRouter=require("./routes/reveiw.js");
 const MedicalRequestRouter=require("./routes/MedicalRequest");
 const staffRouter = require("./routes/user.route.js");
 const offerRouter = require("./routes/offers.js");
@@ -90,23 +90,6 @@ app.post('/sendSMS', (req, res) => {
     }
   });
 });
-
-// //SendSMS using twilio
-// app.get("/sendSMS", function (req, res) {
-//   var accountSid = "AC618285a01b5bf82dfab2e39f15c6e7de"; // Your Account SID from www.twilio.com/console
-//   var authToken = process.env.TWILIO_AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
-
-//   var twilio = require("twilio");
-//   var client = new twilio(accountSid, authToken);
-
-//   client.messages
-//     .create({
-//       body: "Hello from Node",
-//       to: "0769396646", // Text this number
-//       from: "+14342265201", // From a valid Twilio number
-//     })
-//     .then((message) => res.send(`The message with id: ${message} was sent!`));
-// });
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
