@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const doctorProfileController = require("../controllers/doctor.profile.controller");
-const doctorProfileService = require("../services/doctor.profile.service")
+const doctorProfileController = require('../controllers/doctor.profile.controller');
+const doctorProfileService = require('../services/doctor.profile.service');
 
 //Add Doctor profile
 //localhost:4000/doctor/addProfile
@@ -21,9 +21,18 @@ router.put('/doctorprofile/:id', doctorProfileService.UpdateOneDoctorProfile);
 
 //Delete one Doctor profile
 //localhost:4000/doctor/doctorprofile/:id
-router.delete('/doctorprofile/:id', doctorProfileService.DeleteOneDoctorProfile);
+router.delete(
+  '/doctorprofile/:id',
+  doctorProfileService.DeleteOneDoctorProfile
+);
 
 //Get Doctor Category
-router.get('/displaydoctorscategory/:id', doctorProfileService.findDoctorCategory);
+router.get(
+  '/displaydoctorscategory/:id',
+  doctorProfileService.findDoctorCategory
+);
+
+//Get doctor profile
+router.post('/get-profile', doctorProfileController.getProfile);
 
 module.exports = router;

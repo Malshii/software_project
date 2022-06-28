@@ -19,7 +19,10 @@ const sendEmail = async (email, subject, text) => {
       text: text,
     });
     console.log('email sent successfully');
-    return { success: true, response };
+    return {
+      success: true,
+      message: 'Check your email to reset the password!',
+    };
   } catch (error) {
     console.log(error, 'email not sent');
     return {
