@@ -1,72 +1,17 @@
-# Getting Started with Create React App
+# Clinical Management System
+### Welcome to the Clinical Management System!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 👩‍💻 Technologies
+<p>
+  <img alt="ReactJS" src="https://img.shields.io/badge/ReactJS-0078d7.svg?logo=react&logotColor=white">
+  <img alt="Node JS" src="https://img.shields.io/badge/Node.js-%2300f.svg?logo=node&logoColor=white">
+  <img alt="MongoDB" src ="https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white">     
+</p>
 
-## Available Scripts
+<p align="justify">The adoption of a clinical management system can improve services and the workflow of all activities in a clinic, lowering the workload of medical staff, lowering the amount of manpower required, and making the clinical management system efficient and easier to control.</p>
 
-In the project directory, you can run:
+<p>Clinical management web app is covering for registering users, login, and sign-up to the system, changing password, book an appointment, cancel appointment, medical report, lab report, notifications, offers, chat area, income graph, profit graph, reviews, online payments, refunding and send SMS.</p>
 
-### `npm start`
+![CMS_Web_Homepage](https://user-images.githubusercontent.com/79326676/171679870-f28e00f6-6a49-428c-a018-b2b684bf346b.JPG)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# Clinical_Management_System_Web_FrontEnd
