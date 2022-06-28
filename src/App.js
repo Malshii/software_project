@@ -19,41 +19,6 @@ import AddNewSchedule from "./components/doctor/AddNewSchedule";
 import ConfirmNewSchedule from "./components/admin/ConfirmNewSchedule";
 import CheckAppointment from "./components/doctor/CheckAppointment";
 import CheckIncomeDetails from "./components/doctor/CheckIncomeDetails";
-import DisplayData from "./components/DisplayData";
-import PhysicalPatientAdd from "./components/PhysicalPatientAdd";
-import OnlinePatientAdd from "./components/OnlinePatientAdd";
-import ReciCard from "./components/ReciCard";
-import LabCard from "./components/LabCard";
-import AllAppointment from "./components/AllAppointment";
-import Lab from "./components/Lab";
-import History from "./components/History";
-import LabReport from "./components/LabReport";
-import NavBar from "./components/navigationbar";
-import ReciNavBar from "./components/Recinavigationbar";
-import Rohitha from "./components/Rohitha";
-import CheckUpDetails from "./components/Lab_Report/CheckUpDetails";
-import RequestLabReport from "./components/Lab_Report/RequestLabReport";
-import LabReportList from "./components/Lab_Report/LabReportList";
-import LabReportIssue from "./components/Lab_Report/LabReportIssue";
-import ViewDoctorCard from "./components/View_Doctor_Profile/ViewDoctorCard";
-import DisplayDoctorCard from "./components/View_Doctor_Profile/DisplayDoctorCard";
-import ViewDoctorsProfile from "./components/View_Doctor_Profile/ViewDoctorsProfile";
-import Payment from "./components/Payment";
-import Reci from "./components/Reci";
-import Dog from "./components/Dog";
-import Kol from "./components/Kol";
-import ChatArea from './components/chat/ChatArea.js';
-import Signaturepadarea from './components/Signaturepad';
-import ReqMedicalReportList from './components/medical_certificate/reqest_medical';
-import CanReqestMedicalCertificate from './components/medical_certificate/RequestMedicalForPatients';
-import MedicalCertificate from './components/medical_certificate/medicalCertificate';
-import MedicalIssueForm from './components/medical_certificate/doctorIssueForm';
-import Patientreq_view from './components/medical_certificate/patientrequestview';
-import ReqestForm from './components/medical_certificate/reqestform';
-import UserresView from './components/medical_certificate/PatentResView';
-import Imguplad from './components/medical_certificate/imgUpload';
-import ImageView from './components/medical_certificate/ImgView';
-import RecepView from './components/medical_certificate/RecepView';
 import AppointmentHistory from "./components/AppointmentHistory";
 import PatientAppointmentHistory from "./components/user/PatientAppointmentHistory";
 import Income from "./components/charts/Income";
@@ -105,42 +70,7 @@ const App=()=> {
                         <Routes>
                             <React.Fragment>
                                 <Route path="/" element={<PrivateRoute/>} >
-                                    <Route exact path='/' element={<Home/>}/>
-                                    <Route exact path="/physicalpatientAdd"  element={<PhysicalPatientAdd/>}/>
-                                    <Route exact path="/onlinePatientAdd"  element={<OnlinePatientAdd/>}/>
-                                    <Route exact path="/receptionistProfile"  element={<ReciCard/>}/>
-                                    <Route exact path="/viewDoctorCard"  element={<ViewDoctorCard/>}/>
-                                    <Route exact path="/displayDoctorCard/:id"  element={<DisplayDoctorCard/>}/>
-                                    <Route exact path="/labAssistantProfile"  element={<LabCard/>}/>
-                                    <Route exact path="/lab"  element={<Lab/>}/>
-                                    <Route exact path="/reci"  element={<Reci/>}/>
-                                    <Route exact path="/uploadLabReport"  element={<LabReport/>}/>
-                                    <Route exact path="/history"  element={<History/>}/>
-                                    <Route exact path="/nav"  element={<NavBar/>}/>
-                                    <Route exact path="/rohitha"  element={<Rohitha/>}/>
-                                    <Route exact path="/reciNav"  element={<ReciNavBar/>}/>
-                                    <Route exact path="/allAppointment"  element={<AllAppointment/>}/>
-                                    <Route exact path="/checkUpDetails"  element={<CheckUpDetails/>}/>
-                                    <Route exact path="/labReportList"  element={<LabReportList/>}/>
-                                    <Route exact path="/labReportIssue"  element={<LabReportIssue/>}/>
-                                    <Route exact path="/requestLabReport"  element={<RequestLabReport/>}/>
-                                    <Route exact path="/payment"  element={<Payment/>}/>
-                                    <Route exact path="/viewDoctorsProfile"  element={<ViewDoctorsProfile/>}/>
-                                    <Route exact path="/dog"  element={<Dog/>}/>
-                                    <Route exact path="/kol"  element={<Kol/>}/>
-                                    <Route exact path="/ChatArea"  element={<ChatArea/>}/>
-                                    <Route exact path="/Signaturepad"  element={<Signaturepadarea/>}/>
-                                    <Route exact path="/ReqMedicalReportList"  element={<ReqMedicalReportList/>}/>
-                                    <Route exact path="/CanReqestMedicalCertificate"  element={<CanReqestMedicalCertificate/>}/>
-                                    <Route exact path="/MedicalCertificate"  element={<MedicalCertificate/>}/>
-                                    <Route exact path="/MedicalIssueForm"  element={<MedicalIssueForm/>}/>
-                                    <Route exact path="/Patientreq_view"  element={<Patientreq_view/>}/>
-                                    <Route exact path="/ReqestForm"  element={<ReqestForm/>}/>
-                                    <Route exact path="/UserresView"  element={<UserresView/>}/>
-                                    <Route exact path="/Img_uplad"  element={<Imguplad/>}/>
-                                    <Route exact path="/ImageView"  element={<ImageView/>}/>
-                                    <Route exact path="/RecepView"  element={<RecepView/>}/>
-                                    <Route path="/displaydata"  element={<DisplayData/>}/>
+                                    <Route exact path='/' element={<Home/>}/>                                    
 
                                     <Route path="/signupRoles"  element={<SignupRoles/>}/>
                                     <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
