@@ -40,12 +40,12 @@ const validationSchema = Yup.object({
   confirmPassword: Yup
       .string()
       .when("password", {
-        is: val => (val && val.length > 0 ? true : false),
+        is: val => (val && val.length > 0),
         then: Yup.string().oneOf(
           [Yup.ref("password")],
           "Both password need to be the same"
-      )
-  })  
+      ).required('Confirm Password is required')
+  })
 });
 
 export default function ResetPassword() {

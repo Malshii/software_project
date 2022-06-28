@@ -9,6 +9,7 @@ const initialState = {
   user: null,
   idToken: null,
   errorMessage: '',
+  successMessage: '',
   theme: 'light'
 };
 
@@ -45,6 +46,7 @@ function reducer(state = initialState, action) {
         ...state,
         isAuthenticated: false,
         user: undefined,
+        theme: 'light',
         idToken: undefined,
       };
     case actionTypes.REGISTER:
@@ -76,7 +78,8 @@ function reducer(state = initialState, action) {
         ...state,
         loading: false,
         error: false,
-        errorMessage: ''
+        errorMessage: '',
+        successMessage: action.data.message
       };
     case actionTypes.FORGOT_PASSWORD_ERROR:
       return {
@@ -136,7 +139,7 @@ function reducer(state = initialState, action) {
       case actionTypes.NEW_SCHEDULE_SUCCESS:
         return {
           ...state,
-          isAuthenticated: true,          
+          isAuthenticated: true,
           loading: false,
         };
       case actionTypes.NEW_SCHEDULE_ERROR:
@@ -144,7 +147,7 @@ function reducer(state = initialState, action) {
           ...state,
           isAuthenticated: true,
           loading: false,
-        };  
+        };
         case actionTypes.SIGNUP_ROLES:
       return {
         ...state,
@@ -177,7 +180,7 @@ const persistConfig = {
   keyPrefix: 'chamal-medicare-auth-',
   key: 'cart-list',
   storage,
-  blacklist: ['error']
+  blacklist: ['error','theme','successMessage']
 };
 
 export default persistReducer(persistConfig, reducer);

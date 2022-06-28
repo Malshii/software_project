@@ -35,6 +35,7 @@ export function* registerUser(action) {
       type: actionTypes.REGISTER_SUCCESS,
       data,
     });
+    localStorage.removeItem('chamal-medicare-auth-cart-list');
     action.data.navigate("/login");
 
   } catch (error) {
@@ -54,7 +55,6 @@ export function* forgotPassword(action) {
       type: actionTypes.FORGOT_PASSWORD_SUCCESS,
       data,
     });
-    action.data.navigate("/login");
 
   } catch (error) {
     yield put({
@@ -71,6 +71,10 @@ export function* resetPassword(action) {
     const { data } = yield Axios.post('user/reset-password', action.data);
     yield put({
       type: actionTypes.RESET_PASSWORD_SUCCESS,
+      data,
+    });
+    yield put({
+      type: actionTypes.LOG_OUT,
       data,
     });
     action.data.navigate("/login");

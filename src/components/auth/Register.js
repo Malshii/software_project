@@ -12,18 +12,16 @@ import Grid from '@mui/material/Grid';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from './redux/authActions';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Stack from '@mui/material/Stack';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import differenceInYears from "date-fns/differenceInYears";
+
 
 function Copyright(props) {
   return (
@@ -40,84 +38,72 @@ function Copyright(props) {
     </Typography>
   );
 }
+const phoneRegExp = /^((0\d{9})|(\+?94\d{9}))$/
 
 export default function Register() {
-    const roles = ['patient', "lab-assistant", "receptionist", "doctor"];
-
-    const validationSchema = Yup.object({ 
-      role: Yup.string().required("Please select a role").oneOf(roles),
+    const validationSchema = Yup.object({
       firstName: Yup
-        .string()
-        .required('First name is required')
-        .max(10, 'First name should be of maximum 10 characters length'),
+        .string().required('First name is required'),
       lastName: Yup
-          .string('Enter your last name')      
-          .required('Last name is required')
-          .max(20, 'First name should be of maximum 10 characters length'),
+          .string('Enter your last name')
+          .required('Last name is required'),
       email: Yup
           .string('Enter your email')
           .email('Enter a valid email')
           .required('Email is required'),
-      phoneNumber: Yup
-          .number()
-          .required("Phone number is required")
-          .min(10, 'Phone number cannot be less than 10 numbers'), 
-      dob: Yup
-        .date()
-        .default(() => new Date()),
+      phoneNumber: Yup.string('Enter your phone number').required("Phone number is required").matches(phoneRegExp, 'Phone number is not valid'),
+      dob: Yup.date().test("dob", "Should be greater than 18", function (value) {
+          return differenceInYears(new Date(), new Date(value)) >= 18;
+      }),
       password: Yup
           .string('Enter your password')
           .min(5, 'Password should be of minimum 5 characters length')
           .required('Password is required'),
       confirmPassword: Yup
           .string()
+          .required('Confirm Password is required')
           .when("password", {
-            is: val => (val && val.length > 0 ? true : false),
+            is: val => (val && val.length > 0),
             then: Yup.string().oneOf(
               [Yup.ref("password")],
               "Both password need to be the same"
             )
-          })  
+          })
     });
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();       
-    
+    const navigate = useNavigate();
+
     const registerThisUser = (role,firstName,lastName,email,phoneNumber,dob,password,confirmPassword,) => {
         dispatch(registerUser({
-            role,  
+            role,
             firstName,
             lastName,
             email,
             phoneNumber,
-            dob,  
+            dob,
             password,
-            confirmPassword,                 
+            confirmPassword,
             navigate }));
     };
     const error = useSelector((state) => state.authReducer.error);
     const errorMessage = useSelector((state) => state.authReducer.errorMessage);
     const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
 
-    // const handleRegister = (event) => {
-    //     event.preventDefault();
-    //     registerThisUser();
-    // };
-
     const formik = useFormik({
       initialValues: {
-          role:'',
           firstName: '',
           lastName:'',
           email: '',
           phoneNumber:'',
-          dob: new Date(),
+          dob: new Date('2000-01-01'),
           password: '',
           confirmPassword:''
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-          registerThisUser(values.role,values.firstName,values.lastName, values.email,values.phoneNumber,values.dob,values.password,values.confirmPassword)
+          console.log(values);
+          registerThisUser("patient",values.firstName,values.lastName, values.email,values.phoneNumber,values.dob,values.password,values.confirmPassword);
       },
     });
 
@@ -163,37 +149,11 @@ export default function Register() {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
-            <Box
-              component="form"
-              noValidate              
-              sx={{ mt: 1 }}
-            >
             <form onSubmit={formik.handleSubmit}>
-                <Grid container xs={12}>
-                    <Grid item xs={12} padding='0 10px'>
-                        <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Role</InputLabel>
-                          <Select
-                            required                            
-                            label="role"
-                            autoComplete="role"
-                            autoFocus
-                            value={formik.values.role}
-                            onChange={formik.handleChange}
-                            error={formik.touched.role && Boolean(formik.errors.role)}
-                            helperText={formik.touched.role && formik.errors.role}
-                          >
-                            <MenuItem value={'patient'}>Patient</MenuItem>
-                            <MenuItem value={'lab-assistant'}>Lab Assistant</MenuItem>
-                            <MenuItem value={'receptionist'}>Receptionist</MenuItem>
-                            <MenuItem value={'doctor'}>Doctor</MenuItem>
-                          </Select>
-                        </FormControl>
-                    </Grid>
+                <Grid container item xs={12}>
                     <Grid item xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         id="firstName"
                         label="First Name"
@@ -204,12 +164,11 @@ export default function Register() {
                         onChange={formik.handleChange}
                         error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                         helperText={formik.touched.firstName && formik.errors.firstName}
-                      />                      
+                      />
                     </Grid>
                     <Grid item xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         id="lastName"
                         label="Last Name"
@@ -225,7 +184,6 @@ export default function Register() {
                     <Grid item xs={12} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         id="email"
                         label="Email Address"
@@ -238,10 +196,9 @@ export default function Register() {
                         helperText={formik.touched.email && formik.errors.email}
                       />
                     </Grid>
-                    <Grid xs={12} lg={6} padding='0 10px'>
+                    <Grid item xs={12} lg={6} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         id="phoneNumber"
                         label="Phone Number"
@@ -254,24 +211,25 @@ export default function Register() {
                         helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
                       />
                     </Grid>
-                    <Grid xs={12} lg={6} padding='0 10px'>
+                    <Grid item xs={12} lg={6} padding='0 10px'>
                         <Stack spacing={3} paddingTop='16px'>
                             <DesktopDatePicker
-                                label="Date desktop"
+                                id="dob"
+                                name="dob"
+                                label="Date of Birth"
                                 inputFormat="MM/dd/yyyy"
-                                container="inline"
-                                inputStyle={{ textAlign: 'center' }}                                
-                                onChange={formik.handleChange}
-                                error={formik.touched.role && Boolean(formik.errors.role)}
-                                helperText={formik.touched.role && formik.errors.role}
+                                onChange={(val) => formik.setFieldValue('dob', val)}
+                                value={formik.values.dob}
                                 renderInput={(params) => <TextField {...params} />}
-                            />                                
-                            </Stack>
+                            />
+                            {formik.errors.dob ? (
+                                <div style={{color: '#d32f2f', fontSize: '0.75rem', margin: '3px 14px 0 14px'}}>{formik.errors.dob}</div>
+                            ) : null}
+                        </Stack>
                     </Grid>
-                    <Grid xs={12} padding='0 10px'>
+                    <Grid item xs={12} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         name="password"
                         label="Password"
@@ -279,15 +237,14 @@ export default function Register() {
                         id="password"
                         autoComplete="current-password"
                         value={formik.values.password}
-                        onChange={formik.handleChange}
+                        onChange={(d) => formik.handleChange(d)}
                         error={formik.touched.password && Boolean(formik.errors.password)}
                         helperText={formik.touched.password && formik.errors.password}
                       />
                     </Grid>
-                    <Grid xs={12} padding='0 10px'>
+                    <Grid item xs={12} padding='0 10px'>
                       <TextField
                         margin="normal"
-                        required
                         fullWidth
                         name="confirmPassword"
                         label="Confirm Password"
@@ -321,11 +278,10 @@ export default function Register() {
                           </Link>
                         </Grid>
                       </Grid>
-                      <Copyright sx={{ mt: 5 }} />                     
-                    </Grid>                    
+                      <Copyright sx={{ mt: 5 }} />
+                    </Grid>
                 </Grid>
                 </form>
-            </Box>
           </Box>
         </Grid>
   </Grid>

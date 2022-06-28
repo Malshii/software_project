@@ -33,10 +33,7 @@ const AccountMenu = (props) => {
                 <Tooltip title="Account settings">
                     <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
                         <Avatar sx={{ width: 32, height: 32 }}>
-                            M
-                            {/*{(store.userStore.currentUser?.username &&*/}
-                            {/*        store.userStore.currentUser?.username.charAt(0)) ||*/}
-                            {/*    'U'}*/}
+                            {(user.firstName && user.firstName.charAt(0)) || 'U'}
                         </Avatar>
                     </IconButton>
                 </Tooltip>

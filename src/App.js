@@ -57,6 +57,9 @@ import RecepView from './components/medical_certificate/RecepView';
 import AppointmentHistory from "./components/AppointmentHistory";
 import PatientAppointmentHistory from "./components/user/PatientAppointmentHistory";
 import Income from "./components/charts/Income";
+import DoctorManagement from "./components/admin/DoctorManagement";
+import ReceptionistManagement from "./components/admin/ReceptionistManagement";
+import LabAssistantManagement from "./components/admin/LabAssistantManagement";
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
@@ -136,9 +139,9 @@ const App=()=> {
                                     <Route exact path="/UserresView"  element={<UserresView/>}/>
                                     <Route exact path="/Img_uplad"  element={<Imguplad/>}/>
                                     <Route exact path="/ImageView"  element={<ImageView/>}/>
-                                    <Route exact path="/RecepView"  element={<RecepView/>}/>                                                                 
-                                    <Route path="/displaydata"  element={<DisplayData/>}/>                              
-                                    
+                                    <Route exact path="/RecepView"  element={<RecepView/>}/>
+                                    <Route path="/displaydata"  element={<DisplayData/>}/>
+
                                     <Route path="/signupRoles"  element={<SignupRoles/>}/>
                                     <Route path="/checkAppoinment"  element={<CheckAppointment/>}/>
                                     <Route path="/chart"  element={<Chart/>}/>
@@ -147,9 +150,13 @@ const App=()=> {
                                     <Route path="/confirmNewSchedule"  element={<ConfirmNewSchedule/>}/>
                                     <Route path="/appointmenthistory"  element={<AppointmentHistory/>}/>
                                     <Route path="/onlineprofile/:id"  element={<PatientAppointmentHistory/>}/>
-                                    <Route path="/getUser/:id"  element={<DoctorProfile/>}/>
-                                    <Route path="/dashboard"  element={<Dashboard/>}/>  
-                                    <Route path="/markDoctorAttendance"  element={<Attendance/>}/>                           
+                                    <Route path="/profile"  element={<DoctorProfile/>}/>
+                                    <Route path="/dashboard"  element={<Dashboard/>}/>
+                                    <Route path="/markDoctorAttendance"  element={<Attendance/>}/>
+                                    <Route path="/doctor-management"  element={<DoctorManagement/>}/>
+                                    <Route path="/receptionist-management"  element={<ReceptionistManagement/>}/>
+                                    <Route path="/lab-assistant-management"  element={<LabAssistantManagement/>}/>
+                                    <Route path="/profile/:id"  element={<DoctorProfile/>}/>
                                 </Route>
                             </React.Fragment>
                         </Routes>
@@ -159,10 +166,7 @@ const App=()=> {
                         <Route path="/signup"  element={<Register/>}/>
                         <Route path="/forgot-password"  element={<ForgotPassword/>}/>
                         <Route path="/reset-password/:userId/:token"  element={<ResetPassword/>}/>
-
                         <Route path="/income"  element={<Income/>}/>
-                        
-                        
                     </Routes>
                 </Box>
             </BrowserRouter>

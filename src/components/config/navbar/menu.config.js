@@ -12,27 +12,27 @@ import HistoryIcon from '@mui/icons-material/History';
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 
 export const menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },    
+    { name: 'Home', to: '/', icon: <HomeIcon /> },
     {
         name: 'Reports',
         icon: <FolderSharedIcon />,
         sub: [
             { name: 'Medical Reports', to: '/ReqMedicalReportList' },
-            { name: 'Lab reports', to: '/requestLabReport' },            
+            { name: 'Lab reports', to: '/requestLabReport' },
         ],
-    },    
+    },
     { name: 'Helps & Services', to: '#', icon: <HelpIcon /> },
     { name: 'Ratings & Reviews', to: '#', icon: <StarIcon /> },
 ];
 
 export const patient_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },    
+    { name: 'Home', to: '/', icon: <HomeIcon /> },
     {
         name: 'Reports',
         icon: <FolderSharedIcon />,
         sub: [
             { name: 'Medical Reports', to: '#' },
-            { name: 'Lab reports', to: '/requestLabReport' },            
+            { name: 'Lab reports', to: '/requestLabReport' },
         ],
     },
     { name: 'Appointment', to: '/onlineprofile/:id', icon: <HistoryIcon /> },
@@ -41,34 +41,43 @@ export const patient_menu_config = [
 ];
 
 export const doctor_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },    
-    { name: 'Medical Request', to: '/ReqMedicalReportList', icon: <MedicalInformationIcon />},      
-    { name: 'Profile', to: '/getUser/:id', icon: <AccountCircleIcon />},      
+    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Medical Request', to: '/ReqMedicalReportList', icon: <MedicalInformationIcon />},
+    { name: 'Profile', to: '/profile', icon: <AccountCircleIcon />},
     { name: 'Appointment', to: '/checkAppoinment', icon: <HistoryIcon /> },
     { name: 'New Schedule', to: '/addNewSchedule', icon: <CalendarMonthIcon /> },
     { name: 'Income details', to: '/checkIncomeDetails', icon: <InsertChartIcon /> },
-    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> }, 
-    { name: 'Ratings & Reviews', to: '#', icon: <StarIcon /> },    
+    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> },
+    { name: 'Ratings & Reviews', to: '#', icon: <StarIcon /> },
 ];
 export const administrator_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },       
+    { name: 'Home', to: '/', icon: <HomeIcon /> },
     { name: 'Requested Schedules', to: '/confirmNewSchedule', icon: <CalendarMonthIcon /> },
-    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> }, 
-    { name: 'Dashboard', to: '/chart', icon: <InsertChartIcon /> },    
-    { name: 'Appointments', to: '/appointmenthistory', icon: <HistoryIcon /> }, 
+    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> },
+    { name: 'Dashboard', to: '/chart', icon: <InsertChartIcon /> },
+    { name: 'Appointments', to: '/appointmenthistory', icon: <HistoryIcon /> },
+    {
+        name: 'HRM',
+        icon: <FolderSharedIcon />,
+        sub: [
+            { name: 'Doctor Management', to: '/doctor-management' },
+            { name: 'Receptionist Management', to: '/receptionist-management' },
+            { name: 'Lab Assistant Management', to: '/lab-assistant-management' },
+        ],
+    },
 ];
 
 export const labAssistant_menu_config = [
     { name: 'Home', to: '/', icon: <HomeIcon /> },
-    { name: 'Checkup details', to: '#', icon: <FolderSharedIcon /> },      
-    { name: 'Lab reports', to: '#', icon: <BiotechIcon /> },    
+    { name: 'Checkup details', to: '#', icon: <FolderSharedIcon /> },
+    { name: 'Lab reports', to: '#', icon: <BiotechIcon /> },
 ];
 
 export const receptionist_menu_config = [
-    { name: 'Home', to: '/', icon: <HomeIcon /> },  
-    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> }, 
+    { name: 'Home', to: '/', icon: <HomeIcon /> },
+    { name: 'Chat Area', to: '/ChatArea', icon: <ChatIcon /> },
     { name: 'Appointments', to: '/appointmenthistory', icon: <HistoryIcon /> },
-    { name: 'Make an appointment', to: '/physicalpatientAdd', icon: <BookOnlineIcon /> },   
+    { name: 'Make an appointment', to: '/physicalpatientAdd', icon: <BookOnlineIcon /> },
 ];
 
 

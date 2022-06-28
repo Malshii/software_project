@@ -34,22 +34,24 @@ const validationSchema = Yup.object({
   email: Yup
     .string('Enter your email')
     .email('Enter a valid email')
-    .required('Email is required'),  
+    .required('Email is required'),
 });
 
 export default function ForgotPassword() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const forgotPasswordHandler= (email) => {
     dispatch(forgotPassword({ email, navigate }));
   };
+  const loading = useSelector((state) => state.authReducer.loading);
   const error = useSelector((state) => state.authReducer.error);
   const errorMessage = useSelector((state) => state.authReducer.errorMessage);
+  const successMessage = useSelector((state) => state.authReducer.successMessage);
 
   const formik = useFormik({
     initialValues: {
-        email: '',       
+        email: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -104,10 +106,12 @@ export default function ForgotPassword() {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
+                  disabled={loading}
               >
                 Reset Password
               </Button>
               { error &&  <Alert severity="error">{errorMessage}</Alert>}
+              { !error && successMessage !== "" && <Alert severity="success">{successMessage}</Alert>}
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
