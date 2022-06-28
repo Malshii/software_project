@@ -30,15 +30,6 @@ export function resetPassword(data) {
   return { type: actionTypes.RESET_PASSWORD, data };
 }
 
-export function addDoctorProfile(data) {
-  return { type: actionTypes.DOCTOR_PROFILE, data };
-}
-
-export function requestNewSchedule(data) {
-  return { type: actionTypes.NEW_SCHEDULE, data };
-}
-
-
 export function registerRoles(data) {
   return { type: actionTypes.SIGNUP_ROLES, data };
 }

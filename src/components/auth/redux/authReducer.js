@@ -111,43 +111,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         theme: state.theme === 'light' ? 'dark' : 'light',
-      };
-    case actionTypes.DOCTOR_PROFILE:
-      return {
-        ...state,
-        isAuthenticated: true,
-        loading: true,
-      };
-    case actionTypes.DOCTOR_PROFILE_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: true,
-        loading: false,
-      };
-    case actionTypes.DOCTOR_PROFILE_ERROR:
-      return {
-        ...state,
-        isAuthenticated: true,
-        loading: false,
-      };
-      case actionTypes.NEW_SCHEDULE:
-        return {
-          ...state,
-          isAuthenticated: true,
-          loading: true,
-        };
-      case actionTypes.NEW_SCHEDULE_SUCCESS:
-        return {
-          ...state,
-          isAuthenticated: true,
-          loading: false,
-        };
-      case actionTypes.NEW_SCHEDULE_ERROR:
-        return {
-          ...state,
-          isAuthenticated: true,
-          loading: false,
-        };
+      };      
         case actionTypes.SIGNUP_ROLES:
       return {
         ...state,

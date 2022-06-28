@@ -43,7 +43,7 @@ export const patient_menu_config = [
 export const doctor_menu_config = [
     { name: 'Home', to: '/', icon: <HomeIcon /> },
     { name: 'Medical Request', to: '/ReqMedicalReportList', icon: <MedicalInformationIcon />},
-    { name: 'Profile', to: '/profile', icon: <AccountCircleIcon />},
+    { name: 'Profile', to: '/profile/:id', icon: <AccountCircleIcon />},
     { name: 'Appointment', to: '/checkAppoinment', icon: <HistoryIcon /> },
     { name: 'New Schedule', to: '/addNewSchedule', icon: <CalendarMonthIcon /> },
     { name: 'Income details', to: '/checkIncomeDetails', icon: <InsertChartIcon /> },

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import CssBaseline from '@mui/material/CssBaseline';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -9,120 +8,133 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
 import {useEffect, useState} from "react";
-import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestNewSchedule } from '../auth/redux/authActions';
+import { requestNewSchedule } from '../doctor/redux/doctorActions';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import Stack from '@mui/material/Stack';
-import axios from 'axios';
+import Paper from '@mui/material/Paper';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function AddNewSchedule() {
-  const [description,setDescription] = useState("");      
-  const [newSchedule,setNewSchedule] = React.useState(new Date('2014-08-18T21:11:54')); 
+  // const [description,setDescription] = useState("");      
+  // const [newSchedule,setNewSchedule] = React.useState(new Date('2014-08-18T21:11:54')); 
       
-    function handleRequest(e){
-      e.preventDefault();
+  //   function handleRequest(e){
+  //     e.preventDefault();
   
-      const newRequestSchedule = { 
-        description,              
-        newSchedule,             
-      }
+  //     const newRequestSchedule = { 
+  //       description,              
+  //       newSchedule,             
+  //     }
       
-      axios.post("http://localhost:4000/schedule/request",newRequestSchedule).then(()=>{
-        alert("Request sent successfully")      
-      }).catch((err)=>{
-        alert(err)
-      })      
-    }  
+  //     axios.post("http://localhost:4000/schedule/request",newRequestSchedule).then(()=>{
+  //       alert("Request sent successfully")      
+  //     }).catch((err)=>{
+  //       alert(err)
+  //     })      
+  //   }  
 
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();  
+  const validationSchema = Yup.object({
+    description: Yup
+      .string().required('First name is required'),
     
-    
-    // const requestThisSchedule = () => {
-    //     dispatch(requestNewSchedule({ 
-    //         description,
-    //         newSchedule,            
-    //         navigate }));
-    // };
-    // const error = useSelector((state) => state.authReducer.error);
-    // const errorMessage = useSelector((state) => state.authReducer.errorMessage);
-    // const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
+    newSchedule: Yup
+      .date(),      
+  });
 
-    // const handleSchedule = (event) => {
-    //     event.preventDefault();
-    //     requestThisSchedule();          
-    // };
+    const dispatch = useDispatch();
+    const navigate = useNavigate();  
+        
+    const requestThisSchedule = (description,newSchedule) => {
+        dispatch(requestNewSchedule({ 
+            description,
+            newSchedule,            
+            navigate }));
+    };
+    const error = useSelector((state) => state.authReducer.error);
+    const errorMessage = useSelector((state) => state.authReducer.errorMessage);
+    const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
 
-    // useEffect(
-    //     ()=>{
-    //         if(isAuthenticated){
-    //             navigate('/addNewSchedule')
-    //         }
-    //     }
-    // )
+    const formik = useFormik({
+      initialValues: {
+          description: '',          
+          newSchedule: new Date('2000-01-01'),          
+      },
+      validationSchema: validationSchema,
+      onSubmit: (values) => {
+          console.log(values);
+          requestThisSchedule(values.description,values.newSchedule);
+      },
+    });
+
+    useEffect(
+        ()=>{
+            if(isAuthenticated){
+                navigate('/addNewSchedule')
+            }
+        }
+    )
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
-    <CssBaseline />  
-    <Grid item xs={6} marginLeft={25} marginTop={5}>
-     <Box
-        sx={{
-          my: 8,
-          mx: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <CalendarMonthIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Add New Schedule
-        </Typography>
-        <Box
-          component="form"
-          noValidate
-          onSubmit={handleRequest}
-          sx={{ mt: 1 }}
-        >
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={12}>
-          <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="description"
-              label="Description"
-              name="description"
-              autoComplete="description"
-              autoFocus
-              onChange={(e) => setDescription(e.target.value)}
-          />          
-        </Grid>
-        <Grid item xs={12} sm={12}>
-          <Stack spacing={3}>          
-          <DateTimePicker
-          label="New Schedule"
-          value={newSchedule}
-          onChange={(newValue) => setNewSchedule(newValue)}
-          renderInput={(params) => <TextField {...params} />}
-        />
-          </Stack>
-        </Grid>            
-        </Grid>          
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+        <Grid item xs={12} sm={8} md={5} component={Paper} margin='20vh auto' elevation={6} square display='flex' flexDirection='column' justifyContent='center'>
+          <Box
+              sx={{
+                my: 8,
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
           >
-            Add New Schedule
-          </Button>              
-        </Box>
-      </Box>
-      </Grid> 
-    </Grid>
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <CalendarMonthIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Add New Schedule
+            </Typography>
+            <Grid container mt='20px' >
+              <Grid item md={8} margin='auto'>              
+              </Grid>
+            </Grid>
+            <Box
+                component="form"
+                noValidate                
+                sx={{ mt: 1 }}
+            >
+                <Grid container xs={12}>
+                    <Grid xs={12} padding='0 10px'>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="description"
+                            label="Description"
+                            type="text"
+                            id="description"                               
+                        />
+                    </Grid>
+                    <Grid xs={12} padding='0 10px'>
+                    <Stack spacing={3}>
+                    <DateTimePicker
+                    label="Date & Time"                    
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                  </Stack>
+                    </Grid>
+                </Grid>
+              <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+              >
+                Request Schedule
+              </Button>                           
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
   );
 }
 

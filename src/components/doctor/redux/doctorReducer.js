@@ -30,6 +30,26 @@ function reducer(state = initialState, action) {
         error: true,
         errorMessage: action.data.message
       };
+      case actionTypes.NEW_SCHEDULE:
+        return {
+          ...state,
+          loading: true,
+        };
+      case actionTypes.NEW_SCHEDULE_SUCCESS:
+        return {          
+          ...state,
+          loading: false,
+          error: false,
+          errorMessage: '',
+          successMessage: action.data.message
+        };
+      case actionTypes.NEW_SCHEDULE_ERROR:
+        return {
+          ...state,
+          loading: false,
+          error: true,
+          errorMessage: action.data.message
+        };
     default:
       return state;
   }
