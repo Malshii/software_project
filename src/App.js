@@ -25,6 +25,7 @@ import Income from "./components/charts/Income";
 import DoctorManagement from "./components/admin/DoctorManagement";
 import ReceptionistManagement from "./components/admin/ReceptionistManagement";
 import LabAssistantManagement from "./components/admin/LabAssistantManagement";
+import MedicalServices from "./components/home/MedicalServices";
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
@@ -87,6 +88,7 @@ const App=()=> {
                                     <Route path="/receptionist-management"  element={<ReceptionistManagement/>}/>
                                     <Route path="/lab-assistant-management"  element={<LabAssistantManagement/>}/>
                                     <Route path="/profile/:id"  element={<DoctorProfile/>}/>
+                                    <Route path="/medical-service"  element={<MedicalServices/>}/>
                                 </Route>
                             </React.Fragment>
                         </Routes>
@@ -97,6 +99,7 @@ const App=()=> {
                         <Route path="/forgot-password"  element={<ForgotPassword/>}/>
                         <Route path="/reset-password/:userId/:token"  element={<ResetPassword/>}/>
                         <Route path="/income"  element={<Income/>}/>
+                        
                     </Routes>
                 </Box>
             </BrowserRouter>

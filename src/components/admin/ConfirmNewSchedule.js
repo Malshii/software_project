@@ -5,34 +5,37 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
+import Paper from '@mui/material/Paper';
 
 export default function ConfirmNewSchedule() {
   return (
-    <Grid container component="main" sx={{ height: '100vh'}}>
-    <CssBaseline/>
-    <Grid container rowSpacing={1}/>    
-    <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    <Grid container component="main" sx={{ height: '100vh'}}>    
+    <Grid item xs={12} sm={8} md={10} component={Paper} margin='15vh auto' variant="outlined" elevation={6} square display='flex' flexDirection='column' justifyContent='center'>
+          <Box
+              sx={{
+                my: 1,
+                mx: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+          >
 
     <Grid item xs={6}> 
-          <Typography sx ={{fontSize: 30, textAlign:'right'}}> Requested Schedules</Typography>  
+          <Typography sx ={{fontSize: 30, textAlign:'center'}} variant="h4" component="h2"> Requested Schedules</Typography>  
     </Grid>
 
     <Grid container rowSpacing={1}/>
     
     <Grid item xs={5}> 
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml:5, mb:15}}>
+    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper',mr:10 ,mt:10}}>
       <Box sx={{ my: 3, mx: 2 }}>
         <Grid container alignItems="center">
           <Grid item xs>
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Doctor Name
             </Typography>
-          </Grid>
-          <Grid item>
-            <Typography gutterBottom variant="h6" component="div">
-              DoctorID
-            </Typography>
-          </Grid>
+          </Grid>          
         </Grid>
         <Typography color="text.secondary" variant="body2">          
           Date : 17/6/2022          
@@ -57,50 +60,10 @@ export default function ConfirmNewSchedule() {
           Reject
         </Button>      
       </Box>    
+    </Grid>    
+    </Box>
     </Grid>
-
-
-    <Grid item xs={5}> 
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', marginLeft:5}}>
-      <Box sx={{ my: 3, mx: 2 }}>
-        <Grid container alignItems="center">
-          <Grid item xs>
-            <Typography gutterBottom variant="h4" component="div">
-              Doctor Name
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography gutterBottom variant="h6" component="div">
-              DoctorID
-            </Typography>
-          </Grid>
-        </Grid>
-        <Typography color="text.secondary" variant="body2">          
-          Date : 17/6/2022          
-        </Typography>
-        <Typography color="text.secondary" variant="body2">       
-          Time : 6.43 PM
-        </Typography>
-      </Box>
-      <Divider variant="middle" />        
-        <Button
-          type="submit"          
-          variant="contained"
-          sx={{ mt: 3, mb: 2, marginLeft:2}}          
-        >
-          Confirm
-        </Button>  
-        <Button          
-          type="submit"          
-          variant="contained"
-          sx={{ mt: 3, mb: 2, marginLeft:3 }}                   
-        >
-          Reject
-        </Button>      
-      </Box>    
-    </Grid>
-    </Grid>
-    </Grid>
+    </Grid>    
   );
 }
 

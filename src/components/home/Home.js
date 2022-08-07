@@ -117,12 +117,9 @@ export default function Home() {
               align="center"
               color="text.secondary"
               paragraph
-            >
-              Cloud Hotel offers ultimate comfort and luxury. This 4-storied
-              hotel is a beautiful combination of traditional grandeur and
-              modern facilities. The 255 exclusive guest rooms are furnished
-              with a range of modern amenities such as television and internet
-              access
+              >
+              “Chamal Medicare” is a clinical center in Sri Lanka. We provide all clinical facilities in 
+              our clinic.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -136,7 +133,7 @@ export default function Home() {
               >              
                 Make an appointment                
               </Button>
-              <Button variant="outlined">
+              <Button variant="outlined" href='/medical-service'>
                 Medical Services
               </Button>
             </Stack>

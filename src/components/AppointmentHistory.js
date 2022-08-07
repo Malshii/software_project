@@ -10,6 +10,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
 export default function AppointmentHistory(){    
@@ -29,14 +30,21 @@ export default function AppointmentHistory(){
   }, []);
 
     return(
-        <Grid container component="main" sx={{ height: '100vh'}}>
-        <CssBaseline/>
-        <Grid container rowSpacing={3}/>    
-        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container component="main" sx={{ height: '100vh'}}>    
+      <Grid item xs={12} sm={8} md={10} component={Paper} margin='5vh auto' elevation={2} variant="outlined" square display='flex' flexDirection='column' justifyContent='center'>
+            <Box
+                sx={{
+                  my: 1,
+                  mx: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+            >
         
-        <Grid item md={12} mr={10} mt={5}> 
+        <Grid item md={12} mt={5}> 
             <div> 
-            <Typography variant="h3" component="h2">
+            <Typography variant="h4" component="h2" align="center">
               Appointment History
             </Typography>
             <br/> 
@@ -46,10 +54,10 @@ export default function AppointmentHistory(){
               <TableHead>
                 <TableRow>
                   <TableCell>Doctor name</TableCell>
-                  <TableCell align="right">Channeled date</TableCell>
-                  <TableCell align="right">Channeling fee</TableCell>
-                  <TableCell align="right">First name</TableCell>
-                  <TableCell align="right">Last name</TableCell>
+                  <TableCell>Channeled date</TableCell>
+                  <TableCell>Channeling fee</TableCell>
+                  <TableCell>First name</TableCell>
+                  <TableCell>Last name</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -61,10 +69,10 @@ export default function AppointmentHistory(){
                     <TableCell component="th" scope="row">
                       {row.doctorname}
                     </TableCell>
-                    <TableCell align="right">{row.date}</TableCell>
-                    <TableCell align="right">{row.charges}</TableCell>
-                    <TableCell align="right">{row.firstname}</TableCell>
-                    <TableCell align="right">{row.lastname}</TableCell>
+                    <TableCell>{row.date}</TableCell>
+                    <TableCell align="center">{row.charges}</TableCell>
+                    <TableCell>{row.firstname}</TableCell>
+                    <TableCell>{row.lastname}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -73,6 +81,7 @@ export default function AppointmentHistory(){
                 
             </div>
         </Grid>
+        </Box>
       
         </Grid>  
         </Grid>  

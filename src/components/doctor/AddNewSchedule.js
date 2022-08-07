@@ -39,8 +39,8 @@ export default function AddNewSchedule() {
     description: Yup
       .string().required('First name is required'),
     
-    newSchedule: Yup
-      .date(),      
+    newSchedule: Yup      
+      .date().min(new Date(),'Please choose future date'),     
   });
 
     const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export default function AddNewSchedule() {
     const formik = useFormik({
       initialValues: {
           description: '',          
-          newSchedule: new Date('2000-01-01'),          
+          newSchedule: new Date(),          
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
@@ -111,13 +111,19 @@ export default function AddNewSchedule() {
                             name="description"
                             label="Description"
                             type="text"
-                            id="description"                               
+                            id="description"   
+                            value={formik.values.description}
+                            onChange={formik.handleChange}
+                            error={formik.touched.description && Boolean(formik.errors.description)}
+                            helperText={formik.touched.description && formik.errors.description}                            
                         />
                     </Grid>
                     <Grid xs={12} padding='0 10px'>
                     <Stack spacing={3}>
                     <DateTimePicker
-                    label="Date & Time"                    
+                    label="Date & Time"   
+                    onChange={(val) => formik.setFieldValue('newSchedule', val)}
+                    value={formik.values.newSchedule}                                           
                     renderInput={(params) => <TextField {...params} />}
                   />
                   </Stack>
