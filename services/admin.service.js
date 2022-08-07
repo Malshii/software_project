@@ -25,18 +25,18 @@ module.exports = {
     console.log('registered user', registeredUser);
 
     //Create a profile in the respective collection
-    const doctor = new Doctor({
-      doctor_id: registeredUser._id,
-      registrationNumber: '',
-      degree: '',
-      experience: '',
-      workingHospital: '',
-      address: '',
-      chargePerPatient: '',
-      languages: '',
-      category: '',
-    });
-    await doctor.save();
+    // const doctor = new Doctor({
+    //   doctor_id: registeredUser._id,
+    //   registrationNumber: '',
+    //   degree: '',
+    //   experience: '',
+    //   workingHospital: '',
+    //   address: '',
+    //   chargePerPatient: '',
+    //   languages: '',
+    //   category: '',
+    // });
+    // await doctor.save();
     const result = await forgotPassword(data);
     return result;
   },
